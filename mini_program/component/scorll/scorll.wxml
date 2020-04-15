@@ -1,0 +1,22 @@
+<!--component/scorll/scorll.wxml-->
+<scroll-view scroll-y="true" style="height: 1000rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+<block  wx:for="{{rows}}"  wx:key="id" >
+<view  
+  hover-class="hover-class" id="{{item.id}}"
+  style='display:flex; height:120px;border-bottom: 1px solid #DBDBDB'>
+        <view style='width:128rpx; height:128rpx; margin:20rpx;'>
+          <image class='index-logo' style='width:128rpx; height:128rpx' src="{{item.merchant_photo}}"></image>
+        </view>
+        <view style='display:flex; flex-direction:column; margin:20rpx;'>
+          <label class='item_title'>{{item.title}}</label>
+          <label class='item_content'>{{item.category}}</label>
+          <view style='display:flex; flex-direction:row; height:40rpx;'>
+          <scroll-view scroll-y="true" style="height: 75rpx;">
+              <label class='item_content'>{{item.address}}</label>
+          </scroll-view>
+            <label class='item_tel'>tel:{{item.tel}}</label>
+          </view>
+        </view>
+  </view>
+</block>
+</scroll-view>

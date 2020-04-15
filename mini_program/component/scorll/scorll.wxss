@@ -1,0 +1,28 @@
+/* component/scorll/scorll.wxss */
+.item_content{
+  width: 90%;
+  height: 100rpx;
+  font-size: 11pt;
+  color: #888;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.item_from{
+  width: 550rpx;
+  font-size: 10pt;
+  color: #999;
+  text-overflow: ellipsis;
+}
+.item_tel{
+  width: 100%;
+  font-size: 10pt;
+  color: #999;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-left: 40rpx;
+}
+.hover-class{
+  background-color: #A4D3EE;
+}
