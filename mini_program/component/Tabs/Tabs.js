@@ -5,8 +5,12 @@ Component({
    */
   properties: {
     tabs:{
-      type:Array,
-      value:[]
+      type:Object,
+      value:{
+        id:1,
+        name:"行程亮点",
+        isactive:false
+      }
     }
   },
 

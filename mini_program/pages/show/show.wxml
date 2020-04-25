@@ -1,0 +1,2 @@
+<!--pages/show/show.wxml-->
+<show   list="{{list}}"></show>

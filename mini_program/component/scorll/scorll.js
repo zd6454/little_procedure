@@ -7,6 +7,10 @@ Component({
      rows:{
       type:Array,
       value:[]
+     },
+     item:{
+      type:Object,
+      value:{}
      }
   },
 

@@ -1,0 +1,133 @@
+
+.names {
+  display: flex;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+ 
+/**app.wxss**/
+/* public style to clear default styles */
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.fc{
+  float:none;
+}
+.col-gray{
+	color: #999!important;
+}
+ 
+ 
+/* the message of auction about goods & cars */
+.pro-con{
+	padding: 20rpx;
+	background: #f1f1f1;
+}
+.pro-box{
+	background: #fff;
+	padding: 20rpx;
+	box-sizing: border-box;
+	border-radius: 10rpx;
+	margin-bottom: 20rpx;
+}
+.pro-box .img{
+	display: inline-block;
+	vertical-align: top;
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 10rpx;
+}
+.pro-box .box{
+	display: inline-block;
+	vertical-align: top;
+	width: calc(98% - 80rpx);
+}
+.pro-box .shead{
+	padding-bottom: 20rpx;
+}
+.pro-box .shead .name{
+	font-size: 30rpx;
+	line-height: 40rpx;
+}
+
+.pro-box .addr-info{
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px dashed #ccc;
+	margin: 0 -20rpx;
+	margin-bottom: 20rpx;
+	padding-bottom: 20rpx;
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+  display: inline-block;
+}
+ 
+.pro-box .addr-info .addr-text{
+	font-size: 35rpx;
+	line-height: 40rpx;
+  width:100%;
+}
+ 
+
+ 
+.pro-box .position{
+	width: 48rpx;
+	height: 48rpx;
+} 
+ 
+.pro-box .comment{
+	width: 55rpx;
+	height: 48rpx;
+} 
+ 
+.pro-box .addr{
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px dashed #ccc;
+	margin: 0 -20rpx;
+	margin-bottom: 20rpx;
+	padding-bottom: 20rpx;
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+  display: flex;
+}
+ 
+.pro-box .addr .addr-text{
+	font-size: 34rpx;
+	line-height: 40rpx;
+	max-width: 240rpx;
+	min-width:200rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.pro-box .addr .addr-text .color-text{
+  color: #f68135;
+}
+.pro-box .addr .time{
+	font-size: 26rpx;
+	line-height: 36rpx;
+	text-align: center;
+}
+.pro-box .addr .line{
+	background: #ccc;
+	height: 1px;
+	margin: 6rpx -20rpx;
+	position: relative;
+}
+.pro-box .info{
+  text-align: right;
+  float:right;
+  display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.pro-box .info .text{
+  vertical-align:text-top;
+  font-size: 26rpx;
+}

@@ -1,0 +1,23 @@
+<!--pages/moredetail/moredetail.wxml-->
+<view class="page">
+    <view class="page__bd">
+        <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+    </view>
+</view>
+<Tabs  tabs="{{tabs}}" >
+  <block wx:if="{{loading}}"> <mp-loading type="circle"></mp-loading></block>
+  <block >
+  <scorll rows="{{rows}}" ></scorll>
+  </block>
+</Tabs>
+
+<!-- <recycle-view class="list" batch="{{batchSetRecycleData}}" id="recycleId" bindscrolltolower="bindscrolltolower" scroll-y="true">
+  <view >
+    <recycle-item class="record" wx:for="{{recycleList}}" wx:key="id"  style="height:{{item.itemH}}px;">
+      <view class="record_o">
+        <view class="imgsss"></view>
+        <view class="tti">{{item.titlse}}{{item.category}}</view>
+      </view>
+    </recycle-item>
+  </view>
+  </recycle-view> -->

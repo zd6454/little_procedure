@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/show/show" ,
     "pages/moredetail/moredetail" ,
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -14,6 +16,6 @@
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+       }
     }
-  }
 }

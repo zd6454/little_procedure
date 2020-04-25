@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "show":"../../component/show/show"
+  },
+  "navigationBarTitleText": "详情"
+}
