@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Tabs": "../../Component/Tabs/Tabs"
+  },
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationStyle": "custom"
 }
