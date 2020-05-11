@@ -8,14 +8,18 @@ Component({
       type:Array,
       value:[],
     },
+    list_length:{
+      type:Number,
+      value:0,
+    },
     Data:{
       type:Object,
       value:{
-        title:"test",
+        title:"黄鹤楼大酒店",
         price:"100",
-        catelorgy:"测试所用",
+        catelorgy:"酒店住宿",
         hotlevel:"5",
-        detail:"暂无",
+        detail:"123",
 
       }
     },

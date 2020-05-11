@@ -1,0 +1,44 @@
+.list {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+ 
+.list .list-half {
+  width: 346rpx;
+  box-sizing: border-box;
+}
+.list-half .card {
+  background-color: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  padding-bottom: 20rpx;
+}
+.head {
+  display: flex;
+  background-color:#fff;
+  justify-content:space-around;
+}
+.image{
+    height: 17px;
+    width: 17px;
+    border-radius: 25px;
+}
+.gethot{
+  height: 17px;
+    width: 17px;
+}
+.head .textset{
+font-size: 20rpx;
+color: rgb(196, 191, 191);
+}
+.array{
+  text-align: center;
+  line-height:20px;  
+}
+.conduct{
+  color: rgb(85, 80, 80);
+ 
+}

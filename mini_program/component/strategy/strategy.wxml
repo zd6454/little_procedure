@@ -1,0 +1,39 @@
+
+<view class="list">
+  <view class='list-half'>
+    <view wx:for="{{list}}" wx:key="index" wx:if="{{index%2 == 0}}" class='card'>
+      <image src="{{item.user_image}}" mode="aspectFit" style="width:150px;height:130px;" ></image>
+       <view class="array">
+       <text class="conduct">ttttttttttttttttttt tttttttttttt</text>
+       </view>
+       <view class="head">
+              <view class="head">
+                <image class="image" src="{{item.user_image}}" ></image>
+                 <text class="textset">{{item.user}}</text>
+              </view>
+              <view>
+                <image src="../../img/good.png" class="gethot"> </image>
+              </view>
+       </view>
+      
+    </view>
+  </view>
+  <view class='list-half'>
+    <view wx:for="{{list}}" wx:key="index" wx:if="{{index%2 != 0}}" class='card'>
+       <image src="{{item.user_image}}" mode="aspectFit" style="width:150px;height:130px;"></image>
+       <view class="array">
+       <text class="conduct">ttttttttttttttttttt tttttttttttt</text>
+       </view>
+       <view class="head">
+              <view class="head">
+                <image class="image" src="{{item.user_image}}" ></image>
+                 <text class="textset">{{item.user}}</text>
+              </view>
+              <view>
+                <image src="../../img/good.png" class="gethot"> </image>
+              </view>
+       </view>
+      
+    </view>
+  </view>
+</view>

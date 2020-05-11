@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "show":"../../component/show/show"
+    "show":"../../component/show/show",
+    "strategy":"../../component/strategy/strategy"
   },
   "navigationBarTitleText": "详情"
 }

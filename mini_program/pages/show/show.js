@@ -6,6 +6,7 @@ Page({
    */
   data: {
      list:{},
+     list_length:0,
   },
   // onDelete:function(){
   //   const db=wx.cloud.database()
@@ -28,6 +29,7 @@ Page({
         console.log(res);
         this.setData({
             list:res.data,
+            list_length:res.data.length,
         })
         console.log("数据库查询成功",res)
       },
@@ -39,6 +41,26 @@ Page({
         console.error('数据库查询失败',err)
       }
     })
+    db.collection('comment').where({
+      city:'武汉',//城市
+      scenic:'黄鹤楼',//具体景点
+      type:1,
+      detail_id:1,
+     }).count({
+       success:res=>{
+        this.setData({
+          list_length:res.total,
+      })
+         console.log(res);
+       },
+       fail:err=>{
+        wx.showToast({
+          icon:'none',
+          title: '查询记录失败',
+        })
+         console.error(err);
+       }
+     });
    },
 
 

@@ -1,2 +1,3 @@
 <!--pages/show/show.wxml-->
-<show   list="{{list}}"></show>
+<!-- <show   list="{{list}}" list_length="{{list_length}}"></show> -->
+<strategy  list="{{list}}"></strategy> 
