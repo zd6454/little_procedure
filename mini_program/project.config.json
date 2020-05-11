@@ -1,0 +1,70 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"enhance": true
+	},
+	"appid": "wx4509639588154cbc",
+	"projectname": "mini_program",
+	"libVersion": "2.8.1",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "pages/spot_detail/index",
+					"pathName": "pages/spot_detail/index",
+					"query": "spot_id=2738900478225601695",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/spot_detail_intro/index",
+					"pathName": "pages/spot_detail_intro/index",
+					"query": "spot_id=2738900478225601695",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/spot_detail_map/index",
+					"pathName": "pages/spot_detail_map/index",
+					"query": "spot_id=2738900478225601695",
+					"scene": null
+				}
+			]
+		}
+	}
+}
