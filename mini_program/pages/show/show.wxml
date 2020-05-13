@@ -1,3 +1,4 @@
-<!--pages/show/show.wxml-->
+<!-- pages/show/show.wxml -->
 <!-- <show   list="{{list}}" list_length="{{list_length}}"></show> -->
-<strategy  list="{{list}}"></strategy> 
+<!-- <strategy  list="{{list}}"></strategy>  -->
+<travelnotes  list="{{list}}"></travelnotes>

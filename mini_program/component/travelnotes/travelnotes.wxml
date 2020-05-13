@@ -1,0 +1,38 @@
+<!--component/travelnotes/travelnotes.wxml-->
+<view wx:for="{{list}}" wx:key="index" class="forlist"  >
+<view class="onetotal">
+   <view class="head">
+     <image src="{{item.user_image}}" class="image" ></image>
+     <view class="allset">
+      <text class="textset">{{item.user}}</text>
+      <text class="timeset"  >{{item.time}}  </text>
+     </view>
+   </view>
+   <view class="bordy">
+       <view class="conpute">
+         <text >❀ 汉口江滩：濒临长江的汉口江滩，见证了武汉曾经最为繁华的一段往事。如今的江滩，一侧是车流滚滚的沿江大道，江滩边上随风摇晃的芦苇成了人们宠幸的对象。
+❀ 汉江路步行街：江汉边上就是武汉著名的商业街——江汉路步行街。中心百货大楼、老亨达利等老字号、步行街上的各种欧式建筑等老建筑，都见证了武汉的历史风云。</text>
+       </view>
+       <view class="arrayimage" >
+          <image src="{{item.user_image}}" class="image2"> </image>
+          <image src="{{item.user_image}}" class="image2"> </image>
+          <image src="{{item.user_image}}" class="image2"> </image>
+          <image src="{{item.user_image}}" class="image2"> </image>
+       </view>
+       <view  class="foot">
+          <view class="setline" >
+           <image src="../../img/Ilike.png" class="Ilike"></image>
+           <text class="mach">{{}}11</text>
+          </view>
+         <view class="setline">
+           <image src="../../img/comment2.png" class="comment"></image>
+           <text class="mach">{{}}11</text>
+          </view>
+          <view class="setline">
+           <image src="../../img/good.png" class="good"></image>
+           <text class="mach">{{}}11</text>
+          </view>
+       </view>
+   </view>
+</view>
+</view>

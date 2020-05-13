@@ -1,0 +1,103 @@
+/* component/travelnotes/travelnotes.wxss */
+.forlist{
+  overflow:hidden;
+  box-sizing: border-box;
+}
+.onetotal{
+width:300px;
+
+background:rgba(255,255,255,1);
+box-shadow:0px 2px 4px rgba(143,88,88,0.16);
+opacity:1;
+border: 2px solid #ffffff;
+  border-radius: 5px;
+  /* margin: 8px; */
+ padding: 8px;
+}
+.head{
+  display: flex;
+  background-color:#fff;
+  align-items: center;
+}
+.image{
+  height: 40px;
+  width: 40px;
+  border-radius: 25px;
+}
+.allset{
+  flex-direction: column;
+  display: flex;
+  letter-spacing:1.000000953674316px;
+  font-family:Source Han Sans CN;
+  line-height:16px;
+  opacity:2;
+  text-align: left;
+  margin-left: 0.5rem;
+}
+.allset .testset{
+width:168px;
+height:16px;
+font-size:15px;
+color:rgba(53,53,53,1);
+}
+.allset .timeset{
+width:96px;
+height:12px;
+font-size:11px;
+color:rgba(178,178,178,1);
+white-space: nowrap;
+}
+.body{
+  margin-top: 2rem;
+  line-height:16px;
+}
+.conpute{
+width:296px;
+height:160px;
+font-size:13px;
+font-family:Source Han Sans CN;
+font-weight:300;
+line-height:20px;
+color:rgba(53,53,53,1);
+margin-top: 0.5rem;
+letter-spacing:1.000000953674316px;
+opacity:1;
+}
+.arrayimage{
+  justify-content: space-around;
+  margin-top: 0.5rem;
+}
+.image2{
+  height: 96px;
+  width: 31.333333333%;
+  border-radius: 5%;
+  margin: 0 0.15rem 0 0.15rem;
+}
+
+.foot{
+  display: flex;
+}
+.foot .Ilike{
+  height: 16px;
+  width: 16px;
+  margin-left: 0.5rem;
+}
+.foot .comment{
+  height: 16px;
+  width: 16px;
+  margin-left: 6rem;
+}
+.foot .good{
+  height: 16px;
+  width: 16px;
+  margin-left: 6rem;
+}
+.foot .mach{
+  font-size:11px;
+  font-family:Source Han Sans CN;
+  margin-left: 0.1rem;
+  line-height: 19px;
+}
+.foot .setline{
+  display: flex;
+}

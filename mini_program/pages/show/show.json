@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "show":"../../component/show/show",
-    "strategy":"../../component/strategy/strategy"
+    "strategy":"../../component/strategy/strategy",
+    "travelnotes":"../../component/travelnotes/travelnotes"
   },
   "navigationBarTitleText": "详情"
 }
