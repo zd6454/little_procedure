@@ -1,1 +1,41 @@
-/* pages/user/index.wxss */
+.user_info_wrap {
+  height: 35vh;
+  background-color: var(--themeColor);
+  position: relative;
+}
+.user_info_wrap .user_img_wrap {
+  position: relative;
+}
+.user_info_wrap .user_img_wrap .user_bg {
+  height: 40vh;
+  width: 100%;
+  filter: blur(10rpx);
+}
+.user_info_wrap .user_img_wrap .user_info {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25%;
+  text-align: center;
+}
+.user_info_wrap .user_img_wrap .user_info .user_icon {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.user_info_wrap .user_img_wrap .user_info .user_name {
+  color: #fff;
+  margin: 40rpx;
+  font-size: 40rpx;
+}
+.user_info_wrap .user_btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40%;
+  border: 1rpx solid greenyellow;
+  border-radius: 10rpx;
+  color: greenyellow;
+  font-size: 40rpx;
+  padding: 30rpx;
+}

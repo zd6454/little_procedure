@@ -5,62 +5,73 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tabs: [
+      {
+        id: 0,
+        value: "攻略",
+        isActive: true
+      },
+      {
+        id: 1,
+        value: "游记",
+        isActive: false
+      }
+    ],
+    list:[
+      {
+        index:0,
+        user_image:"../../icons/bowuguan.png",
+        user:"1111"
+      },
+      {
+        index: 1,
+        user_image: "../../icons/wuda.png",
+        user: "1111"
+      },
+      {
+        index: 2,
+        user_image: "../../icons/bowuguan.png",
+        user: "1111"
+      },
+      {
+        index: 3,
+        user_image: "../../icons/wuda.png",
+        user: "1111"
+      }
+    ]
+  },
+  //搜索框文本内容显示
+  inputBind: function (event) {
+    this.setData({
+      value: event.detail.value
+    })
+    console.log(this.data.value)
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  // 确定键或者是点击搜素图标执行
+  search: function () {
+    if (!this.data.value) {
+      wx.showToast({
+        title: '未找到该搜索内容',
+        icon: 'none'
+      })
+    } else {
+      // this.getSearch();
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 标题点击事件  从子组件传递过来
+  handleTabsItemChange(e) {
+    // console.log(e);
+    // 1.获取被点击的标题
+    const { index } = e.detail;
+    // 2.修改原数组
+    let { tabs } = this.data;
+    tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);
+    // 3.赋值到data中
+    this.setData({
+      tabs
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

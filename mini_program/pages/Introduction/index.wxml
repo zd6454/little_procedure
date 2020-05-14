@@ -1,2 +1,21 @@
-<!--pages/Introduction/index.wxml-->
-<text>pages/Introduction/index.wxml</text>
+<view class="search" >
+  <input placeholder="攻略/游记" bindconfirm="search" value="{{value}}" confirm-type="done" bindinput="inputBind"></input>
+  <image src="../../icons/sousuo.png" bindtap='search' style="width:20rpx;height:45rpx"/> 
+</view>
+
+ <Move/>
+
+ <movable-area style="pointer-events: none;height: 100%;width: 100%;position:absolute;left:0rpx;top:0rpx;">
+  	<movable-view direction="all" class="move" style="left:0rpx">+
+	</movable-view>
+</movable-area>
+	
+
+ <Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" style="margin:0">
+     <block wx:if="{{tabs[0].isActive}}">
+     <Strategy list="{{list}}"/>
+    </block>
+      <block wx:if="{{tabs[1].isActive}}">
+      <Travelnotes list="{{list}}"/>
+    </block>
+  </Tabs>

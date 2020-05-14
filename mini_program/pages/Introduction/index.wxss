@@ -1,1 +1,37 @@
-/* pages/Introduction/index.wxss */
+.search{
+  width: 80%;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  border: 1rpx solid slategray;
+  border-radius: 50rpx;
+  padding-left: 50rpx;
+  padding-right: 30rpx;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  background-color: #fff;
+  margin-left: 30rpx;
+}
+.search input{
+  flex:6;
+  font-size:35rpx;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.search image{
+  flex: 1;
+}
+.move{
+  pointer-events: auto;
+  height: 100rpx; 
+  width: 100rpx;
+  border-radius:130rpx; 
+  background: #ffc0cb;
+  position:absolute;
+  left:650rpx;
+  top:700rpx;
+  text-align:center;
+  line-height :80rpx;
+  font-size:100rpx;
+  color:#fff;
+}

@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/home/index",
     "pages/user/index",
-    "pages/Introduction/index"
+    "pages/Introduction/index",
+    "pages/gonglue/index",
+    "pages/youji/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

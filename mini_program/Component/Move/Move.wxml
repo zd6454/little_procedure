@@ -1,0 +1,23 @@
+
+<view class="menu-box">
+  <view class="navbar ">
+    <view class="btn" bindtap="changePlay">
+      <view class="line" animation="{{ !play?line1CloseAn:line1OpenAn }}"></view>
+      <view class="line" animation="{{ !play?line2CloseAn:line2OpenAn }}"></view>
+      <view class="title" animation="{{ !play?titleCloseAn:titleOpenAn }}">
+       发布
+      </view>
+    </view>
+  </view>
+  <!-- 隐藏 -->
+  <view class="menu">
+    <navigator animation="{{ !play?btn2Close:btn2Open }}" url="../../pages/gonglue/index" >
+      <text style="font-size:35rpx">攻略</text>
+    </navigator>
+    <navigator animation="{{ !play?btn1Close:btn1Open }}" url="../../pages/youji/index">
+      <text style="font-size:35rpx">游记</text>
+    </navigator>
+  </view>
+</view>
+
+

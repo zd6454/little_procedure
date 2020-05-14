@@ -1,0 +1,87 @@
+.menu-box {
+    position: fixed;
+    bottom: 20vw;
+    right: 20rpx;
+    width: 100rpx;
+    padding-bottom: 100rpx;
+}
+.menu-box .navbar {
+    z-index: 1000;
+    position: absolute;
+    bottom: 0rpx;
+    width: 100rpx;
+    height: 100rpx;
+    text-align: center;
+    background-color: pink;
+    color: white;
+    font-size: 0rpx;
+    border-radius: 50%;
+}
+.menu-box .navbar>.btn {
+    padding: 25rpx;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.menu-box .navbar>.btn>.line {
+    height: 6rpx;
+    background-color: white;
+    margin: 0px 2rpx 6rpx 2rpx;
+    border-radius: 6rpx;
+}
+.menu-box .navbar>.btn>.title {
+    font-size: 25rpx;
+}
+.menu-box .active {
+    background-color: pink;
+}
+.menu-box .menu{
+    /* width: 100rpx; */
+    height: 100rpx;
+    /* overflow: hidden; */
+    position: relative;
+    /* margin: 0 auto; */
+    bottom: -100rpx;
+}
+.menu-box .menu>navigator {
+    z-index: 100;
+    background-color:pink;
+    margin-bottom: 20rpx;
+    border-radius: 50%;
+    line-height: 100rpx;
+    position: absolute;
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    
+}
+.menu-box .menu>navigator text{
+    display: block;
+    position: absolute;
+    text-align: center;
+    line-height :80rpx;
+    width:100%;
+    height: 100%;
+    color: white;
+    z-index: 10000;
+}
+
+.move{
+  pointer-events: auto;
+  height: 100rpx; 
+  width: 100rpx;
+  border-radius:130rpx; 
+  background: #ffc0cb;
+  position:absolute;
+  left:650rpx;
+  top:700rpx;
+  text-align:center;
+  line-height :80rpx;
+  font-size:100rpx;
+  color:#fff;
+}
+
+
+

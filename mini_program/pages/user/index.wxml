@@ -1,2 +1,12 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<view class="user_info_wrap">
+    <view wx:if="{{userInfo}}" class="user_img_wrap">
+        <image class="user_bg" src="{{userInfo.avatarUrl}}" />
+        <view class="user_info">
+            <image  class="user_icon" src="{{userInfo.avatarUrl}}"/>
+            <view class="user_name">{{userInfo.nickName}}</view>
+        </view> 
+    </view>
+    <view class="user_btn" wx:else>
+        <navigator url="/pages/login/index">登录</navigator>
+    </view>
+</view>
