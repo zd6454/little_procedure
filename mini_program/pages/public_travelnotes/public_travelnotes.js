@@ -22,22 +22,16 @@ Page({
     content:"",
     likeamount:0,
     goodamount:0,
+    commentamount:0,
   },
    images:[],//图片
    location:"添加地点",
    permissionimage:"../../img/permission0.png",
    permission:0, //公开权限
-   gooduserlist:{ //收藏数
-    state:0,
-    user_id:"",
-    user:{},
-   },
-   likeuserlist:{ //点赞数
-    state:0,
-    user_id:"",
-   user:{},
-  },
-  commentamount:Number, //评论数
+   goodamount:0, //收藏数
+    
+   likeamount:0,//点赞数
+  commentamount:0, //评论数
   // comment3:{   //是否新建一个集合记录
   //   uers:[{
   //      user_id:"",
@@ -87,8 +81,8 @@ Page({
                permission:self.data.permission,
                address:self.data.address,
                userInfo:res.userInfo,
-               likeuserlist:self.data.likeuserlist,
-               gooduserlist:self.data.gooduserlist,
+               likeamount:self.data.likeamount,
+               goodamount:self.data.goodamount,
                commentamount:self.data.commentamount,
               },
               success:function(suc){
