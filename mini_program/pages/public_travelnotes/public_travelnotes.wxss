@@ -47,6 +47,7 @@ border-radius:8px;
 .body .scroll .allimages  .lie{
   display:flex;
   margin-left: 2px;
+  position: relative;
 }
 
 
@@ -61,8 +62,9 @@ float: left;
 align-items:center;
 }
 .body .scroll .allimages  .lie .setdelete{
-  position: fixed;
+  position:absolute;
   margin-left: 50px;
+  z-index:1;
 }
 .body .scroll .allimages  .lie .setdelete .delete{
 width:16px;
@@ -70,7 +72,8 @@ height:16px;
 background:rgba(0,0,0,0.3);
 opacity:1;
 border-radius:0px 8px 0px 0px;
-position: fixed;
+position:absolute;
+z-index:1;
 float: 2px;
 }
 .body .scroll .allimages .last{

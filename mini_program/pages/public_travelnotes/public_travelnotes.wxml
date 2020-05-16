@@ -14,7 +14,7 @@
          </view>
       </view>
      </view>
-      <view class="last">
+      <view class="last" wx:if="{{images.length <= 9}}">
           <button class="addimage"  bindtap="chooseImage">
                <image src="../../img/addimage.png" class="imageset"></image>
           </button>

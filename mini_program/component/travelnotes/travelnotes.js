@@ -1,4 +1,5 @@
 // component/travelnotes/travelnotes.js
+const db=wx.cloud.database();
 Component({
   /**
    * 组件的属性列表
@@ -50,6 +51,11 @@ handlegood(){
   let self=this;
   self.setData({
    goodamount:this.data.goodamount+1,
+  })
+  db.collection('travelnote').doc('todo-identifiant-aleatoire').update({
+    data:{
+      goodamount:this.data.goodamount,
+    }
   })
 },
 handleshow(){

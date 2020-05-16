@@ -20,11 +20,33 @@ Page({
     location:"",
     permission:0,
     content:"",
+    likeamount:0,
+    goodamount:0,
   },
-   images:[],
+   images:[],//图片
    location:"添加地点",
    permissionimage:"../../img/permission0.png",
-   permission:0,
+   permission:0, //公开权限
+   gooduserlist:{ //收藏数
+    state:0,
+    user_id:"",
+    user:{},
+   },
+   likeuserlist:{ //点赞数
+    state:0,
+    user_id:"",
+   user:{},
+  },
+  commentamount:Number, //评论数
+  // comment3:{   //是否新建一个集合记录
+  //   uers:[{
+  //      user_id:"",
+  //     user_name:"",
+  //     user_comment:""
+  //   },{}],
+  //   users_amount:Number,
+  //   commnet_amount:Number,
+  // }
   },
 
   /**
@@ -65,6 +87,9 @@ Page({
                permission:self.data.permission,
                address:self.data.address,
                userInfo:res.userInfo,
+               likeuserlist:self.data.likeuserlist,
+               gooduserlist:self.data.gooduserlist,
+               commentamount:self.data.commentamount,
               },
               success:function(suc){
                 console.log(suc);
