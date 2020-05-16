@@ -5,14 +5,14 @@
 }
 .onetotal{
 width:300px;
-
 background:rgba(255,255,255,1);
-box-shadow:0px 2px 4px rgba(143,88,88,0.16);
+box-shadow:0px 2px 4px 3px rgb(218, 171, 171);
 opacity:1;
-border: 2px solid #ffffff;
+border: 5px solid #ffffff;
   border-radius: 5px;
   /* margin: 8px; */
- padding: 8px;
+  margin: 2px 2px 3px 2px;
+ padding-left: 4px;
 }
 .head{
   display: flex;
@@ -30,7 +30,7 @@ border: 2px solid #ffffff;
   letter-spacing:1.000000953674316px;
   font-family:Source Han Sans CN;
   line-height:16px;
-  opacity:2;
+  opacity:1;
   text-align: left;
   margin-left: 0.5rem;
 }
@@ -65,13 +65,18 @@ opacity:1;
 }
 .arrayimage{
   justify-content: space-around;
-  margin-top: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  /* margin-top: 0.5rem;
+  margin-left: 0.5rem; */
 }
-.image2{
+.arrayimage .image2{
+  display: block;
+  float: inline-start;
   height: 96px;
   width: 31.333333333%;
   border-radius: 5%;
-  margin: 0 0.15rem 0 0.15rem;
+  margin: 0.2rem 0.1rem 0 0.1rem;
 }
 
 .foot{
@@ -85,12 +90,17 @@ opacity:1;
 .foot .comment{
   height: 16px;
   width: 16px;
-  margin-left: 6rem;
+  margin-left: 3.55rem;
 }
 .foot .good{
   height: 16px;
   width: 16px;
-  margin-left: 6rem;
+  margin-left: 3.55rem;
+}
+.foot .share{
+  height: 16px;
+  width: 16px;
+  margin-left:3.55rem;
 }
 .foot .mach{
   font-size:11px;

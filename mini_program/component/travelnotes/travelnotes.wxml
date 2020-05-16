@@ -21,16 +21,20 @@
        </view>
        <view  class="foot">
           <view class="setline" >
-           <image src="../../img/Ilike.png" class="Ilike"></image>
-           <text class="mach">{{}}11</text>
+           <image src="../../img/Ilike.png" class="Ilike" bindtap="handleIlike"></image>
+           <text class="mach">{{likeamount}}</text>
           </view>
          <view class="setline">
-           <image src="../../img/comment2.png" class="comment"></image>
-           <text class="mach">{{}}11</text>
+           <image src="../../img/comment2.png" class="comment" bindtap="handlecomment2"></image>
+           <text class="mach">{{commentamount}}</text>
           </view>
           <view class="setline">
-           <image src="../../img/good.png" class="good"></image>
-           <text class="mach">{{}}11</text>
+           <image src="../../img/good.png" class="good" bindtap="handlegood"></image>
+           <text class="mach">{{goodamount}}</text>
+          </view>
+          <view class="setline">
+           <image src="../../img/show.png" class="share" bindtap="handleshow"></image>
+           <text class="mach">{{}}</text>
           </view>
        </view>
    </view>

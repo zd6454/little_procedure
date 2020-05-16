@@ -101,7 +101,6 @@ Page({
                   time:time,
                   inputValue:"",
               })
-
                self.onADD(res.userInfo,contenxt);
           }
         })

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/public_travelnotes/public_travelnotes" ,
     "pages/show/show" ,
     "pages/moredetail/moredetail" ,
     "pages/index/index",
