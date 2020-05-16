@@ -1,4 +1,8 @@
 //app.js
+wx.cloud.init({
+  env: 'littleprocedure',
+  traceUser: true
+}),
 App({
   onLaunch: function () {
     // 展示本地存储能力

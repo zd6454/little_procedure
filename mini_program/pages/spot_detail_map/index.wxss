@@ -1,0 +1,9 @@
+/* pages/spot_detail_map/index.wxss */
+.page-section-gap{
+  box-sizing: border-box;
+  padding: 0 0rpx;
+}
+
+.page-body-button {
+  margin-bottom: 750rpx;
+}

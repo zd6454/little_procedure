@@ -1,9 +1,11 @@
 {
 	"description": "项目配置文件",
-	"cloudfunctionRoot": "cloud/",
 	"packOptions": {
 		"ignore": []
 	},
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
@@ -24,7 +26,11 @@
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
-	"simulatorType": "wechat",
+		"minified": true,
+		"newFeature": true,
+		"enhance": true,
+
+	// "simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
@@ -68,8 +74,7 @@
 					"id": -1,
 					"name": "悬浮按钮",
 					"pathName": "pages/home/index",
-					"scene": null
-				}
+        },
 			]
 		}
 	}

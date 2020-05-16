@@ -75,7 +75,7 @@ Page({
     keyword: "景点",
     boundary: "region(武汉)",
     page_index: 1,
-    page_size: 10,    // 页容量
+    page_size: 1,    // 页容量
     key: 'SB4BZ-NURKK-NFMJ6-A63LK-MXYIE-SEFZI'
   },
 
@@ -94,14 +94,14 @@ Page({
         },
         {
           latitude: 30.557869,
-          longitude: 114.436005,
+          longitude: 114.438005,
         },
         {
-          latitude: 30.567828,
-          longitude: 114.371879,
+          latitude: 30.617735,
+          longitude: 114.245081, 
         },
         {
-          latitude: 30.534872,
+          latitude: 30.544872,
           longitude: 114.365818,
         }
       ]
@@ -117,7 +117,6 @@ Page({
 
   // 获取景点数据
   getList() {
-    console.log("bgbbbb")
     wx.request({
       url: 'https://apis.map.qq.com/ws/place/v1/search',
       data: this.QueryParams,
@@ -153,22 +152,46 @@ Page({
   },
   // 搜索
   getSearch() {
-    this.SearchParams.keyword = this.data.value;
-    wx.request({
-      url: 'https://apis.map.qq.com/ws/place/v1/search',
-      data: this.SearchParams,
-      method: 'GET',
-      dataType: 'json',
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          searchList: res.data.data
-        })
-      },
-      fail: function (err) {
-        console.log(err)
-      },
-    })
+    //景点
+    if (this.data.tabs[1].isActive){
+      this.SearchParams.keyword ="景点"+ this.data.value;
+      wx.request({
+        url: 'https://apis.map.qq.com/ws/place/v1/search',
+        data: this.SearchParams,
+        method: 'GET',
+        dataType: 'json',
+        success: (res) => {
+          console.log(res)
+          this.setData({
+            secenList: res.data.data
+          })
+        },
+        fail: function (err) {
+          console.log(err)
+        },
+      })
+    }
+    //美食
+    if (this.data.tabs[2].isActive) {
+      this.SearchParams.keyword = "美食" + this.data.value;
+      wx.request({
+        url: 'https://apis.map.qq.com/ws/place/v1/search',
+        data: this.SearchParams,
+        method: 'GET',
+        dataType: 'json',
+        success: (res) => {
+          console.log(res)
+          this.setData({
+            foodList: res.data.data
+          })
+        },
+        fail: function (err) {
+          console.log(err)
+        },
+      })
+    }
+   
+   
   },
 
   // 滚动条触底事件
@@ -278,7 +301,7 @@ Page({
           that.setData({
             markers: [
               {
-                id: 0,
+                id: 2738900478225601695,
                 latitude: 30.550317,
                 longitude: 114.309043,
                 iconPath: "../../icons/huanghelou.png",
@@ -293,7 +316,7 @@ Page({
                 }
               },
               {
-                id: 1,
+                id: 1762485786450392429,
                 latitude: 30.557869,
                 longitude: 114.420005,
                 iconPath: "../../icons/donghupng.png",
@@ -308,14 +331,14 @@ Page({
                 }
               },
               {
-                id: 2,
-                latitude: 30.567828,
-                longitude: 114.371879,
+                id: 12248476031736664809,
+                latitude: 30.617735,
+                longitude: 114.263081, 
                 iconPath: "../../icons/blank.png",
                 width: 30,
                 height: 30,
                 callout: {
-                  content: "湖北省博物馆",
+                  content: "武汉博物馆",
                   color: 'blue',
                   fontSize: 17,
                   borderWidth: 1,
@@ -324,7 +347,7 @@ Page({
                 }
               },
               {
-                id: 3,
+                id: 14728278092434237534,
                 latitude: 30.534872,
                 longitude: 114.365818,
                 iconPath: "../../icons/blank.png",
@@ -346,7 +369,7 @@ Page({
           that.setData({
             markers: [
               {
-                id: 0,
+                id: 2738900478225601695,
                 latitude: 30.550317,
                 longitude: 114.309043,
                 iconPath: "../../icons/blank.png",
@@ -362,7 +385,7 @@ Page({
                 }
               },
               {
-                id: 1,
+                id: 1762485786450392429,
                 latitude: 30.557869,
                 longitude: 114.420005,
                 iconPath: "../../icons/blank.png",
@@ -378,14 +401,14 @@ Page({
                 }
               },
               {
-                id: 2,
-                latitude: 30.567828,
-                longitude: 114.371879,
+                id: 12248476031736664809,
+                latitude: 30.617735,
+                longitude: 114.263081, 
                 iconPath: "../../icons/bowuguan.png",
                 width: 30,
                 height: 30,
                 callout: {
-                  content: "湖北省博物馆",
+                  content: "武汉博物馆",
                   color: 'grey',
                   bgColor: 'yellow',
                   fontSize: 17,
@@ -393,7 +416,7 @@ Page({
                 },
               },
               {
-                id: 3,
+                id: 14728278092434237534,
                 latitude: 30.534872,
                 longitude: 114.365818,
                 iconPath: "../../icons/blank.png",
@@ -415,7 +438,7 @@ Page({
           that.setData({
             markers: [
               {
-                id: 0,
+                id: 2738900478225601695,
                 latitude: 30.550317,
                 longitude: 114.309043,
                 iconPath: "../../icons/blank.png",
@@ -431,7 +454,7 @@ Page({
                 }
               },
               {
-                id: 1,
+                id: 1762485786450392429,
                 latitude: 30.557869,
                 longitude: 114.420005,
                 iconPath: "../../icons/blank.png",
@@ -447,9 +470,9 @@ Page({
                 }
               },
               {
-                id: 2,
-                latitude: 30.567828,
-                longitude: 114.371879,
+                id: 12248476031736664809,
+                latitude: 30.617735,
+                longitude: 114.263081, 
                 iconPath: "../../icons/blank.png",
                 width: 30,
                 height: 30,
@@ -463,7 +486,7 @@ Page({
                 }
               },
               {
-                id: 3,
+                id: 14728278092434237534,
                 latitude: 30.534872,
                 longitude: 114.365818,
                 iconPath: "../../icons/wuda.png",
@@ -484,7 +507,7 @@ Page({
           that.setData({
             markers: [
               {
-                id: 0,
+                id: 2738900478225601695,
                 latitude: 30.550317,
                 longitude: 114.309043,
                 iconPath: "../../icons/huanghelou.png",
@@ -499,7 +522,7 @@ Page({
                 }
               },
               {
-                id: 1,
+                id: 1762485786450392429,
                 latitude: 30.557869,
                 longitude: 114.420005,
                 iconPath: "../../icons/blank.png",
@@ -515,9 +538,9 @@ Page({
                 }
               },
               {
-                id: 2,
-                latitude: 30.567828,
-                longitude: 114.371879,
+                id: 12248476031736664809,
+                latitude: 30.617735,
+                longitude: 114.263081, 
                 iconPath: "../../icons/blank.png",
                 width: 30,
                 height: 30,
@@ -531,7 +554,7 @@ Page({
                 }
               },
               {
-                id: 3,
+                id: 14728278092434237534,
                 latitude: 30.534872,
                 longitude: 114.365818,
                 iconPath: "../../icons/blank.png",
@@ -557,13 +580,30 @@ Page({
       }, 700)
     })
   },
-  // 点击切换到具体景点
+  // 点击地图切换到具体景点
   markertap: function (e) {
-    // console.log(e);
-    wx.setStorageSync("sceneid", e.markerId)
-    wx.navigateTo({
-      url: '/pages/home/index',
-    })
+    console.log(e);
+    if (e.markerId === 2738900478225601500){
+      wx.navigateTo({
+        url: '/pages/spot_detail/index?id=2738900478225601695',
+      })
+    }
+    else if (e.markerId === 14728278092434237000) {
+      wx.navigateTo({
+        url: '/pages/spot_detail/index?id=14728278092434237534',
+      })
+    }
+    else if (e.markerId === 1762485786450392300) {
+      wx.navigateTo({
+        url: '/pages/spot_detail/index?id=1762485786450392429',
+      })
+    }
+    else if (e.markerId === 12248476031736664000) {
+      wx.navigateTo({
+        url: '/pages/spot_detail/index?id=12248476031736664809',
+      })
+    }
+    
   },
 
 })

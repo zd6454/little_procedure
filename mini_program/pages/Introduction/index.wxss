@@ -35,3 +35,52 @@
   font-size:100rpx;
   color:#fff;
 }
+
+.strategy{
+  border: 1rpx solid grey;
+  border-radius:20rpx; 
+}
+
+.wrap1{
+  padding-top: 30rpx; 
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+
+.name1{
+  /* margin-top: 50rpx; */
+  padding-left: 25rpx;
+  font-size: 50rpx;
+}
+
+.nav{
+  margin-left: 350rpx;
+  font-size: 30rpx;
+color: grey;
+}
+
+.name2{
+   padding-left: 25rpx;
+  font-size: 50rpx;
+}
+
+
+.activity{
+  width: 95%;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 20rpx;
+  
+}
+
+.activity_1{
+  width:30%;
+ 
+  border-radius: 10rpx; 
+}

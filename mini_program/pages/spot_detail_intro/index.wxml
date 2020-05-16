@@ -1,0 +1,23 @@
+<!--导入wxs模块,只能使用相对路径,并需要定义module-->
+<wxs src="filter.wxs" module="util"></wxs>
+
+<scroll-view scroll-with-animation="true" class="menu_box" scroll-left="{{scrollLeft}}">
+  <view class="menu_body menu_body_cur{{navActive}}" style="width:calc（150rpx*{{detaillist.length}});">
+  <view class='menu_li' wx:for="{{detaillist}}" data-index="{{index}}" data-id="de{{index}}" bindtap='tap'>{{item.name}}</view>
+  </view>
+</scroll-view>
+
+<!-- 滚动部分 -->
+<scroll-view class='scrollView' scroll-y="true" scroll-into-view="{{toView}}" style='height:{{height}}rpx;' bindscroll="scroll" scroll-with-animation='true'>
+  <view wx:for="{{detaillist}}" wx:for-index="indexOut" id="de{{indexOut}}">
+    <view class='intro_part'>
+      <view class='intro_name'>
+        <text>【{{item.name}}】</text>
+      </view>
+      <view class='intro_detail'>
+        <text>{{util.format(item.desc)}}</text>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

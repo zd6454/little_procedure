@@ -5,13 +5,18 @@
     "pages/user/index",
     "pages/Introduction/index",
     "pages/gonglue/index",
-    "pages/youji/index"
+    "pages/youji/index",
+    "pages/spot_detail/index",
+    "pages/spot_detail_intro/index",
+    "pages/spot_detail_map/index"
   ],
   "window": {
+    "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "武汉APP",
     "navigationBarTextStyle": "black"
+
   },
   "tabBar": {
     "color": "#999",

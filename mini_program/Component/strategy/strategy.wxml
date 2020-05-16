@@ -1,39 +1,41 @@
 
 <view class="list">
   <view class='list-half'>
-    <view wx:for="{{list}}" wx:key="index" wx:if="{{index%2 == 0}}" class='card'>
-      <image src="{{item.user_image}}" mode="aspectFit" style="width:150px;height:130px;" ></image>
+    <navigator wx:for="{{list}}" wx:key="index" wx:if="{{index%2 == 0}}" class='card' url="/pages/spot_detail/index?id={{item.index}}">
+      <image src="{{item.image}}" mode="scaleToFill" class="big_image"style="" ></image>
        <view class="array">
-       <text class="conduct">ttttttttttttttttttt tttttttttttt</text>
+         {{item.user_text}}
        </view>
        <view class="head">
               <view class="head">
                 <image class="image" src="{{item.user_image}}" ></image>
                  <text class="textset">{{item.user}}</text>
               </view>
-              <view>
+              <view class="wrap">
                 <image src="../../images/huangheluo.jpg" class="gethot"> </image>
+                <text class="good">{{item.num}}</text>
               </view>
        </view>
       
-    </view>
+    </navigator>
   </view>
   <view class='list-half'>
-    <view wx:for="{{list}}" wx:key="index" wx:if="{{index%2 != 0}}" class='card'>
-       <image src="{{item.user_image}}" mode="aspectFit" style="width:150px;height:130px;"></image>
+   <navigator wx:for="{{list}}" wx:key="index" wx:if="{{index%2 != 0}}" class='card' url="/pages/spot_detail/index?id={{item.index}}">
+       <image src="{{item.image}}" mode="scaleToFill" style="width:146px;height:100px; border-radius: 20rpx;"></image>
        <view class="array">
-       <text class="conduct">ttttttttttttttttttt tttttttttttt</text>
+       <text class="conduct">{{item.user_text}}</text>
        </view>
        <view class="head">
               <view class="head">
                 <image class="image" src="{{item.user_image}}" ></image>
                  <text class="textset">{{item.user}}</text>
               </view>
-              <view>
+            <view class="wrap">
                 <image src="../../images/huangheluo.jpg" class="gethot"> </image>
+                <text class="good">{{item.num}}</text>
               </view>
        </view>
       
-    </view>
+    </navigator>
   </view>
 </view>

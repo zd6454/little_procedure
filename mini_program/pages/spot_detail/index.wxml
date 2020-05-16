@@ -1,0 +1,109 @@
+<wxs src="../spot_detail_intro/filter.wxs" module="util"></wxs>
+
+<!--页面整体可滑动-->
+<scroll-view class="spotdetail_body" scroll-y="true" bindscrolltolower="scrollEnd" bindscroll="scrollIn">
+
+<!--轮播图-->
+  <view id='top' class="spotdetail_swiper">
+    <swiper autoplay indicator-dots circular>
+      <swiper-item
+      wx:for="{{SwiperList}}"
+      wx:key="image_id"
+      >
+        <navigator>
+        <!--图片宽高等比例发生变化-->
+          <image mode="aspectFill" src="{{item.image_src}}" class='spot_images'></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+
+<!--景点介绍-->
+<view class="spotdetail_intro">
+  <view class="spotdetail_name">{{SpotName}}</view>
+  <view class="spotdetail_famous">{{SpotFamous}}</view>
+  <view class="long-dec {{isFold?'hide':'show'}}">
+    <text>{{util.format(SpotIntroText)}}</text>
+  </view>
+  <image class="arrow" src=" {{isFold?'https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/fold.png?sign=bacc077a1baee533dcf60b2bee49b8a7&t=1587613057':'https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/unfold.png?sign=a874d0613d251406157e65e15efd9427&t=1587613037'}}" bindtap="showAll"></image>
+
+<view class="spotdetail_content" url="/pages/spot_detail_intro/index">
+  <view class="content1">
+    <image class="spotdetail_icon" src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/clock_1.png?sign=f78a817cae3b3e225a1588beec94705c&t=1589216974'></image>
+    <text class="detail_contenttext">开放时间</text>
+    <image class="spotdetail_entericon" src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/enter.png?sign=5a16ea985e4bef157192f4b2f568dae5&t=1587632548' bindtap="enter_intro" data-index='1'></image>
+  </view>
+  <view class="divLine"></view>
+
+  <view class="content2">
+    <image class="spotdetail_icon" src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/ticket_1.png?sign=63ca4f98fbf8f1cd0c68003e7bfa3031&t=1589217005'></image>
+    <text class="detail_contenttext">门票费用</text>
+    <image class="spotdetail_entericon" src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/enter.png?sign=5a16ea985e4bef157192f4b2f568dae5&t=1587632548' bindtap="enter_intro" data-index='2'></image>
+  </view>
+  <view class="divLine"></view>
+
+  <view class="content3">
+    <image class="spotdetail_icon" src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/bus_1.png?sign=41e1036b596ced6dea45b2da21215c69&t=1589217028'></image>
+    <text class="detail_contenttext">公交路线</text>
+    <image class="spotdetail_entericon" src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/enter.png?sign=5a16ea985e4bef157192f4b2f568dae5&t=1587632548' bindtap="enter_intro" data-index='4'></image>
+  </view>
+  <view class="divLine"></view>
+
+  <view class="content4">
+    <image class="spotdetail_icon" src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/address_1.png?sign=3d40a1dc52c0730e00cf423f2e2f1631&t=1589217056'></image>
+    <text class="detail_contenttext">地理位置</text>
+    <image class="spotdetail_entericon" src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/navigation.png?sign=3409978b547f15326ae9996ae0382ea6&t=1589217701' bindtap="enter_location" ></image>
+    </view>
+    <view class="divLine"></view>
+</view>
+
+<!--可切换菜单栏-->
+    <scroll-view scroll-with-animation="true" class="menu_box" scroll-left="{{scrollLeft}}">
+    <view class="menu_body menu_body_cur{{menuIndex}}" style="width:calc（150rpx*{{menuList.length}});">
+    <view class='menu_li' wx:for="{{menuList}}" data-type='{{index}}' bindtap='changeTitle'>{{item}}</view>
+    </view>
+    </scroll-view>
+
+<!--游览推荐-->
+<view class='brand1' wx:if="{{menuIndex == 0}}">
+1 
+</view>
+<!--热门攻略-->
+<view class='brand2' wx:if="{{menuIndex== 1}}">
+2 
+</view>
+<!--酒店民宿-->
+<view class='brand2' wx:if="{{menuIndex== 2}}">
+<scroll-view scroll-y="true" style="height: 1000rpx;">
+<block  wx:for="{{hotels}}"  wx:key="id" >
+<view  
+  hover-class="hover-class" id="{{item.id}}"
+  style='display:flex; height:120px;border-bottom: 1px solid #DBDBDB'>
+        <view style='width:128rpx; height:128rpx; margin:20rpx;'>
+          <image class='index-logo' src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/address.png?sign=83a92022c6d645c4494c121211bf14da&t=1587631362' style='width:128rpx; height:128rpx' src=""></image>
+        </view>
+        <view style='display:flex; flex-direction:column; margin:20rpx;'>
+          <label class='item_title'>{{item.title}}</label>
+          <label class='item_content'>{{item.category}}</label>
+          <view style='display:flex; flex-direction:row; height:40rpx;'>
+          <scroll-view scroll-y="true" style="height: 75rpx;">
+              <label class='item_address'>{{item.address}}</label>
+          </scroll-view>
+            <label class='item_tel'>tel:{{item.tel}}</label>
+          </view>
+        </view>
+  </view>
+</block>
+</scroll-view>
+</view>
+<view class='end_tip'>点击查看更多</view>
+</view>
+
+<!--可切换菜单栏浮动在顶部-->
+<scroll-view scroll-with-animation="true" class="menu_box nav_body_top" scroll-left="{{scrollLeft}}" style="height:{{ifShowTopMenu?'auto':0}};">
+    <view class="menu_body menu_body_cur{{menuIndex}}" style="width:calc（150rpx*{{menuList.length}});">
+    <view class='menu_li' wx:for="{{menuList}}" data-type='{{index}}' bindtap='changeTitle'>{{item}}</view>
+    </view>
+</scroll-view>
+
+</scroll-view>
