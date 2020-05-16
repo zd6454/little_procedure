@@ -3,35 +3,39 @@
 	"packOptions": {
 		"ignore": []
 	},
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
-
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
-		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
 		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
 	"appid": "wx4509639588154cbc",
 	"projectname": "mini_program",
+	"cloudfunctionRoot": "cloud/",
+	"cloudfunctionTemplateRoot": "",
+	"watchOptions": {
+		"ignore": []
+	},
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
-		"minified": true,
-		"newFeature": true,
-		"enhance": true,
-
-	// "simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"scripts": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -46,7 +50,6 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"gamePlugin": {
@@ -57,7 +60,7 @@
 			"current": -1,
 			"list": [
 				{
-					"id": 0,
+					"id": -1,
 					"name": "攻略",
 					"pathName": "pages/Introduction/index",
 					"query": "",
@@ -69,12 +72,7 @@
 					"pathName": "pages/user/index",
 					"query": "",
 					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "悬浮按钮",
-					"pathName": "pages/home/index",
-        },
+				}
 			]
 		}
 	}
