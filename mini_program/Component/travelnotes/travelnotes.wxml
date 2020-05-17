@@ -12,10 +12,10 @@
        <view class="conpute">
          <text >❀ {{item.travelnote.content}} </text>
        </view>
-       <view class="arrayimage" wx:for="{{item.travelnote.images}}">
+       <view class="arrayimage" wx:for="{{item.travelnote.images}}" wx:key="index2">
           <image src="{{item}}" class="image2"> </image>
        </view>
-       <view  class="foot">
+       <view  class="foot" >
           <view class="setline" >
            <image src="../../img/Ilike.png" class="Ilike" bindtap="handleIlike"></image>
            <text class="mach">{{item.likeamount}}</text>

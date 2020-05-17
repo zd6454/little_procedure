@@ -33,6 +33,6 @@
      </view>
   </view>
   <view>
-     <button class="public" hover-class="havepublic"  bindtap="public_travelnotes" bindgetuserinfo="onGotUserInfo" open-type="getUserInfo">发布</button>
+     <button class="public" hover-class="havepublic"  bindtap="upload" bindgetuserinfo="onGotUserInfo" open-type="getUserInfo">发布</button>
   </view>
 </view>

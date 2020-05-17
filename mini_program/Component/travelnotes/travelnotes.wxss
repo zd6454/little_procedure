@@ -10,7 +10,7 @@ box-shadow:0px 2px 4px 3px rgb(218, 171, 171);
 opacity:1;
 border: 5px solid #ffffff;
   border-radius: 5px;
-  /* margin: 8px; */
+  margin: 8px;
   margin: 2px 2px 3px 2px;
  padding-left: 4px;
 }
@@ -53,27 +53,29 @@ white-space: nowrap;
 }
 .conpute{
 width:296px;
-/* height:160px; */
+height:160px;
 font-size:15px;
 font-family:Source Han Sans CN;
 font-weight:300;
 line-height:20px;
-/* color:rgba(53,53,53,1); */
+color:rgba(53,53,53,1);
 margin-top: 0.5rem;
 letter-spacing:1.000000953674316px;
 opacity:1;
 }
 .arrayimage{
-  justify-content: space-around;
+  justify-content: flex-start;
   overflow: hidden;
+  flex-wrap: wrap;
   margin-top: 1rem;
   margin-bottom: 1rem; 
-  /* direction: row; */
-  /* margin-left: 0.5rem;  */
+
+  margin-left: 0.5rem; 
 }
 .arrayimage .image2{
-  display: block;
-  float: inline-start;
+
+  position: relative;
+
   height: 96px;
   width: 31.333333333%;
   border-radius: 5%;
