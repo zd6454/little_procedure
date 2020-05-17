@@ -23,9 +23,9 @@
 }
 .move{
   pointer-events: auto;
-  height: 100rpx; 
+  height: 100rpx;
   width: 100rpx;
-  border-radius:130rpx; 
+  border-radius:130rpx;
   background: #ffc0cb;
   position:absolute;
   left:650rpx;
@@ -38,11 +38,11 @@
 
 .strategy{
   border: 1rpx solid grey;
-  border-radius:20rpx; 
+  border-radius:20rpx;
 }
 
 .wrap1{
-  padding-top: 30rpx; 
+  padding-top: 30rpx;
   display: flex;
   flex-direction: row;
   align-items:center;
@@ -81,6 +81,5 @@ color: grey;
 
 .activity_1{
   width:30%;
- 
-  border-radius: 10rpx; 
+  border-radius: 10rpx;
 }

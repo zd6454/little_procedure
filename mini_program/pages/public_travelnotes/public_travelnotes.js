@@ -2,7 +2,8 @@
 var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
 var qqmapsdk=new QQMapWX({
   key: 'QO5BZ-VD6R4-M4AUD-D36UT-VGBVS-6HBZV' // 必填
-});  ;
+});  
+const util = require('../../utils/util.js');
 Page({
   onShareAppMessage() {
     return {
@@ -29,7 +30,7 @@ Page({
    permissionimage:"../../img/permission0.png",
    permission:0, //公开权限
    goodamount:0, //收藏数
-    
+    time:"",
    likeamount:0,//点赞数
   commentamount:0, //评论数
   // comment3:{   //是否新建一个集合记录
@@ -64,7 +65,8 @@ Page({
   //发布游记
   public_travelnotes(){
     const db=wx.cloud.database();
-    var userInfo="travelnote.userinfo"
+    var userInfo="travelnote.userinfo";
+    var time = util.formatTime(new Date());
     let self=this;
     wx.getSetting({
       success (res) {
@@ -73,6 +75,7 @@ Page({
           success: function(res) {
             self.setData({
             [userInfo]:res.userInfo,
+            time:time,
             });
             console.log(res.userInfo);
             db.collection('travelnotes').add({
@@ -84,6 +87,7 @@ Page({
                likeamount:self.data.likeamount,
                goodamount:self.data.goodamount,
                commentamount:self.data.commentamount,
+               time:time,
               },
               success:function(suc){
                 console.log(suc);

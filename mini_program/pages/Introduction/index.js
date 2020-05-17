@@ -1,4 +1,6 @@
 // pages/Introduction/index.js
+const DB = wx.cloud.database().collection("travelnotes");
+
 Page({
 
   /**
@@ -17,14 +19,14 @@ Page({
         isActive: false
       }
     ],
-    list:[
+    list: [
       {
-        index:0,
-        user_image:"../../images/bowuguan.jpg",
-        user:"1111",
-        user_text:"gbhnhuhn vdregvdsfdsfcsdbuununuinjknjkn",
-        num:211,
-        image:"../../images/wuda.jpg",
+        index: 0,
+        user_image: "../../images/bowuguan.jpg",
+        user: "1111",
+        user_text: "gbhnhuhn vdregvdsfdsfcsdbuununuinjknjkn",
+        num: 211,
+        image: "../../images/wuda.jpg",
       },
       {
         index: 1,
@@ -54,17 +56,17 @@ Page({
 
       }
     ],
-    system_strategy:[
+    system_strategy: [
       {
         id: 0,
         image: "../../images/lou.jpg",
         name: "武汉景点一日游",
-     
+
       },
       {
         id: 0,
         image: "../../images/yinghua.jpg",
-        name:"浪漫樱花两日游"
+        name: "浪漫樱花两日游"
       },
       {
         id: 0,
@@ -73,30 +75,24 @@ Page({
       }
     ],
     list_travelnotes:[]
+   
   },
+  onLoad: function(){
+    DB.get({
+      success: res => {
+        // console.log("查询成功", res.data)
+       this.setData({
+         list_travelnotes:res.data
+       })
+        console.log("查询成功", this.data.list_travelnotes);
 
-  //获取游记的数据库
-  travelnotes_get() {
-    wx.cloud.database().collection("travelnotes").get({
-      success(res) {
-        console.log("数据库获取成功", res.data);
-        this.setData({
-          list_travelnotes: [
-           res.data
-
-          ]
-        })
       },
-      fail(res) {
-        console.log("数据库获取失败", res);
-
+      file(res) {
+        console.log("查询失败", res);
       }
     })
   },
-
-  onLoad: function (options) {
-    this.travelnotes_get();
-  },
+  
   //搜索框文本内容显示
   inputBind: function (event) {
     this.setData({

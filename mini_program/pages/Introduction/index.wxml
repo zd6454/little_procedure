@@ -1,17 +1,17 @@
 <view class="search" >
   <input placeholder="攻略/游记" bindconfirm="search" value="{{value}}" confirm-type="done" bindinput="inputBind"></input>
-  <image src="../../icons/sousuo.png" bindtap='search' style="width:20rpx;height:45rpx"/> 
+  <image src="../../icons/sousuo.png" bindtap='search' style="width:20rpx;height:45rpx"/>
 </view>
 
- <Move/>
-<!-- 
- <movable-area style="pointer-events: none;height: 100%;width: 100%;position:absolute;left:0rpx;top:0rpx;">
-  	<movable-view direction="all" class="move" style="left:0rpx">+
-	</movable-view>
+<Move/>
+<!--
+<movable-area style="pointer-events: none;height: 100%;width: 100%;position:absolute;left:0rpx;top:0rpx;">
+      <movable-view direction="all" class="move" style="left:0rpx">+
+    </movable-view>
 </movable-area>
-	 -->
+     -->
 
- <Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" style="margin:0">
+<Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" style="margin:0">
      <block wx:if="{{tabs[0].isActive}}">
      <view class="wrap1">
       <text class="name1" >#平台攻略</text>
@@ -20,7 +20,7 @@
 
      <view class="activity" style="padding-top:20rpx">
       <view class="activity_1" wx:for="{{system_strategy}}">
-       <navigator url="/pages/home/index" style=" display: flex;flex-direction: column;width:100%;height:100%;align-self: center;align-items: center;"> 
+       <navigator url="/pages/home/index" style=" display: flex;flex-direction: column;width:100%;height:100%;align-self: center;align-items: center;">
          <image style="width:215rpx;height:150rpx;   border-radius: 10rpx; border: 1rpx solid silver; " src="{{item.image}}"></image>
          <text style="font-size:30rpx">{{item.name}}</text>
        </navigator>
@@ -33,6 +33,6 @@
     
     </block>
       <block wx:if="{{tabs[1].isActive}}">
-      <Travelnotes list="{{list}}"/>
+      <Travelnotes list="{{list_travelnotes}}"/>
     </block>
   </Tabs>
