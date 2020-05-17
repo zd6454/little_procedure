@@ -36,7 +36,7 @@ color: rgb(196, 191, 191);
 }
 .array{
   text-align: center;
-  line-height:15px;  
+  line-height:20px;  
 }
 .conduct{
   color: rgb(85, 80, 80);
