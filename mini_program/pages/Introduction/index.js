@@ -71,7 +71,31 @@ Page({
         image: "../../images/wan.jpg",
         name: "吃喝玩乐周末游",
       }
-    ]
+    ],
+    list_travelnotes:[]
+  },
+
+  //获取游记的数据库
+  travelnotes_get() {
+    wx.cloud.database().collection("travelnotes").get({
+      success(res) {
+        console.log("数据库获取成功", res.data);
+        this.setData({
+          list_travelnotes: [
+           res.data
+
+          ]
+        })
+      },
+      fail(res) {
+        console.log("数据库获取失败", res);
+
+      }
+    })
+  },
+
+  onLoad: function (options) {
+    this.travelnotes_get();
   },
   //搜索框文本内容显示
   inputBind: function (event) {
