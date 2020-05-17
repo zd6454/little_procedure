@@ -1,0 +1,27 @@
+<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh">
+  <view class="pro-con">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="pro-box">
+        <view class="head">
+          <image class="img" src="{{item.user_image}}" mode="aspectFit"></image>
+          <view class="box">
+            <view class="shead clear">
+              <view class="names fl">{{item.user}}
+              </view>
+              <view class="info">
+               <view class="text">
+               <text decode="true">{{item.time}}</text>
+              </view>
+             </view>
+            </view>
+          </view>
+        </view>
+        <view class="addr-info">
+          <view class="addr-text">
+            {{item.user_context}}
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view> 

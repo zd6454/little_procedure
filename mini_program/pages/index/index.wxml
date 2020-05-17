@@ -1,3 +1,4 @@
+
 <view class="search" style="position:fixed; top:65rpx;left:20rpx">
   <input placeholder="请输入要搜索的内容" bindconfirm="search" value="{{value}}" confirm-type="done" bindinput="inputBind"></input>
   <image src="../../icons/sousuo.png" bindtap='search' style="width:20rpx;height:45rpx"/>

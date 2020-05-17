@@ -1,5 +1,9 @@
 {
 	"description": "项目配置文件",
+<<<<<<< HEAD
+=======
+	"cloudfunctionRoot": "cloud/",
+>>>>>>> remotes/origin/foottest
 	"packOptions": {
 		"ignore": []
 	},
@@ -7,10 +11,17 @@
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
+<<<<<<< HEAD
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
 		"nodeModules": true,
+=======
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+>>>>>>> remotes/origin/foottest
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -21,12 +32,18 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
+<<<<<<< HEAD
 		}
+=======
+		},
+		"nodeModules": true
+>>>>>>> remotes/origin/foottest
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
 	"appid": "wx4509639588154cbc",
 	"projectname": "mini_program",
+<<<<<<< HEAD
 	"cloudfunctionRoot": "cloud/",
 	"cloudfunctionTemplateRoot": "",
 	"watchOptions": {
@@ -36,6 +53,14 @@
 		"hidedInDevtools": []
 	},
 	"scripts": {},
+=======
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+>>>>>>> remotes/origin/foottest
 	"condition": {
 		"search": {
 			"current": -1,
@@ -45,6 +70,7 @@
 			"current": -1,
 			"list": []
 		},
+<<<<<<< HEAD
 		"plugin": {
 			"current": -1,
 			"list": []
@@ -54,10 +80,15 @@
 		},
 		"gamePlugin": {
 			"current": -1,
+=======
+		"game": {
+			"currentL": -1,
+>>>>>>> remotes/origin/foottest
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
+<<<<<<< HEAD
 			"list": [
 				{
 					"id": -1,
@@ -74,6 +105,9 @@
 					"scene": null
 				}
 			]
+=======
+			"list": []
+>>>>>>> remotes/origin/foottest
 		}
 	}
 }

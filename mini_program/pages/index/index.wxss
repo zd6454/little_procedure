@@ -1,3 +1,4 @@
+
 .search{
   width: 55%;
   height: 70rpx;
@@ -162,4 +163,5 @@
   flex: 1;
   font-size: 30rpx;
 }
+
 

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "comment":"../../component/comment_list/comment_list",
+    "mp-loading":"../../weui-miniprogram/loading/loading"
+  },
+  "navigationBarTitleText": "评论"
+}

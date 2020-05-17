@@ -1,0 +1,38 @@
+<!--pages/public_travelnotes/public_travelnotes.wxml-->
+<view class="allset">
+  <view class="head">
+      <textarea placeholder="发布点什么呢~" class="text"  maxlength="1000" bindinput="handleContentInput"></textarea>
+  </view>
+  <view class="body" >
+   <scroll-view scroll-x="true"  class="scroll">
+   <view class="allimages">
+     <view wx:for="{{images}}" wx:key="index" >
+      <view class="lie" >
+         <image class="isimage" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+         <view class="setdelete" data-index="{{index}}"  bindtap="deleteimage">
+         <image src="../../img/deleteImage.png" class="delete" ></image>
+         </view>
+      </view>
+     </view>
+      <view class="last" wx:if="{{images.length <= 9}}">
+          <button class="addimage"  bindtap="chooseImage">
+               <image src="../../img/addimage.png" class="imageset"></image>
+          </button>
+     </view>
+    </view>
+</scroll-view>
+     <view class="infoset">
+        <view class="li" bindtap="getlocation">
+          <image src="../../img/location.png" class="locationimage" ></image>
+          <text class="location">{{location}}</text>
+        </view>
+        <view class="li2" bindtap="permissionset">
+           <image src="{{permissionimage}}" class="permissionig"></image>
+           <text class="permissiontext">公开</text>
+        </view>
+     </view>
+  </view>
+  <view>
+     <button class="public" hover-class="havepublic"  bindtap="public_travelnotes" bindgetuserinfo="onGotUserInfo" open-type="getUserInfo">发布</button>
+  </view>
+</view>

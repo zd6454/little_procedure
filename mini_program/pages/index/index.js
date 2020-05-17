@@ -1,3 +1,4 @@
+
 // pages/hahha/index.js
 Page({
   /**

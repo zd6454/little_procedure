@@ -1,0 +1,72 @@
+<!--component/show/show.wxml-->
+<!--商品幻灯片-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" class="banner" duration="{{duration}}" circular="{{duration}}">
+  <block >
+    <swiper-item>
+      <image src="../../img/laodfail.png" class="slide-image" mode="aspectFill" data-src='{{imghref}}{{item.img}}' bindtap="previewImage"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!--商品幻灯片 end-->
+
+  <!-- <view class='price'>￥{{Data.price}} </view> -->
+  <view class='fenxiang'>
+      <button class='fxbtn' open-type="share">
+        <view style='height:20px;margin-top:8px;'><image src='../../img/share.png' mode="aspectFill" ></image></view>
+        <text style='width:10px;height:px;'>分享</text>
+      </button>
+  </view>
+
+<view class="info-title">
+    <text>{{Data.title}}</text>
+</view>
+ 
+<view style="border-top:1px solid #F6F6F6;background: #fff; padding:5px 15px;">
+    <view class="clearfix flex grey gridXt">
+      <text class="sub">介绍：{{Data.catelorgy}}</text>
+           <!-- <start>   </start> -->
+    </view>
+</view>
+
+<view class='details_box'>
+  <view style="height:40px;line-height: 40px;border-bottom:1px solid #f5f5f5;">
+    <image src="../../img/location.png" style="height:16.8px;width:15px;vertical-align: middle"></image>
+     <text style="vertical-align: middle">定位</text>
+  </view>
+  <!-- <view style='padding:10px 0px;'>
+      <view class="wxParse" type="textarea">
+         {{Data.detail}}
+      </view>
+    </view> -->
+</view>
+
+<block wx:if="{{pjDataList!=''}}">
+  <!--评价-->
+  <view class='pj_box'>
+    <view style="height:40px;line-height: 40px;border-bottom:1px solid #f5f5f5;">
+     <view style='float:left;'>#网友点评</view>
+     <view style='float:right;margin-left:2px;margin-top:-1px;'>
+        <image src="../../img/arrow.png" class="ico_img_jt"></image>
+     </view>
+     <view style='float:right;font-size:12px;color:#A2A2A2;'>
+        <navigator url="../../pages/comment/comment?city={{city}}&&scenary={{scenary}}&&catelorgy={{catelorgy}}&&detail_id={{detail_id}}">{{list_length}}条评论</navigator>
+     </view>
+     <view class='clear'></view>
+    </view>
+    <block wx:for="{{list}}" wx:for-item="item"  wx:key="id">
+      <view class="list_item"> 
+        <view class='pj_u_info clear'>
+          <view class='header_img'><image src="{{item.user_image}}" mode="aspectFit"></image></view>
+          <view class='name'>{{item.user}}</view>
+          <view class='time'>{{item.time}}</view>
+        </view>
+        <view class='pj_cont'>
+          {{item.user_context}}
+        </view>
+      </view>
+    </block> 
+</view>
+</block>
+
+
+ 

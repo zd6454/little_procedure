@@ -1,0 +1,12 @@
+    <block wx:if="{{loading}}"> <mp-loading type="circle"></mp-loading></block>
+    <block wx:if="{{loading==false}}" >
+           <comment   list="{{comment_user_list}}" ></comment>
+    </block>
+<form bindsubmit="submitForm" report-submit="true">
+  <view class="release">
+    <view class="replyinfo2">
+      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="请输入评论" name="comment" value="{{inputValue}}"></textarea>
+      <button form-type="submit"  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"  class="submit">发送</button>
+    </view>
+  </view>
+</form>
