@@ -53,12 +53,12 @@ white-space: nowrap;
 }
 .conpute{
 width:296px;
-height:160px;
-font-size:13px;
+/* height:160px; */
+font-size:15px;
 font-family:Source Han Sans CN;
 font-weight:300;
 line-height:20px;
-color:rgba(53,53,53,1);
+/* color:rgba(53,53,53,1); */
 margin-top: 0.5rem;
 letter-spacing:1.000000953674316px;
 opacity:1;
@@ -66,9 +66,10 @@ opacity:1;
 .arrayimage{
   justify-content: space-around;
   overflow: hidden;
-  margin-bottom: 1rem;
-  /* margin-top: 0.5rem;
-  margin-left: 0.5rem; */
+  margin-top: 1rem;
+  margin-bottom: 1rem; 
+  /* direction: row; */
+  /* margin-left: 0.5rem;  */
 }
 .arrayimage .image2{
   display: block;
@@ -81,6 +82,9 @@ opacity:1;
 
 .foot{
   display: flex;
+  padding-top:10rpx;
+  margin-top: 1rem; 
+  margin-bottom: 0.5rem; 
 }
 .foot .Ilike{
   height: 16px;
