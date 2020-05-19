@@ -24,8 +24,10 @@ Page({
     likeamount:0,
     goodamount:0,
     commentamount:0,
+    // _openid:"",
   },
    images:[],//图片
+   imagesid:[],
    location:"添加地点",
    permissionimage:"../../img/permission0.png",
    permission:0, //公开权限
@@ -80,6 +82,7 @@ Page({
             console.log(res.userInfo);
             db.collection('travelnotes').add({
               data:{
+              //  _openid:self.data._openid+"1",
                travelnote:self.data.travelnote,
                permission:self.data.permission,
                address:self.data.address,
@@ -94,6 +97,9 @@ Page({
                 wx.showToast({
                   title: '发布游记成功',
                 });
+                wx.switchTab({
+                  url: '../Introduction/index?tabs[1].isActive',
+                })
               },
               fail:function(err){
                 console.log(err);
@@ -177,14 +183,50 @@ Page({
       }
     })
   },
+//上传图片
+    upload(){
+      let self=this;
+      wx.showToast({
+        icon: 'loading',
+        title:"处理中",
+      });
+      const promiseArr=[];
+      for(let i=0;i<self.data.images.length;i++){
+        let filePath=self.data.images[i];
+        let suffix=/\.[^\.]+$/.exec(filePath)[0];
+        promiseArr.push(new Promise((resolve,reject)=>{
+          wx.cloud.uploadFile({
+            cloudPath: 'travelnotes_images/' + new Date().getTime() + suffix,
+            filePath:filePath,
+            success:res=>{
+              console.log('上传成功',res);
+              let ig="travelnote.images";
+              self.setData({
+               imagesid:self.data.imagesid.concat(res.fileID),
+               [ig]:self.data.imagesid.concat(res.fileID),
+              })
+              resolve();
+            },
+            fail:err=>{
+              console.log("shiabi",err)
+            }
+          })
+        }))
+      }
+      Promise.all(promiseArr).then(res=>{
+        console.log(res,"555");
+        self.public_travelnotes();
+      })
+    },
   //获取添加图片
   chooseImage(e) {
+  let self=this;
     wx.chooseImage({
       sizeType: ['original', 'compressed'],  //可选择原图或压缩后的图片
       sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
       success: res => {
         const images = this.data.images.concat(res.tempFilePaths)
-        // 限制最多只能留下3张照片
+        // 限制最多只能留下9张照片
         let image="travelnote.images";
         this.setData({
           images:images.length <= 9 ? images : images.slice(0, 9) ,

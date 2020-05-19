@@ -1,18 +1,19 @@
 /* component/travelnotes/travelnotes.wxss */
 .forlist{
+  padding-top: 20rpx;
   overflow:hidden;
   box-sizing: border-box;
 }
 .onetotal{
-width:300px;
+width:702rpx;
 background:rgba(255,255,255,1);
-box-shadow:0px 2px 4px 3px rgb(218, 171, 171);
+box-shadow:0rpx 4.68rpx 9.36rpx 7.02rpx rgb(218, 171, 171);
 opacity:1;
-border: 5px solid #ffffff;
-  border-radius: 5px;
+border: 11.7rpx solid #ffffff;
+  border-radius: 11.7rpx;
   /* margin: 8px; */
-  margin: 2px 2px 3px 2px;
- padding-left: 4px;
+  margin: 6.48rpx 6.48rpx 7.02rpx 6.48rpx;
+ padding-left: 9.36rpx;
 }
 .head{
   display: flex;
@@ -20,97 +21,107 @@ border: 5px solid #ffffff;
   align-items: center;
 }
 .image{
-  height: 40px;
-  width: 40px;
+  height: 93.6rpx;
+  width: 93.6rpx;
   border-radius: 25px;
 }
 .allset{
   flex-direction: column;
   display: flex;
-  letter-spacing:1.000000953674316px;
+  letter-spacing:2.34000223159789944‬rpx;
   font-family:Source Han Sans CN;
-  line-height:16px;
+  line-height:37.44rpx;
   opacity:1;
   text-align: left;
-  margin-left: 0.5rem;
+  margin-left: 18.75rpx;
 }
 .allset .testset{
-width:168px;
-height:16px;
-font-size:15px;
+width:393.12rpx;
+height:37.44rpx;
+font-size:35.1rpx;
 color:rgba(53,53,53,1);
 }
 .allset .timeset{
-width:96px;
-height:12px;
-font-size:11px;
+width:224.64‬rpx;
+height:28.08rpx;
+font-size:25.74rpx;
 color:rgba(178,178,178,1);
 white-space: nowrap;
 }
 .body{
-  margin-top: 2rem;
-  line-height:16px;
+  margin-top: 75rpx;
+  line-height:37.44rpx;
 }
 .conpute{
-width:296px;
+width:692.64rpx;
 /* height:160px; */
-font-size:15px;
+font-size:35.1rpx;
 font-family:Source Han Sans CN;
 font-weight:300;
-line-height:20px;
+line-height:46.8rpx;
 /* color:rgba(53,53,53,1); */
-margin-top: 0.5rem;
-letter-spacing:1.000000953674316px;
+margin-top: 18.75rpx;
+letter-spacing:2.34000223159789944rpx;
 opacity:1;
 }
 .arrayimage{
   justify-content: space-around;
   overflow: hidden;
-  margin-top: 1rem;
-  margin-bottom: 1rem; 
+  margin-top: 20rpx;
+  margin-bottom: 20rpx; 
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
   /* direction: row; */
   /* margin-left: 0.5rem;  */
 }
+.arrayimage .setimage{
+  height: 200rpx;
+  width:31%
+
+}  
 .arrayimage .image2{
   display: block;
   float: inline-start;
-  height: 96px;
-  width: 31.333333333%;
+  height: 180rpx;
+  width: 95%;
   border-radius: 5%;
-  margin: 0.2rem 0.1rem 0 0.1rem;
+  margin: 7.5rpx 3.75rpx 0 3.75rpx;
+  border: 0.5rpx solid #d5d7d6;
 }
 
 .foot{
   display: flex;
   padding-top:10rpx;
-  margin-top: 1rem; 
-  margin-bottom: 0.5rem; 
+  margin-top: 37.5rpx; 
+  margin-bottom: 30rpx; 
 }
 .foot .Ilike{
-  height: 16px;
-  width: 16px;
-  margin-left: 0.5rem;
+  height: 38.4rpx;
+  width: 38.4rpx;
+  margin-left: 20rpx;
 }
 .foot .comment{
-  height: 16px;
-  width: 16px;
-  margin-left: 3.55rem;
+  height: 38.4rpx;
+  width: 38.4rpx;
+  margin-left: 130rpx;
 }
 .foot .good{
-  height: 16px;
-  width: 16px;
-  margin-left: 3.55rem;
+  height: 38.4rpx;
+  width: 38.4rpx;
+  margin-left: 130rpx;
 }
 .foot .share{
-  height: 16px;
-  width: 16px;
-  margin-left:3.55rem;
+ height: 38.4rpx;
+  width: 38.4rpx;
+  margin-left: 130rpx;
 }
 .foot .mach{
-  font-size:11px;
+  font-size:25.74rpx;
   font-family:Source Han Sans CN;
-  margin-left: 0.1rem;
-  line-height: 19px;
+  margin-left: 3.75rpx;
+  line-height: 44.46rpx;
 }
 .foot .setline{
   display: flex;

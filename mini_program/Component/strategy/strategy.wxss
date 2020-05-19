@@ -18,16 +18,18 @@
 }
 
 .big_image{
-  width:146px;
-  height:100px;
+  width:343rpx;
+  height:234rpx;
    border-radius: 20rpx;
 }
 
 .array{
-  line-height:20px;  
-  width:146px;
-  height: 40px;
-  margin: 10rpx 10rpx;
+  line-height:46.8rpx;  
+  width:320rpx;
+  height: 93.6rpx;
+  margin: 10rpx ;
+  margin-left: 10rpx;
+  /* margin-right: 5rpx; */
   color: rgb(85, 80, 80);
   display: -webkit-box;
   overflow: hidden;
@@ -45,9 +47,9 @@
   padding-left: 20rpx;
 }
 .image{
-    height: 20px;
-    width: 20px;
-    border-radius: 20px;
+    height: 46.8rpx;
+    width: 46.8rpx;
+    border-radius: 46.8rpx;
 
 }
 

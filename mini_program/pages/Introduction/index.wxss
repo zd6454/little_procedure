@@ -55,7 +55,7 @@
 }
 
 .nav{
-  margin-left: 350rpx;
+  margin-left: 340rpx;
   font-size: 30rpx;
 color: grey;
 }

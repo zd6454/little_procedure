@@ -81,6 +81,12 @@
 					"pathName": "pages/public_travelnotes/public_travelnotes",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "景点详情",
+					"pathName": "pages/spot_detail/index",
+					"scene": null
 				}
 			]
 		}

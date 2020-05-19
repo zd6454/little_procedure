@@ -12,7 +12,7 @@
       >
         <navigator>
         <!--图片宽高等比例发生变化-->
-          <image mode="aspectFill" src="{{item.image_src}}" class='spot_images'></image>
+          <image mode="widthFix" src="{{item.image_src}}" class='spot_images'></image>
         </navigator>
       </swiper-item>
     </swiper>

@@ -1,9 +1,9 @@
 .spotdetail_swiper {
-  height: 360rpx;
+  height:320rpx;
 }
 
-.spot_image {
-  width: 100%;
+.spot_images {
+  width: 750rpx;
   height:100%
 }
 
@@ -108,7 +108,7 @@
 
 .item_content{
   width: 90%;
-  height: 100rpx;
+  height: 70rpx;
   font-size: 9pt;
   color: #888;
   word-break: break-all;

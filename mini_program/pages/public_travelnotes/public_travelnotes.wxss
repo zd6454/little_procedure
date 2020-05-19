@@ -1,34 +1,35 @@
 /* pages/public_travelnotes/public_travelnotes.wxss */
 .allset{
- margin:0.2rem;
+ margin:0.468rpx;
  display: block;
 }
 .head{
- margin: 10px;
+ margin: 40rpx;
+ width: 640rpx;
+  height: 372rpx;
 }
 .head .text{
-  margin-right: 2rem;
-  padding-right: 3px;
-font-size:13px;
-font-family:Source Han Sans CN;
-font-weight:400;
-line-height:23px;
-color:rgba(178,178,178,1);
-letter-spacing:15.000000953674316px;
-opacity:1;
-width:290px;
-height:186px;
-background:rgba(246,246,246,1);
-opacity:1;
-border-radius:8px;
+  margin-right: 4.68rpx;
+  padding-right: 6rpx;
+  font-size:26rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  line-height:46rpx;
+  color:rgba(178,178,178,1);
+  letter-spacing:1.000000953674316px;
+  opacity:1;
+  width: 660rpx;
+  height: 372rpx;
+  background:rgba(246,246,246,1);
+  border-radius:16rpx;
 }
 .body{
-  width: 550rpx;
-  height: 330rpx;
-  margin:9px 26px 31px 20px
+  width: 640rpx;
+  height: 372rpx;
+  margin:18rpx 52rpx 62rpx 40rpx
 }
 .body .scroll{
-  width: 281px;
+  width: 562rpx;
   height: 220rpx;
   display: flex;
   align-items: center;
@@ -38,124 +39,124 @@ border-radius:8px;
   width: 660rpx;
   height: 220rpx;
   display: flex;
- 
- align-items: center;
- margin-top: 1rem;
+  align-items:center ;
+  margin-top: 23.4rpx;
 }
 
 
 .body .scroll .allimages  .lie{
   display:flex;
-  margin-left: 2px;
+  margin-left: 4rpx;
   position: relative;
 }
 
 
 .body .scroll .allimages  .lie .isimage{
-width:64px;
-height:64px;
-background:rgba(255,255,255,1);
-opacity:1;
-position: relative;
-overflow: hidden;
-float: left;
-align-items:center;
+  width:128rpx;
+  height:128rpx;
+  background:rgba(255,255,255,1);
+  opacity:1;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  align-items:center;
 }
 .body .scroll .allimages  .lie .setdelete{
   position:absolute;
-  margin-left: 50px;
+  margin-left: 100rpx;
   z-index:1;
 }
 .body .scroll .allimages  .lie .setdelete .delete{
-width:16px;
-height:16px;
-background:rgba(0,0,0,0.3);
-opacity:1;
-border-radius:0px 8px 0px 0px;
-position:absolute;
-z-index:1;
-float: 2px;
+  width:32rpx;
+  height:32rpx;
+  background:rgba(0,0,0,0.3);
+  opacity:1;
+  border-radius:0px 8px 0px 0px;
+  position:absolute;
+  z-index:1;
+  float: 4rpx;
 }
 .body .scroll .allimages .last{
   word-break:break-all; 
 }
-.body .scroll .allimages .addimage{
-width:64px;
-height:64px;
-border:1px solid rgba(229,229,229,1);
-opacity:0.4;
-border-radius:8px;
+.body .scroll .allimages  .addimage{
+  width:128rpx;
+  height:128rpx;
+  border:2rpx solid rgba(229,229,229,1);
+  opacity:0.4;
+  border-radius:16rpx;
+  padding: 0;
 }
-.imageset{
-  height: 24px;
-  width:24px;
-  margin-top: 1.1rem;
+ .imageset{
+  height: 48rpx;
+  width:48rpx;
+  margin-top:28rpx;
 }
 .body .infoset{
   width :600rpx;
   height:10rpx;
   flex-direction: row;
   display: flex;
-  margin-top:40px;
-  margin-left: 6px;
+  margin-top:80rpx;
+  margin-left: 12rpx;
 }
 .body .infoset .li{
-height:16px;
-background:rgba(241,241,241,1);
-opacity:1;
-font-size:11px;
-font-family:Source Han Sans CN;
-font-weight:400;
-color:rgb(83, 79, 79);
-letter-spacing:1.000000953674316px;
-flex-direction: row;
-display: flex;
-align-items: center;
+  height:32rpx;
+  background:rgba(241,241,241,1);
+  opacity:1;
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:rgb(83, 79, 79);
+  letter-spacing:1.000000953674316px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
 }
 .body .infoset .li .locatioon{
-width:12px;
-height:14px;
-opacity:1;
-text-align: left;
+  width:28rpx;
+  height:28rpx;
+  opacity:1;
+  text-align: left;
 }
 .body .infoset .li .locationimage{
-width:14px;
-height:14px;
+  width:28rpx;
+  height:28rpx;
 }
 .body .infoset .li2{
-width:100rpx;
-height:16px;
-font-size:11px;
-font-family:Source Han Sans CN;
-font-weight:400;
-background:rgba(241,241,241,1);
-opacity:1;
-margin-left: 2rem;
-flex-direction: row;
-display: flex;
-align-items: center;
+  width:100rpx;
+  height:32rpx;
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  background:rgba(241,241,241,1);
+  opacity:1;
+  margin-left: 78rpx;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
 }
 .body .infoset .li2 .permissionig{
-width:14px;
-height:14px;
+  width:28rpx;
+  height:28rpx;
 }
 .body .infoset .li2 .permissiontext{
-  width:32px;
-  height:14px;
+  width:64rpx;
+  height:28rpx;
 }
 .public{
-  width:300px;
-  height:40px;
+  width:640rpx;
+  height:80rpx;
   background:rgba(236,96,107,1);
   opacity:1;
-  border-radius:8px;
-  margin-top: 90px;
+  border-radius:16rpx;
+  margin-top: 180rpx;
 }
 .havepublic{
-  width:300px;
-  height:40px;
+  width:640rpx;
+  height:80rpx;
   background:rgb(187, 73, 82);
   opacity:1;
-  border-radius:8px;
-  margin-top: 90px;
+  border-radius:16rpx;
+  margin-top: 180rpx;
 }

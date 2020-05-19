@@ -12,8 +12,8 @@
   <!-- <view class='price'>￥{{Data.price}} </view> -->
   <view class='fenxiang'>
       <button class='fxbtn' open-type="share">
-        <view style='height:20px;margin-top:8px;'><image src='../../img/share.png' mode="aspectFill" ></image></view>
-        <text style='width:10px;height:px;'>分享</text>
+        <view style='height:46.8rpx;margin-top:18.72rpx;'><image src='../../img/share.png' mode="aspectFill" ></image></view>
+        <text style='width:23.4rpx;'>分享</text>
       </button>
   </view>
 
@@ -21,7 +21,7 @@
     <text>{{Data.title}}</text>
 </view>
  
-<view style="border-top:1px solid #F6F6F6;background: #fff; padding:5px 15px;">
+<view style="border-top:2.34rpx solid #F6F6F6;background: #fff; padding:11.7rpx 35.1‬rpx;">
     <view class="clearfix flex grey gridXt">
       <text class="sub">介绍：{{Data.catelorgy}}</text>
            <!-- <start>   </start> -->
@@ -29,8 +29,8 @@
 </view>
 
 <view class='details_box'>
-  <view style="height:40px;line-height: 40px;border-bottom:1px solid #f5f5f5;">
-    <image src="../../img/location.png" style="height:16.8px;width:15px;vertical-align: middle"></image>
+  <view style="height:93.6‬rpx;line-height: 93.6‬rpx;border-bottom:2.34rpx solid #f5f5f5;">
+    <image src="../../img/location.png" style="height:39.312‬rpx;width:35.1‬rpx;vertical-align: middle"></image>
      <text style="vertical-align: middle">定位</text>
   </view>
   <!-- <view style='padding:10px 0px;'>
@@ -43,12 +43,12 @@
 <block wx:if="{{pjDataList!=''}}">
   <!--评价-->
   <view class='pj_box'>
-    <view style="height:40px;line-height: 40px;border-bottom:1px solid #f5f5f5;">
+    <view style="height:93.6rpx;line-height: 93.6rpx;border-bottom:2.34rpx solid #f5f5f5;">
      <view style='float:left;'>#网友点评</view>
-     <view style='float:right;margin-left:2px;margin-top:-1px;'>
+     <view style='float:right;margin-left:46.8rpx;margin-top:-2.34rpx;'>
         <image src="../../img/arrow.png" class="ico_img_jt"></image>
      </view>
-     <view style='float:right;font-size:12px;color:#A2A2A2;'>
+     <view style='float:right;font-size:28.08‬rpx;color:#A2A2A2;'>
         <navigator url="../../pages/comment/comment?city={{city}}&&scenary={{scenary}}&&catelorgy={{catelorgy}}&&detail_id={{detail_id}}">{{list_length}}条评论</navigator>
      </view>
      <view class='clear'></view>
