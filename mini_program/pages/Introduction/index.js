@@ -143,7 +143,18 @@ Page({
   },
   //下拉刷新
   onPullDownRefresh() {
-
+    DB.get({
+      success: res => {
+        console.log("查询成功", res.data);
+        this.setData({
+          list_travelnotes: res.data
+        })
+        console.log("查询成功", this.data.list_travelnotes);
+      },
+      file(res) {
+        console.log("查询失败", res);
+      }
+    })
   }
 
 

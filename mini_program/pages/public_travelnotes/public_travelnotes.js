@@ -204,6 +204,7 @@ Page({
               self.setData({
                imagesid:self.data.imagesid.concat(res.fileID),
                [ig]:self.data.imagesid.concat(res.fileID),
+
               })
               resolve();
             },
