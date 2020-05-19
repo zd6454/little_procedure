@@ -24,7 +24,6 @@ Page({
     likeamount:0,
     goodamount:0,
     commentamount:0,
-    // _openid:"",
   },
    images:[],//图片
    imagesid:[],
@@ -82,7 +81,6 @@ Page({
             console.log(res.userInfo);
             db.collection('travelnotes').add({
               data:{
-              //  _openid:self.data._openid+"1",
                travelnote:self.data.travelnote,
                permission:self.data.permission,
                address:self.data.address,
@@ -97,9 +95,6 @@ Page({
                 wx.showToast({
                   title: '发布游记成功',
                 });
-                wx.switchTab({
-                  url: '../Introduction/index?tabs[1].isActive',
-                })
               },
               fail:function(err){
                 console.log(err);
@@ -145,7 +140,8 @@ Page({
   permissionset(e){
      let self=this;
      const permission=self.data.permissionimage=="../../img/permission0.png"?"../../img/permission1.png":"../../img/permission0.png";
-     const weight=self.data.permissionimage=="../../img/permission0.png"?0:1;
+     const weight=self.data.permissionimage=="../../img/permission0.png"?1:0;
+     console.log(weight,"9999");
       let permission2="travelnote.permission";
        self.setData({
          permissionimage:permission,
@@ -204,7 +200,6 @@ Page({
               self.setData({
                imagesid:self.data.imagesid.concat(res.fileID),
                [ig]:self.data.imagesid.concat(res.fileID),
-
               })
               resolve();
             },
