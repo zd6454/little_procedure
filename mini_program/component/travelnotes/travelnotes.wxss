@@ -1,21 +1,24 @@
 /* component/travelnotes/travelnotes.wxss */
 .forlist{
-  padding-top: 20rpx;
   overflow:hidden;
   box-sizing: border-box;
 }
 .onetotal{
-width:702rpx;
+width:685rpx;
 background:rgba(255,255,255,1);
 box-shadow:0rpx 4.68rpx 9.36rpx 7.02rpx rgb(218, 171, 171);
 opacity:1;
-
 border: 11.7rpx solid #ffffff;
   border-radius: 11.7rpx;
   /* margin: 8px; */
-  margin: 6.48rpx 6.48rpx 7.02rpx 6.48rpx;
+  margin-left: 20rpx;
+  margin-right:10rpx;
  padding-left: 9.36rpx;
+}
 
+.active{
+  margin-top: 10rpx;
+  margin-bottom: 5rpx;
 }
 .head{
   display: flex;

@@ -1,0 +1,139 @@
+/* component/travelnotes/travelnotes.wxss */
+.forlist{
+  overflow:hidden;
+  box-sizing: border-box;
+}
+.onetotal{
+width:685rpx;
+background:rgba(255,255,255,1);
+box-shadow:0rpx 4.68rpx 9.36rpx 7.02rpx rgb(218, 171, 171);
+opacity:1;
+border: 11.7rpx solid #ffffff;
+  border-radius: 11.7rpx;
+  /* margin: 8px; */
+  margin-left: 20rpx;
+  margin-right:10rpx;
+ padding-left: 9.36rpx;
+}
+
+.active{
+  margin-top: 10rpx;
+  margin-bottom: 5rpx;
+}
+.head{
+  display: flex;
+  background-color:#fff;
+  align-items: center;
+}
+.image{
+  height: 93.6rpx;
+  width: 93.6rpx;
+  border-radius: 25px;
+}
+.allset{
+  flex-direction: column;
+  display: flex;
+  letter-spacing:2.34000223159789944‬rpx;
+  font-family:Source Han Sans CN;
+  line-height:37.44rpx;
+  opacity:1;
+  text-align: left;
+  margin-left: 18.75rpx;
+}
+.allset .testset{
+width:393.12rpx;
+height:37.44rpx;
+font-size:35.1rpx;
+color:rgba(53,53,53,1);
+}
+.allset .timeset{
+width:224.64‬rpx;
+height:28.08rpx;
+font-size:25.74rpx;
+color:rgba(178,178,178,1);
+white-space: nowrap;
+}
+.body{
+  margin-top: 75rpx;
+  line-height:37.44rpx;
+}
+.conpute{
+
+width:692.64rpx;
+/* height:160px; */
+font-size:35.1rpx;
+font-family:Source Han Sans CN;
+font-weight:300;
+line-height:46.8rpx;
+/* color:rgba(53,53,53,1); */
+margin-top: 18.75rpx;
+letter-spacing:2.34000223159789944rpx;
+
+opacity:1;
+}
+.arrayimage{
+  justify-content: flex-start;
+  overflow: hidden;
+
+  margin-top: 20rpx;
+  margin-bottom: 20rpx; 
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  /* direction: row; */
+  /* margin-left: 0.5rem;  */
+
+}
+.arrayimage .setimage{
+  height: 200rpx;
+  width:31%
+
+}  
+.arrayimage .image2{
+
+  display: block;
+  float: inline-start;
+  height: 180rpx;
+  width: 95%;
+
+  border-radius: 5%;
+  margin: 7.5rpx 3.75rpx 0 3.75rpx;
+  border: 0.5rpx solid #d5d7d6;
+}
+
+.foot{
+  display: flex;
+  padding-top:10rpx;
+  margin-top: 37.5rpx; 
+  margin-bottom: 30rpx; 
+}
+.foot .Ilike{
+  height: 38.4rpx;
+  width: 38.4rpx;
+  margin-left: 20rpx;
+}
+.foot .comment{
+  height: 38.4rpx;
+  width: 38.4rpx;
+  margin-left: 130rpx;
+}
+.foot .good{
+  height: 38.4rpx;
+  width: 38.4rpx;
+  margin-left: 130rpx;
+}
+.foot .share{
+ height: 38.4rpx;
+  width: 38.4rpx;
+  margin-left: 130rpx;
+}
+.foot .mach{
+  font-size:25.74rpx;
+  font-family:Source Han Sans CN;
+  margin-left: 3.75rpx;
+  line-height: 44.46rpx;
+}
+.foot .setline{
+  display: flex;
+}

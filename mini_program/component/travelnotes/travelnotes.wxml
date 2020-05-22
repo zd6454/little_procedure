@@ -1,6 +1,6 @@
 <!--component/travelnotes/travelnotes.wxml-->
 <view wx:for="{{list}}" wx:key="{{item._id}}"   class="forlist"  >
-<view class="onetotal" wx:if="{{item.permission}}">
+<view class="onetotal {{item.permission}}?active:''" wx:if="{{item.permission}}">
    <view class="head">
      <image src="{{item.userInfo.avatarUrl}}" class="image" ></image>
      <view class="allset">
@@ -22,15 +22,15 @@
        </view>
        <view  class="foot" >
           <view class="setline" >
-           <image src="../../img/Ilike.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}"></image>
-           <text class="mach">{{item.likeamount}}</text>
+           <image src="{{item.like.src}}" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
           </view>
          <view class="setline">
            <image src="../../img/comment2.png" class="comment" bindtap="handlecomment2 " data-id="{{item._id}}" ></image>
            <text class="mach">{{item.commentamount}}</text>
           </view>
           <view class="setline">
-           <image src="../../img/good.png" class="good" bindtap="handlegood" data-id="{{item._id}}"></image>
+           <image src="{{item.good}}" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
            <text class="mach">{{item.goodamount}}</text>
           </view>
           <view class="setline">

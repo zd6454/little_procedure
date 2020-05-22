@@ -33,7 +33,16 @@ Page({
    goodamount:0, //收藏数
     time:"",
    likeamount:0,//点赞数
-  commentamount:0, //评论数
+   commentamount:0, //评论数
+   like:[{
+     user: "",//点赞的用户名
+     src: "",//点赞的图片
+     record: [],//记录他上一个点赞的是哪个
+   }],//点过赞的人的信息
+  //喜欢的图片
+  good: {
+    
+  },// 收藏的图片
   // comment3:{   //是否新建一个集合记录
   //   uers:[{
   //      user_id:"",
@@ -89,12 +98,24 @@ Page({
                goodamount:self.data.goodamount,
                commentamount:self.data.commentamount,
                time:time,
+               like:[],
+               good:"../../img/good.png",
+              //  {
+                //  src:"../../img/like.png",
+                //  user:"",
+                //  record:[],
+              // }
+            
               },
               success:function(suc){
                 console.log(suc);
                 wx.showToast({
                   title: '发布游记成功',
                 });
+                
+                wx.switchTab({
+                  url:"../Introduction/index?tabs[1].isActive"
+                })
               },
               fail:function(err){
                 console.log(err);
@@ -141,7 +162,7 @@ Page({
      let self=this;
      const permission=self.data.permissionimage=="../../img/permission0.png"?"../../img/permission1.png":"../../img/permission0.png";
      const weight=self.data.permissionimage=="../../img/permission0.png"?1:0;
-     console.log(weight,"9999");
+    //  console.log(weight,"9999");
       let permission2="travelnote.permission";
        self.setData({
          permissionimage:permission,

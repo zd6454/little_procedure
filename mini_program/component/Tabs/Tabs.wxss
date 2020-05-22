@@ -1,5 +1,5 @@
 .tabs{
-   
+   width:100%;
 }
 
 .tabs_title{
@@ -16,7 +16,7 @@
 }
 
 .active{
-    color: var(--themeColor);
+    color: #ec606b;
     border-bottom: 5rpx solid currentColor;
 }
 

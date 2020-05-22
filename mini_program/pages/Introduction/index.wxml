@@ -11,7 +11,7 @@
 </movable-area>
      -->
 
-<Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" >
+<Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" style="width:720">
      <block wx:if="{{tabs[0].isActive}}">
      <view class="wrap1">
       <text class="name1" >#平台攻略</text>
@@ -33,6 +33,6 @@
     
     </block>
       <block wx:if="{{tabs[1].isActive}}">
-      <Travelnotes list="{{list_travelnotes}}" />
+      <Travelnotes list="{{list_travelnotes}}" bindhandleIlike="changehandleIlike" bindhandlegood="changehandlegood"/>
     </block>
   </Tabs>

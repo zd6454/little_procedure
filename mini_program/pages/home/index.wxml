@@ -1,1 +1,44 @@
-<Move/>
+<!--component/travelnotes/travelnotes.wxml-->
+<view wx:for="{{list_travelnotes}}" wx:key="{{item._id}}"   class="forlist"  >
+<view class="onetotal {{item.permission}}?active:''" wx:if="{{item.permission}}">
+   <view class="head">
+     <image src="{{item.userInfo.avatarUrl}}" class="image" ></image>
+     <view class="allset">
+      <text class="textset">{{item.userInfo.nickName}}</text>
+      <text class="timeset"  >{{item.time}}  </text>
+     </view>
+   </view>
+   <view class="bordy">
+       <view class="conpute">
+         <text >❀ {{item.travelnote.content}} </text>
+       </view>
+
+       <view class="arrayimage" >
+          <view wx:for="{{item.travelnote.images}}" wx:key="index2" class="setimage">
+           <image src="{{item}}" class="image2"> </image>
+          </view>
+
+   
+       </view>
+       <view  class="foot" >
+          <view class="setline" >
+           <image src="../../img/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+           <!-- <text class="mach" wx:else>{{likeamount}}</text> -->
+          </view>
+         <view class="setline">
+           <image src="../../img/comment2.png" class="comment" bindtap="handlecomment2 " data-id="{{item._id}}" ></image>
+           <text class="mach">{{item.commentamount}}</text>
+          </view>
+          <view class="setline">
+           <image src="../../img/good.png" class="good" bindtap="handlegood" data-id="{{item._id}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+          </view>
+          <view class="setline">
+           <image src="../../img/show.png" class="share" bindtap="handleshow" data-id="{{item._id}}"></image>
+           <text class="mach">{{}}</text>
+          </view>
+       </view>
+   </view>
+</view>
+</view>

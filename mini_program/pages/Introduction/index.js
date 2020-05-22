@@ -74,24 +74,12 @@ Page({
         name: "吃喝玩乐周末游",
       }
     ],
-    list_travelnotes:[]
-   
+    list_travelnotes:[],
+    likebool:-1,
+    likerecord:"",//记录上一个的id
+    goodbool:-1,
   },
-  onLoad: function(){
-    DB.get({
-      success: res => {
-        console.log("查询成功", res.data);
-       this.setData({
-         list_travelnotes:res.data
-       })
-        console.log("查询成功", this.data.list_travelnotes);
-      },
-      file(res) {
-        console.log("查询失败", res);
-      }
-    })
-  },
-  
+
   //搜索框文本内容显示
   inputBind: function (event) {
     this.setData({
@@ -126,15 +114,18 @@ Page({
     })
   },
 
-//返回到页面时刷新
+  
+  //返回到页面时刷新
   onShow: function () {
     DB.get({
       success: res => {
-        console.log("查询成功", res.data);
+        // console.log("查询成功", res.data);
         this.setData({
-          list_travelnotes: res.data
+          list_travelnotes: res.data,
         })
-        console.log("查询成功", this.data.list_travelnotes);
+        console.log("查询成功", res.data.length);
+
+        wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
       },
       file(res) {
         console.log("查询失败", res);
@@ -145,17 +136,116 @@ Page({
   onPullDownRefresh() {
     DB.get({
       success: res => {
-        console.log("查询成功", res.data);
+        // console.log("查询成功", res.data);
         this.setData({
-          list_travelnotes: res.data
+          list_travelnotes: res.data,
         })
-        console.log("查询成功", this.data.list_travelnotes);
+        console.log("查询成功", res.data.length);
+
+        wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
       },
       file(res) {
         console.log("查询失败", res);
       }
     })
+  },
+
+  setTravelnotes(list_travelnotes) {
+    this.setData({
+      list_travelnotes,
+    })
+  },
+//喜欢
+  changehandleIlike(e){
+    console.log(e);
+    const list_travelnotes = wx.getStorageSync("list_travelnotes");
+
+    let id = e.detail.currentTarget.dataset.id;
+    let like = e.detail.currentTarget.dataset.likeamount;
+
+    wx.getUserInfo({
+      success:function(res){
+        console.log(res);
+        if (!list_travelnotes.like.length){//目前没有人点过赞
+
+        }else{
+          list_travelnotes.forEach(v => {
+            if (v.userInfo.nickName === res.like.nick && v._id === id) {
+
+            }
+          })
+        }
+        
+      }
+    })
+   
+      this.setData({
+        likebool: -this.data.likebool,
+        likerecord: id,
+      })
+
+    // console.log(this.data.likebool);
+    console.log(like);
+    like = like + this.data.likebool;
+    console.log(like);
+    list_travelnotes.forEach(v => {
+      if (v._id === id) {
+        v.likeamount = like
+        v.like.src=v.like.src == "../../img/like.png" ? "../../images/likes.png" : "../../img/like.png"
+      }
+    })
+   
+    this.setData({
+      list_travelnotes: list_travelnotes
+    })
+    wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
+
+    DB.doc(id).update({
+      data: {
+        likeamount: like,
+        likebool:-1
+      },
+      success(res) {
+        console.log(res);
+      }
+    })
+  },
+
+  //收藏
+  changehandlegood(e) {
+    console.log(e);
+    const list_travelnotes = wx.getStorageSync("list_travelnotes");
+
+    let id = e.detail.currentTarget.dataset.id;
+    let good = e.detail.currentTarget.dataset.goodamount;
+    this.setData({
+      goodbool: -this.data.goodbool,
+    })
+    // console.log(this.data.likebool);
+    console.log(good);
+    good = good + this.data.goodbool;
+    // console.log(good);
+    list_travelnotes.forEach(v => {
+      if (v._id === id) {
+        v.goodamount = good
+        v.good = v.good == "../../img/good.png" ? "../../images/goods.png" : "../../img/good.png"
+
+      }
+    })
+
+    this.setData({
+      list_travelnotes: list_travelnotes,
+      // goodbool:-1
+    })
+    wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
+
+    DB.doc(id).update({
+      data: {
+        goodamount: good,
+      },
+      success(res) {
+        console.log(res);
+      }
+    })
   }
-
-
 })
