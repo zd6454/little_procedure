@@ -87,7 +87,7 @@ opacity:1;
 }
 .arrayimage .setimage{
   height: 200rpx;
-  width:31%
+  width:33%
 
 }  
 .arrayimage .image2{

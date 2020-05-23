@@ -170,7 +170,7 @@ Page({
 
         }else{
           list_travelnotes.forEach(v => {
-            if (v.userInfo.nickName === res.like.nick && v._id === id) {
+            if (v.userInfo.nickName === res.userInfo.nickName && v._id === id) {
 
             }
           })

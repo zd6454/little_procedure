@@ -1,13 +1,14 @@
 <!--component/travelnotes/travelnotes.wxml-->
 <view wx:for="{{list}}" wx:key="{{item._id}}"   class="forlist"  >
 <view class="onetotal {{item.permission}}?active:''" wx:if="{{item.permission}}">
-   <view class="head">
+   <navigator class="head"
+    url="../../pages/detail_travelnote/index?_id={{item._id}}">
      <image src="{{item.userInfo.avatarUrl}}" class="image" ></image>
      <view class="allset">
       <text class="textset">{{item.userInfo.nickName}}</text>
       <text class="timeset"  >{{item.time}}  </text>
      </view>
-   </view>
+   </navigator>
    <view class="bordy">
        <view class="conpute">
          <text >❀ {{item.travelnote.content}} </text>

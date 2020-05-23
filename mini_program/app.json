@@ -2,6 +2,7 @@
   "pages": [
 
     "pages/index/index",
+    "pages/detail_travelnote/index",
     "pages/home/index",
     "pages/user/index",
     "pages/Introduction/index",

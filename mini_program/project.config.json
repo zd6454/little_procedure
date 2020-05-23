@@ -95,6 +95,19 @@
 					"pathName": "pages/home/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "游记详情",
+					"pathName": "pages/detail_travelnote/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论",
+					"pathName": "pages/comment/comment",
+					"scene": null
 				}
 			]
 		}
