@@ -76,8 +76,9 @@ Page({
     ],
     list_travelnotes:[],
     likebool:-1,
-    likerecord:"",//记录上一个的id
+    // like:[],
     goodbool:-1,
+    user:"",//用户名
   },
 
   //搜索框文本内容显示
@@ -114,9 +115,9 @@ Page({
     })
   },
 
-  
-  //返回到页面时刷新
-  onShow: function () {
+//初始化
+  init(){
+    //游记
     DB.get({
       success: res => {
         // console.log("查询成功", res.data);
@@ -124,30 +125,36 @@ Page({
           list_travelnotes: res.data,
         })
         console.log("查询成功", res.data.length);
-
-        wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
+        // wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
       },
       file(res) {
         console.log("查询失败", res);
+      }
+    })
+    // const list_travelnotes=this.data.list_travelnotes;
+    // //点赞初始化
+    // list_travelnotes.forEach(v=>{
+        
+    // })
+    //获取用户信息
+    const that=this;
+    wx.getUserInfo({
+      success: function (res) {
+        that.setData({
+          user:res.userInfo.nickName,//获取到用户的名字
+        })
       }
     })
   },
+
+  
+  //返回到页面时刷新
+  onShow: function () {
+    this.init();
+  },
   //下拉刷新
   onPullDownRefresh() {
-    DB.get({
-      success: res => {
-        // console.log("查询成功", res.data);
-        this.setData({
-          list_travelnotes: res.data,
-        })
-        console.log("查询成功", res.data.length);
-
-        wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
-      },
-      file(res) {
-        console.log("查询失败", res);
-      }
-    })
+    this.init();
   },
 
   setTravelnotes(list_travelnotes) {
@@ -158,52 +165,64 @@ Page({
 //喜欢
   changehandleIlike(e){
     console.log(e);
-    const list_travelnotes = wx.getStorageSync("list_travelnotes");
+    // const list_travelnotes = wx.getStorageSync("list_travelnotes");
+    const list_travelnotes = this.data.list_travelnotes;
 
     let id = e.detail.currentTarget.dataset.id;
-    let like = e.detail.currentTarget.dataset.likeamount;
+    let likeamount = e.detail.currentTarget.dataset.likeamount;//本条id的点赞数
 
-    wx.getUserInfo({
-      success:function(res){
-        console.log(res);
-        if (!list_travelnotes.like.length){//目前没有人点过赞
+    var like;
 
-        }else{
-          list_travelnotes.forEach(v => {
-            if (v.userInfo.nickName === res.userInfo.nickName && v._id === id) {
-
+    // const that=this;
+    list_travelnotes.forEach(v => {;
+      if (v._id === id) {//找到相关id的记录
+        if (v.like.length === 0){ //目前没有人点过赞
+        // 没有人点过赞 那么点击时则需要将点击的用户名添加到like数组中  证明此人点赞了
+        console.log("没有人")
+          v.like=v.like.concat(this.data.user)
+          console.log(v.like)
+          v.likeamount=v.likeamount+1
+          like=v.like
+          console.log(like)
+          likeamount=likeamount+1
+        }else {//有人点过赞 就需要遍历like数组
+          var length=v.like.length
+          var i=0;
+          for(;i<length;i++){
+            if(v.like[i]===this.data.user){
+              console.log("取消点赞")
+              console.log(v.like)
+              v.like.splice(i,1);
+              console.log(v.like)
+              v.likeamount = v.likeamount - 1
+              like = v.like
+              console.log(like)
+              likeamount = v.likeamount
+              break;
             }
-          })
+          }
+          console.log(i)
+          if(i>=length){//说明不在like队列  即没有点过赞  将其添加到like
+          console.log("点赞")
+            v.like.push(this.data.user)
+            v.likeamount = v.likeamount + 1
+            like = v.like
+            likeamount = v.likeamount
+          }
         }
-        
-      }
-    })
-   
-      this.setData({
-        likebool: -this.data.likebool,
-        likerecord: id,
-      })
-
-    // console.log(this.data.likebool);
-    console.log(like);
-    like = like + this.data.likebool;
-    console.log(like);
-    list_travelnotes.forEach(v => {
-      if (v._id === id) {
-        v.likeamount = like
-        v.like.src=v.like.src == "../../img/like.png" ? "../../images/likes.png" : "../../img/like.png"
       }
     })
    
     this.setData({
       list_travelnotes: list_travelnotes
     })
+    console.log(this.data.list_travelnotes)
     wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
 
     DB.doc(id).update({
       data: {
-        likeamount: like,
-        likebool:-1
+        like: like,
+        likeamount:likeamount,
       },
       success(res) {
         console.log(res);

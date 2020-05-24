@@ -106,12 +106,14 @@ opacity:1;
   display: flex;
   padding-top:10rpx;
   margin-top: 37.5rpx; 
-  margin-bottom: 30rpx; 
+  margin-bottom: 30rpx;
+  height:30rpx; 
 }
 .foot .Ilike{
   height: 38.4rpx;
   width: 38.4rpx;
   margin-left: 20rpx;
+  padding-bottom: 50rpx;
 }
 .foot .comment{
   height: 38.4rpx;

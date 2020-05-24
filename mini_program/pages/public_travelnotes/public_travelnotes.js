@@ -34,11 +34,12 @@ Page({
     time:"",
    likeamount:0,//点赞数
    commentamount:0, //评论数
-   like:[{
-     user: "",//点赞的用户名
-     src: "",//点赞的图片
-     record: [],//记录他上一个点赞的是哪个
-   }],//点过赞的人的信息
+  //  like:[{
+  //    user: "",//点赞的用户名
+  //    src: "",//点赞的图片
+  //    record: [],//记录他上一个点赞的是哪个
+  //  }],//点过赞的人的信息
+  like:[],
   //喜欢的图片
   good: {
     
@@ -121,6 +122,7 @@ Page({
                 console.log(err);
                 wx.showToast({
                   title: '发布游记失败',
+                  icon:'none'
                 });
               }
             })
@@ -129,6 +131,7 @@ Page({
            console.log("获取用户信息失败");
            wx.showToast({
             title: '发布游记失败',
+             icon: 'none'
           });
          }
         })
@@ -216,7 +219,7 @@ Page({
             cloudPath: 'travelnotes_images/' + new Date().getTime() + suffix,
             filePath:filePath,
             success:res=>{
-              console.log('上传成功',res);
+              console.log('上传成功', res.fileID);
               let ig="travelnote.images";
               self.setData({
                imagesid:self.data.imagesid.concat(res.fileID),

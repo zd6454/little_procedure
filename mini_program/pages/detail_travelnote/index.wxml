@@ -15,7 +15,7 @@
 
        <view class="arrayimage" >
           <view wx:for="{{item.travelnote.images}}" wx:key="index2" class="setimage">
-           <image src="{{item}}" class="image2"> </image>
+           <image src="{{item}}" class="image2" bindtap="handlePreviewImage"  data-url="{{item}}" > </image>
           </view>
        </view>
 
@@ -47,7 +47,7 @@
       <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="padding-bottom:75rpx;" class="list" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh">
        <view class="pro-con">
          <block wx:for="{{comment_user_list}}" wx:key="{{index}}">
-           <view class="pro-box">
+           <view class="pro-box {{item.isTouchMove ? 'touch-move-active' : ''}}" bindlongpress='longPress' bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{item._id}}">
              <view class="head">
                <image class="img" src="{{item.user_image}}" mode="aspectFit"></image>
                <view class="box">
@@ -63,11 +63,14 @@
                </view>
              </view>
              <view class="addr-info">
+              <navigator url="/pages/record/index" class="record">回复</navigator>
                <view class="addr-text">
                  {{item.user_context}}
                </view>
               </view>
+             
            </view>
+            <!-- <view class="del" catchtap="del" data-index="{{item._id}}">删除</view> -->
          </block>
        </view>
      </scroll-view> 

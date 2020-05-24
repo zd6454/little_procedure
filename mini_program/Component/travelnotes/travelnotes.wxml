@@ -22,14 +22,32 @@
    
        </view>
        <view  class="foot" >
-          <view class="setline" >
-           <image src="{{item.like.src}}" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+
+        <!-- 没有点赞过的用户 -->
+        <view class="setline" wx:if="{{item.like.length===0}}">
+           <image src="../../img/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+        </view>
+        <!-- 有点赞的用户  用循环查看like -->
+        <view wx:else >
+         <view wx:for="{{item.like}}"  wx:for-item="item1">
+         <!-- 用户点过赞 -->
+          <view class="setline"  wx:if="{{item1===user}}">
+           <image src="../../images/likes.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
            <text class="mach" >{{item.likeamount}}</text>
           </view>
-         <view class="setline">
+        </view>
+          <view class="setline" >
+           <image src="../../img/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+          </view>
+        </view>
+          
+
+         <navigator class="setline" url="../../pages/detail_travelnote/index?_id={{item._id}}">
            <image src="../../img/comment2.png" class="comment" bindtap="handlecomment2 " data-id="{{item._id}}" ></image>
            <text class="mach">{{item.commentamount}}</text>
-          </view>
+          </navigator>
           <view class="setline">
            <image src="{{item.good}}" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
            <text class="mach">{{item.goodamount}}</text>

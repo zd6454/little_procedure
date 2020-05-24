@@ -33,6 +33,6 @@
     
     </block>
       <block wx:if="{{tabs[1].isActive}}">
-      <Travelnotes list="{{list_travelnotes}}" bindhandleIlike="changehandleIlike" bindhandlegood="changehandlegood"/>
+      <Travelnotes list="{{list_travelnotes}}" user="{{user}}" bindhandleIlike="changehandleIlike" bindhandlegood="changehandlegood"/>
     </block>
   </Tabs>

@@ -9,9 +9,13 @@ Component({
         type:Array,
         value:""
       },
-      likesrc:{
-        type: Array,
-        value: ""
+      // like:{
+      //   type: Array,
+      //   value: ""
+      // },
+      user:{
+        type:String,
+        vslue:""
       }
   },
 
