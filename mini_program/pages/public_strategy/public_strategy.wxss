@@ -1,0 +1,191 @@
+.pageset{
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  box-shadow: 8rpx 8rpx 16rpx  rgba(194, 126, 126, 0.5);
+  margin-bottom: 18rpx;
+}
+
+.head{
+  display: block;
+  overflow: hidden;
+  margin-top: 23rpx;
+}
+.head .line{
+  display: flex;
+  margin:20rpx 0 0 50rpx;
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  color:rgb(161, 115, 115);
+  line-height:30rpx;
+}
+
+.head .selecttext{
+  width:30%;
+  height:20rpx;
+  color:rgb(161, 115, 115);
+  letter-spacing:1.000000953674316px;
+  opacity:1;
+}
+.head .inputset{
+  font-size:22rpx;
+  border-radius: 30rpx;
+  width: 30%;
+  height: 25rpx;
+  min-height: 25rpx;
+}
+.head .line2{
+  display: flex;
+  margin:20rpx ;
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  color:rgb(161, 115, 115);
+  line-height:18rpx;
+  flex-wrap:wrap;
+  white-space: pre-wrap;
+}
+.head .line2 .cycleset{
+  width:26%;
+  height:34.4rpx;
+  color:rgb(161, 115, 115);
+}
+.head .line2 .cycleset2{
+  width:26%;
+  height:34.4rpx;
+  color:rgb(180, 156, 156);
+}
+.texthead{
+ width:26%;
+ height:34.4rpx;
+}
+.line3{
+  display: flex;
+  width:70%;
+  height:38rpx;
+  margin:20rpx 0 0 50rpx ;
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  white-space: nowrap;
+  color:rgb(161, 115, 115);
+}
+.head .line .scrollset{
+  white-space: nowrap;
+}
+.head .line .scrollset .cycleset3{
+  width:18%;
+  height:34.4rpx;
+  color:rgb(161, 115, 115);
+  display: flex;
+  flex-direction: row;
+  display: inline-block;
+  margin-left:10rpx;
+}
+.head .line .scrollset .cycleset4{
+  width:18%;
+  height:34.4rpx;
+  color:rgb(180, 156, 156);
+  display: flex;
+  flex-direction: row;
+  display: inline-block;
+  margin-left:10rpx;
+}
+ .setscroll{
+  width:100%;
+  height:38rpx;
+  display: flex;
+  flex-direction: row;
+}
+ .textset{
+  letter-spacing:1.000000953674316px;
+  border: 0 solid #b2b7bb; 
+  border-radius: 4rpx;
+  margin-left: 40rpx;
+}
+/* 第二部分 */
+.body{
+ display: flex;
+ flex-direction: column;
+}
+.areaset{
+  width:100%;
+  height: 100%;
+  display:flex;
+  justify-content:space-around;
+}
+.areaset .textareaset{
+  width:200rpx;
+  height:60rpx;
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  text-align: center;
+}
+.describe{
+align-items: center;
+}
+.describe .describewrite{
+  width: 500rpx;
+  height: 100rpx;
+  font-size:22rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  margin: 20rpx 0 20rpx 50rpx;
+}
+.buttonset{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttonset .buttonwrite{
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  height: 70rpx;
+  width:200rpx;
+}
+.buttonset .buttonwrite2{
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  height: 70rpx;
+  width:200rpx;
+}
+
+.mapset{
+  width: 500rpx;
+  align-items: center;
+  margin: 20rpx 0 20rpx 50rpx;
+}
+.maptext{
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  margin-left: 182rpx;
+}
+.mapset .mapig{
+  width:100%;
+  height: 400rpx;
+  border:solid 1rpx #b49999;
+}
+
+.foot{
+  width:80%;
+  margin-left: 60rpx;
+  margin-bottom: 20rpx;
+}
+
+.foot .commit{
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+}

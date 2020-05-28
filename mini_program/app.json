@@ -1,6 +1,6 @@
 {
   "pages": [
-
+    "pages/public_strategy/public_strategy",
     "pages/index/index",
     "pages/home/index",
     "pages/user/index",

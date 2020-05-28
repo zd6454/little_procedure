@@ -1,0 +1,49 @@
+  <view class="pageset" >
+      <view class="head">
+          <view class="line">
+          <text class="selecttext">期限设置:</text>
+           <input type="text" placeholder='输入天数' class="inputset" bindinput="dateset"></input>
+           <text class="selecttext">日游</text>
+          </view>
+           <view class="line">
+          <text class="selecttext">经费设置:</text>
+           <input type="text" placeholder='输入经费' class="inputset" bindinput="feeset"></input>
+           <text class="selecttext">元以下</text>
+          </view>
+          <view class="line3">
+            <text class="texthead">旅游类型：</text>
+            <scroll-view scroll-x="true" class="scorllset">
+            <view class="setscroll">
+             <view wx:for="{{typeselectids}}" wx:for-index="index" class="cycleset3"  hover-class="cycleset4" wx:key="index" >
+             <text class="textset" data-index="{{index}}" bindtap="deleteitem">{{item}}</text>
+            </view>
+            </view>
+            </scroll-view>
+          </view>
+           <view class="line2">
+           <view wx:for="{{travel_type}}"  wx:for-index="index" class="cycleset"  hover-class="cycleset2" wx:key="index">
+              <text class="textset" data-index="{{index}}" bindtap="additem">{{item}}</text>
+            </view>
+          </view>
+      </view>
+      <view class="body">
+          <view class="areaset">
+            <textarea class="textareaset" placeholder="输入景点(请包含城市名称)" bindinput="spotset"  value="{{spot}}"></textarea>
+            <textarea class="textareaset" placeholder="交通选择:(公交,驾车,骑行,地铁,火车)" bindinput="vehicleset" value="{{vehicle}}"></textarea>
+          </view>
+          <view class="describe">
+          <textarea class="describewrite" placeholder="输入游玩描述" maxlength="-1" bindinput="contentset" value="{{playcontent}}"></textarea>
+          </view>
+          <view  class="buttonset">
+           <button class="buttonwrite2" bindtap="lastplay">上一站</button>
+           <button class="buttonwrite" bindtap="nextplay">下一站</button>
+          </view>
+          <view class="mapset">
+               <text class="maptext">景点图例</text>
+               <image class="mapig" src="{{mapimagesrc}}" bindtap="checkmap"></image>
+          </view>
+      </view>
+      <view class="foot">
+        <button class="commit" bindtap="comfirm" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" > 发布</button>
+      </view>
+  </view>
