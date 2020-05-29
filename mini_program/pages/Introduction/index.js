@@ -20,43 +20,43 @@ Page({
         isActive: false
       }
     ],
-    list: [
-      {
-        index: 0,
-        user_image: "../../images/bowuguan.jpg",
-        user: "1111",
-        user_text: "gbhnhuhn vdregvdsfdsfcsdbuununuinjknjkn",
-        num: 211,
-        image: "../../images/wuda.jpg",
-      },
-      {
-        index: 1,
-        user_image: "../../images/wuda.jpg",
-        user: "1111",
-        user_text: "超速二次南湖搜出",
-        num: 2,
-        image: "../../images/wuda.jpg",
+    // list: [
+    //   {
+    //     index: 0,
+    //     user_image: "../../images/bowuguan.jpg",
+    //     user: "1111",
+    //     user_text: "gbhnhuhn vdregvdsfdsfcsdbuununuinjknjkn",
+    //     num: 211,
+    //     image: "../../images/wuda.jpg",
+    //   },
+    //   {
+    //     index: 1,
+    //     user_image: "../../images/wuda.jpg",
+    //     user: "1111",
+    //     user_text: "超速二次南湖搜出",
+    //     num: 2,
+    //     image: "../../images/wuda.jpg",
 
-      },
-      {
-        index: 2,
-        user_image: "../../images/bowuguan.jpg",
-        user: "1111",
-        user_text: "gbcs督促色IC或碾碎凑南湖U护禾谷渔粉挺有缘分",
-        num: 2,
-        image: "../../images/wuda.jpg",
+    //   },
+    //   {
+    //     index: 2,
+    //     user_image: "../../images/bowuguan.jpg",
+    //     user: "1111",
+    //     user_text: "gbcs督促色IC或碾碎凑南湖U护禾谷渔粉挺有缘分",
+    //     num: 2,
+    //     image: "../../images/wuda.jpg",
 
-      },
-      {
-        index: 3,
-        user_image: "../../images/huangheluo.jpg",
-        user: "1111",
-        user_text: "gbhnhuhnvfdxczdrsvfdfvgedgrtrf5",
-        num: 21,
-        image: "../../images/wuda.jpg",
+    //   },
+    //   {
+    //     index: 3,
+    //     user_image: "../../images/huangheluo.jpg",
+    //     user: "1111",
+    //     user_text: "gbhnhuhnvfdxczdrsvfdfvgedgrtrf5",
+    //     num: 21,
+    //     image: "../../images/wuda.jpg",
 
-      }
-    ],
+    //   }
+    // ],
     system_strategy: [
       {
         id: 0,
@@ -238,6 +238,74 @@ Page({
     })
   },
 
+  //喜欢  攻略
+  changehandleIlike1(e) {
+    console.log(e);
+    // const list_travelnotes = wx.getStorageSync("list_travelnotes");
+    const list_strategy = this.data.list_strategy;
+
+    let id = e.detail.currentTarget.dataset.id;
+    let likeamount = e.detail.currentTarget.dataset.likeamount;//本条id的点赞数
+
+    var like;
+    // const that=this;
+    list_strategy.forEach(v => {
+      ;
+      if (v._id === id) {//找到相关id的记录
+        if (v.like.length === 0) { //目前没有人点过赞
+          // 没有人点过赞 那么点击时则需要将点击的用户名添加到like数组中  证明此人点赞了
+          console.log("没有人")
+          v.like = v.like.concat(this.data.user)
+          console.log(v.like)
+          v.likeamount = v.likeamount + 1
+          like = v.like
+          console.log(like)
+          likeamount = likeamount + 1
+        } else {//有人点过赞 就需要遍历like数组
+          var length = v.like.length
+          var i = 0;
+          for (; i < length; i++) {
+            if (v.like[i] === this.data.user) {
+              console.log("取消点赞")
+              console.log(v.like)
+              v.like.splice(i, 1);
+              console.log(v.like)
+              v.likeamount = v.likeamount - 1
+              like = v.like
+              console.log(like)
+              likeamount = v.likeamount
+              break;
+            }
+          }
+          console.log(i)
+          if (i >= length) {//说明不在like队列  即没有点过赞  将其添加到like
+            console.log("点赞")
+            v.like.push(this.data.user)
+            v.likeamount = v.likeamount + 1
+            like = v.like
+            likeamount = v.likeamount
+          }
+        }
+      }
+    })
+
+    this.setData({
+      list_strategy: list_strategy
+    })
+    console.log(this.data.list_strategy)
+    wx.setStorageSync("list_strategy", this.data.list_strategy);
+
+    DB1.doc(id).update({
+      data: {
+        like: like,
+        likeamount: likeamount,
+      },
+      success(res) {
+        console.log(res);
+      }
+    })
+  },
+
   //收藏  游记
   changehandlegood(e) {
     console.log(e);
@@ -253,7 +321,6 @@ Page({
       ;
       if (v._id === id) {//找到相关id的记录
         if (v.good.length === 0) { //目前没有人点过赞
-          // 没有人点过赞 那么点击时则需要将点击的用户名添加到good数组中  证明此人点赞了
           console.log("没有人")
           v.good = v.good.concat(this.data.user)
           console.log(v.good)
