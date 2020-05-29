@@ -7,7 +7,11 @@ Component({
      list:{
        type:Array,
        value:[],
-     }
+     },
+    user: {
+      type: String,
+      vslue: ""
+    }
   },
 
   /**
@@ -21,6 +25,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    handleIlike(e) {
+      this.triggerEvent("handleIlike", e);
+    },
 
+    // handlecomment2(e){
+    //   this.triggerEvent("handlecomment2", e);
+    // },
+    handlegood(e) {
+      this.triggerEvent("handlegood", e);
+    },
   }
 })

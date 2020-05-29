@@ -14,38 +14,58 @@
   border-radius: 20rpx;
   margin-bottom: 30rpx;
   padding-bottom: 20rpx;
-   border: 1rpx solid rgb(199, 197, 197);
+  border: 1rpx solid rgb(199, 197, 197);
 }
 
 .big_image{
   width:346rpx;
-  height:234rpx;
+  height:250rpx;
    border-radius: 20rpx;
 }
 
 .array{
   line-height:46.8rpx;  
   width:320rpx;
-  height: 93.6rpx;
+  height: 50rpx;
   margin: 10rpx ;
   margin-left: 10rpx;
   /* margin-right: 5rpx; */
-  color: rgb(85, 80, 80);
+  /* color: rgb(85, 80, 80); */
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   word-break: break-all;
+color: #4ebc97;
+
 }
 
+.taps{
+  display: flex;
+  flex-direction: row;
+  font-size: 23rpx;
+  align-items: center;
+  justify-content: center;
+  padding: 5rpx;
+}
+
+.conduct{
+  flex: 1;
+  text-align:center;
+  /* border: 1rpx solid rgb(199, 197, 197); */
+  background-color: #def1e9;
+  border-radius: 5rpx;
+}
 
 .head {
   display: flex;
   background-color:#fff;
   /* justify-content:space-around; */
   margin-left: 20rpx;
-  
+  height: 50rpx;
+overflow: hidden;
+
 }
 .image{
     height: 46.8rpx;
@@ -56,7 +76,7 @@
 
 .textset{
 font-size: 25rpx;
-color: rgb(196, 191, 191);
+/* color: rgb(196, 191, 191); */
 padding-left: 10rpx;
 line-height: 45rpx;
 }
@@ -68,6 +88,7 @@ line-height: 45rpx;
   justify-content:center;
    align-items: center;
 }
+
 .gethot{
   /* flex:2; */
   /* padding-left: 130rpx; */

@@ -1,41 +1,81 @@
 
-<view class="list">
+<view class="list" style="">
   <view class='list-half'>
-    <navigator wx:for="{{list}}" wx:key="index" wx:if="{{index%2 == 0}}" class='card' url="/pages/spot_detail/index?id={{item.index}}">
-      <image src="{{item.image}}" mode="scaleToFill" class="big_image"style="" ></image>
-       <view class="array">
-         {{item.user_text}}
+    <view wx:for="{{list}}" wx:key="index" wx:if="{{index%2 == 0}}" class='card' >
+    <navigator url="/pages/detail_strategy/index?id={{item.index}}">
+      <image src="{{item.imageurl}}" mode="scaleToFill" class="big_image"style="" ></image>
+           <view class="taps">
+       <view class="array" wx:for="{{item.typeselectids}}" wx:for-item="item1">
+          <view class="conduct">{{item1}}</view>
        </view>
+</view>
+       </navigator>
        <view class="head">
               <view class="head">
                 <image class="image" src="{{item.userInfo.avatarUrl}}" ></image>
                  <text class="textset">{{item.userInfo.nickName}}</text>
               </view>
-              <view class="wrap">
-                <image src="../../img/like.png" class="gethot"> </image>
-                <text class="good">{{item.likeamount}}</text>
-              </view>
+          <!-- 没有点赞过的用户 -->
+        <view class="wrap" wx:if="{{item.like.length===0}}">
+           <image src="../../img/like.png" class="gethot" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="good" >{{item.likeamount}}</text>
+        </view>
+        <!-- 有点赞的用户  用循环查看like -->
+        <view wx:else >
+         <view wx:for="{{item.like}}"  wx:for-item="item1">
+         <!-- 用户点过赞 -->
+          <view class="wrap"  wx:if="{{item1===user}}">
+           <image src="../../images/likes.png" class="gethot" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="good" >{{item.likeamount}}</text>
+          </view>
+        </view>
+          <view class="wrap" >
+           <image src="../../img/like.png" class="gethot" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="good" >{{item.likeamount}}</text>
+          </view>
+        </view>
        </view>
       
-    </navigator>
+    </view>
   </view>
   <view class='list-half'>
-   <navigator wx:for="{{list}}" wx:key="index" wx:if="{{index%2 != 0}}" class='card' url="/pages/spot_detail/index?id={{item.index}}">
-       <image src="{{item.image}}" mode="scaleToFill" style="width:346rpx;height:234rpx; border-radius: 20rpx;"></image>
-       <view class="array">
-       <text class="conduct">{{item.user_text}}</text>
+   <view wx:for="{{list}}" wx:key="index" wx:if="{{index%2 != 0}}" class='card'>
+
+    <navigator  url="/pages/detail_strategy/index?id={{item.index}}">
+       <image src="{{item.imageurl}}" mode="scaleToFill" style="width:346rpx;height:250rpx; border-radius: 20rpx;"></image>
+       <view class="taps">
+       <view class="array" wx:for="{{item.typeselectids}}" wx:for-item="item1">
+          <view class="conduct">{{item1}}</view>
        </view>
+</view>
+    </navigator>
+
        <view class="head">
               <view class="head">
                    <image class="image" src="{{item.userInfo.avatarUrl}}" ></image>
                  <text class="textset">{{item.userInfo.nickName}}</text>
               </view>
-            <view class="wrap">
-                 <image src="../../img/like.png" class="gethot"> </image>
-                <text class="good">{{item.likeamount}}</text>
-              </view>
+             <!-- 没有点赞过的用户 -->
+        <view class="wrap" wx:if="{{item.like.length===0}}">
+           <image src="../../img/like.png" class="gethot" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="good" >{{item.likeamount}}</text>
+        </view>
+        <!-- 有点赞的用户  用循环查看like -->
+        <view wx:else >
+         <view wx:for="{{item.like}}"  wx:for-item="item1">
+         <!-- 用户点过赞 -->
+          <view class="wrap"  wx:if="{{item1===user}}">
+           <image src="../../images/likes.png" class="gethot" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="good" >{{item.likeamount}}</text>
+          </view>
+        </view>
+          <view class="wrap" >
+           <image src="../../img/like.png" class="gethot" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="good" >{{item.likeamount}}</text>
+          </view>
+        </view>
        </view>
       
-    </navigator>
+    </view>
   </view>
 </view>

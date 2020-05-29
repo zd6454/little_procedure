@@ -4,6 +4,7 @@
     "pages/index/index",
     "pages/record/index",
     "pages/detail_travelnote/index",
+    "pages/detail_strategy/index",
     "pages/home/index",
     "pages/user/index",
     "pages/Introduction/index",
