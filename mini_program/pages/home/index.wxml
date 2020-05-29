@@ -42,3 +42,9 @@
    </view>
 </view>
 </view>
+
+<view>
+    <button class='share-button' open-type="share">
+        <image class="right" src="../../img/share.png"></image>
+    </button>
+</view>

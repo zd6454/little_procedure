@@ -75,9 +75,6 @@ Page({
       }
     ],
     list_travelnotes:[],
-    likebool:-1,
-    // like:[],
-    goodbool:-1,
     user:"",//用户名
   },
 
@@ -232,35 +229,101 @@ Page({
 
   //收藏
   changehandlegood(e) {
+  //   console.log(e);
+  //   const list_travelnotes = wx.getStorageSync("list_travelnotes");
+
+  //   let id = e.detail.currentTarget.dataset.id;
+  //   let good = e.detail.currentTarget.dataset.goodamount;
+  //   this.setData({
+  //     goodbool: -this.data.goodbool,
+  //   })
+  //   // console.log(this.data.likebool);
+  //   console.log(good);
+  //   good = good + this.data.goodbool;
+  //   // console.log(good);
+  //   list_travelnotes.forEach(v => {
+  //     if (v._id === id) {
+  //       v.goodamount = good
+  //       v.good = v.good == "../../img/good.png" ? "../../images/goods.png" : "../../img/good.png"
+
+  //     }
+  //   })
+
+  //   this.setData({
+  //     list_travelnotes: list_travelnotes,
+  //     // goodbool:-1
+  //   })
+  //   wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
+
+  //   DB.doc(id).update({
+  //     data: {
+  //       goodamount: good,
+  //     },
+  //     success(res) {
+  //       console.log(res);
+  //     }
+  //   })
+
     console.log(e);
-    const list_travelnotes = wx.getStorageSync("list_travelnotes");
+    // const list_travelnotes = wx.getStorageSync("list_travelnotes");
+    const list_travelnotes = this.data.list_travelnotes;
 
     let id = e.detail.currentTarget.dataset.id;
-    let good = e.detail.currentTarget.dataset.goodamount;
-    this.setData({
-      goodbool: -this.data.goodbool,
-    })
-    // console.log(this.data.likebool);
-    console.log(good);
-    good = good + this.data.goodbool;
-    // console.log(good);
-    list_travelnotes.forEach(v => {
-      if (v._id === id) {
-        v.goodamount = good
-        v.good = v.good == "../../img/good.png" ? "../../images/goods.png" : "../../img/good.png"
+    let goodamount = e.detail.currentTarget.dataset.goodamount;//本条id的点赞数
 
+    var good;
+
+    // const that=this;
+    list_travelnotes.forEach(v => {
+      ;
+      if (v._id === id) {//找到相关id的记录
+        if (v.good.length === 0) { //目前没有人点过赞
+          // 没有人点过赞 那么点击时则需要将点击的用户名添加到good数组中  证明此人点赞了
+          console.log("没有人")
+          v.good = v.good.concat(this.data.user)
+          console.log(v.good)
+          v.goodamount = v.goodamount + 1
+          good = v.good
+          console.log(good)
+          goodamount = goodamount + 1
+        } else {//有人点过赞 就需要遍历good数组
+          var length = v.good.length
+          var i = 0;
+          for (; i < length; i++) {
+            if (v.good[i] === this.data.user) {
+              console.log("取消点赞")
+              console.log(v.good)
+              v.good.splice(i, 1);
+              console.log(v.good)
+              v.goodamount = v.goodamount - 1
+              good = v.good
+              console.log(good)
+              goodamount = v.goodamount
+              break;
+            }
+          }
+          console.log(i)
+          if (i >= length) {//说明不在good队列  即没有点过赞  将其添加到good
+            console.log("点赞")
+            v.good.push(this.data.user)
+            v.goodamount = v.goodamount + 1
+            good = v.good
+            goodamount = v.goodamount
+          }
+        }
       }
     })
 
     this.setData({
-      list_travelnotes: list_travelnotes,
-      // goodbool:-1
+      list_travelnotes: list_travelnotes
     })
+    console.log(this.data.list_travelnotes)
     wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
 
     DB.doc(id).update({
       data: {
-        goodamount: good,
+        good: good,
+        goodamount: goodamount,
       },
       success(res) {
         console.log(res);

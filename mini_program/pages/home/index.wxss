@@ -137,3 +137,9 @@ opacity:1;
 .foot .setline{
   display: flex;
 }
+
+.share-button{
+ 
+    /*透明不显示*/
+    background: rgba(0,0,0,0);
+}

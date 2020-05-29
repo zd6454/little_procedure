@@ -107,6 +107,14 @@
 					"id": -1,
 					"name": "评论",
 					"pathName": "pages/comment/comment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布攻略",
+					"pathName": "pages/public_strategy/public_strategy",
+					"query": "",
 					"scene": null
 				}
 			]

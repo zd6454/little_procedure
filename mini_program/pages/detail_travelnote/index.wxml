@@ -4,7 +4,7 @@
    <view class="head">
      <image src="{{item.userInfo.avatarUrl}}" class="image" ></image>
      <view class="allset">
-      <text class="textset">{{item.userInfo.nickName}}</text> 
+      <text class="textset">{{item.userInfo.nickName}}</text>
       <text class="timeset"  >{{item.time}}  </text>
      </view>
    </view>
@@ -20,34 +20,74 @@
        </view>
 
        <view  class="foot" >
-          <view class="setline" >
-           <image src="{{item.like.src}}" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <!-- 没有点赞过的用户 -->
+        <view class="setline" wx:if="{{item.like.length===0}}">
+           <image src="../../img/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+        </view>
+        <!-- 有点赞的用户  用循环查看like -->
+        <view wx:else >
+         <view wx:for="{{item.like}}"  wx:for-item="item1">
+         <!-- 用户点过赞 -->
+          <view class="setline"  wx:if="{{item1===user}}" >
+           <image src="../../images/likes.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
            <text class="mach" >{{item.likeamount}}</text>
           </view>
+        </view>
+          <view class="setline" >
+           <image src="../../img/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+          </view>
+        </view>
+          
+
          <view class="setline">
            <image src="../../img/comment2.png" class="comment" bindtap="handlecomment2 " data-id="{{item._id}}" ></image>
            <text class="mach">{{item.commentamount}}</text>
           </view>
-          <view class="setline">
-           <image src="{{item.good}}" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+
+            <!-- 没有收藏过的 -->
+        <view class="setline" wx:if="{{item.good.length===0}}">
+         <image src="../../img/good.png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+        </view>
+        <!-- 有收藏的用户  用循环查看good -->
+        <view wx:else >
+         <view wx:for="{{item.good}}"  wx:for-item="item1">
+         <!-- 用户收藏过 -->
+          <view class="setline"  wx:if="{{item1===user}}">
+             <image src="../../images/goods.png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
            <text class="mach">{{item.goodamount}}</text>
           </view>
-          <view class="setline">
-           <image src="../../img/show.png" class="share" bindtap="handleshow" data-id="{{item._id}}"></image>
-           <text class="mach">{{}}</text>
+        </view>
+          <view class="setline" >
+          <image src="../../img/good.png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
           </view>
+        </view>
+
+          <!-- <view class="setline">
+           <image src="{{item.good}}" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+          </view> -->
+          <button open-type="share" class="setlinebtn"  style="background-image:url(../../img/share3.png);">
+          <!-- <view class="setline1" > -->
+           <!-- <image src="../../img/show.png" class="share" bindtap="handleshow" data-id="{{item._id}}"></image> -->
+           <!-- <text class="mach1">{{}}</text> -->
+          <!-- </view> -->
+           </button>
        </view>
-       <!-- <view class=""> -->
-       <!-- <Comment/> -->
-       
-       <!-- </view> -->
    </view>
+
    <block wx:if="{{loading}}"> <mp-loading type="circle"></mp-loading></block>
     <block wx:if="{{loading==false}}" >
-      <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="padding-bottom:75rpx;" class="list" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh">
+      <scroll-view scroll-top="{{scrollTop}}" scroll-y="true"  class="list {{comment_user_list.length?'active':''}}" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh" >
        <view class="pro-con">
+        <view class="annotation" wx:if="{{comment_user_list.length}}">评论可以长按删除哦</view>
+        <view class="annotation" wx:else>快来添加评论吧</view>
+
          <block wx:for="{{comment_user_list}}" wx:key="{{index}}">
-           <view class="pro-box {{item.isTouchMove ? 'touch-move-active' : ''}}" bindlongpress='longPress' bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{item._id}}">
+           <view class="pro-box" bindlongpress='longPress'data-index="{{item._id}}">
              <view class="head">
                <image class="img" src="{{item.user_image}}" mode="aspectFit"></image>
                <view class="box">
@@ -70,12 +110,12 @@
               </view>
              
            </view>
-            <!-- <view class="del" catchtap="del" data-index="{{item._id}}">删除</view> -->
          </block>
+            <!-- <view class="del" catchtap="del" data-index="{{item._id}}">删除</view> -->
        </view>
+         <!-- <text class="notice">长按可以删除哦</text> -->
      </scroll-view> 
     </block>
-</view>
 </view>
 <form bindsubmit="submitForm" report-submit="true">
   <view class="release">
@@ -85,3 +125,4 @@
     </view>
   </view>
 </form>
+</view>

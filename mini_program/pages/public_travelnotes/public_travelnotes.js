@@ -41,18 +41,7 @@ Page({
   //  }],//点过赞的人的信息
   like:[],
   //喜欢的图片
-  good: {
-    
-  },// 收藏的图片
-  // comment3:{   //是否新建一个集合记录
-  //   uers:[{
-  //      user_id:"",
-  //     user_name:"",
-  //     user_comment:""
-  //   },{}],
-  //   users_amount:Number,
-  //   commnet_amount:Number,
-  // }
+  good: []
   },
 
   /**
@@ -100,7 +89,7 @@ Page({
                commentamount:self.data.commentamount,
                time:time,
                like:[],
-               good:"../../img/good.png",
+               good:[],
               //  {
                 //  src:"../../img/like.png",
                 //  user:"",

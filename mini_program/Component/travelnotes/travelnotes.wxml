@@ -48,14 +48,31 @@
            <image src="../../img/comment2.png" class="comment" bindtap="handlecomment2 " data-id="{{item._id}}" ></image>
            <text class="mach">{{item.commentamount}}</text>
           </navigator>
-          <view class="setline">
-           <image src="{{item.good}}" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+
+            <!-- 没有收藏过的 -->
+        <view class="setline" wx:if="{{item.good.length===0}}">
+         <image src="../../img/good.png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+        </view>
+        <!-- 有收藏的用户  用循环查看good -->
+        <view wx:else >
+         <view wx:for="{{item.good}}"  wx:for-item="item1">
+         <!-- 用户收藏过 -->
+          <view class="setline"  wx:if="{{item1===user}}">
+             <image src="../../images/goods.png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
            <text class="mach">{{item.goodamount}}</text>
           </view>
-          <view class="setline">
-           <image src="../../img/show.png" class="share" bindtap="handleshow" data-id="{{item._id}}"></image>
-           <text class="mach">{{}}</text>
+        </view>
+          <view class="setline" >
+          <image src="../../img/good.png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
           </view>
+        </view>
+
+         <navigator class="setline" url="../../pages/detail_travelnote/index?_id={{item._id}}">
+           <image src="../../img/show.png" class="share" bindtap="handleshow" data-id="{{item._id}}"></image>
+          </navigator>
+
        </view>
    </view>
 </view>

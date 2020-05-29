@@ -52,6 +52,8 @@ height:28.08rpx;
 font-size:25.74rpx;
 color:rgba(178,178,178,1);
 white-space: nowrap;
+padding-top: 10rpx;
+
 }
 .body{
   margin-top: 75rpx;
@@ -67,7 +69,13 @@ font-weight:300;
 line-height:46.8rpx;
 /* color:rgba(53,53,53,1); */
 margin-top: 18.75rpx;
-letter-spacing:2.34000223159789944rpx;
+letter-spacing:2.34rpx;
+ display: -webkit-box;
+ overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
 
 opacity:1;
 }
@@ -105,7 +113,7 @@ opacity:1;
 .foot{
   display: flex;
   padding-top:10rpx;
-  margin-top: 37.5rpx; 
+  margin-top: 10rpx; 
   margin-bottom: 30rpx;
   height:30rpx; 
 }
@@ -124,6 +132,7 @@ opacity:1;
   height: 38.4rpx;
   width: 38.4rpx;
   margin-left: 130rpx;
+    padding-bottom: 50rpx;
 }
 .foot .share{
  height: 38.4rpx;

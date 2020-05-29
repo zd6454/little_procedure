@@ -21,7 +21,7 @@
   </view>
   <view class='list-half'>
    <navigator wx:for="{{list}}" wx:key="index" wx:if="{{index%2 != 0}}" class='card' url="/pages/spot_detail/index?id={{item.index}}">
-       <image src="{{item.image}}" mode="scaleToFill" style="width:342rpx;height:234rpx; border-radius: 20rpx;"></image>
+       <image src="{{item.image}}" mode="scaleToFill" style="width:346rpx;height:234rpx; border-radius: 20rpx;"></image>
        <view class="array">
        <text class="conduct">{{item.user_text}}</text>
        </view>

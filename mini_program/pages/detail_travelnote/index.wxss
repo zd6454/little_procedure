@@ -1,7 +1,7 @@
 /* pages/detail_travelnote/index.wxss *//* component/travelnotes/travelnotes.wxss */
-.forlist{
+/* .forlist{
   height: 0rpx;
-}
+} */
 
 .onetotal{
 width:710rpx;
@@ -53,6 +53,7 @@ height:28.08rpx;
 font-size:25.74rpx;
 color:rgba(178,178,178,1);
 white-space: nowrap;
+padding-top: 10rpx;
 }
 .body{
   margin-top: 75rpx;
@@ -68,8 +69,10 @@ font-weight:300;
 line-height:46.8rpx;
 /* color:rgba(53,53,53,1); */
 margin-top: 18.75rpx;
-letter-spacing:2.34000223159789944rpx;
-
+letter-spacing:2.34rpx;
+ -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
 opacity:1;
 }
 .arrayimage{
@@ -104,12 +107,14 @@ opacity:1;
 }
 
 .foot{
+  
+
   display: flex;
   padding-top:10rpx;
-  padding-bottom: 20rpx; 
-    border-bottom: 1rpx solid #999;
-
-  
+  margin-top:10rpx; 
+  margin-bottom: 10rpx;
+  padding-bottom: 10rpx;
+  height:30rpx; 
 }
 .foot .Ilike{
   height: 38.4rpx;
@@ -126,10 +131,12 @@ opacity:1;
   width: 38.4rpx;
   margin-left: 130rpx;
 }
-.foot .share{
+.foot .setlinebtn {
  height: 38.4rpx;
-  width: 38.4rpx;
-  margin-left: 130rpx;
+  width: 15rpx;
+  /* margin-left: 130rpx; */
+  /* margin-bottom: 30rpx; */
+  /* padding-bottom: 50rpx; */
 }
 .foot .mach{
   font-size:25.74rpx;
@@ -139,6 +146,7 @@ opacity:1;
 }
 .foot .setline{
   display: flex;
+  height: 50rpx;
 }
 
 .names {
@@ -215,8 +223,10 @@ opacity:1;
   margin: 0 3px;
   padding: 0;
 }
+
+
  
-.pro-box .info .text .delete {
+/* .pro-box .info .text .delete {
   color: #f68135;
   border-radius: 50rpx;
   border: 1px solid #f68135;
@@ -224,7 +234,7 @@ opacity:1;
   width: 150rpx;
   height: 48rpx;
   text-align: center;
-}
+} */
 
 
 .names {
@@ -254,6 +264,8 @@ opacity:1;
 .pro-con{
 	background: #f1f1f1;
   border-top: 1rpx solid #c9c9c9;
+  border-bottom: 1rpx solid #c9c9c9;
+  /* padding-top: 35rpx; */
   /* margin-bottom:50rpx; */
 }
 .pro-box{
@@ -263,14 +275,16 @@ opacity:1;
 	/* border-radius: 10rpx; */
 	/* margin-bottom: 20rpx; */
     border-top: 1rpx solid #c9c9c9;
-    border-bottom: 1rpx solid #999
-
+    border-bottom: 1rpx solid #999;
+   margin-top: 5rpx;
 }
 
-.touch-move-active .del {
+
+
+/* .touch-move-active .del {
 -webkit-transform: translateX(0);
 transform: translateX(0);
-}
+} */
 
 .pro-box .img{
 	display: inline-block;
@@ -407,3 +421,41 @@ transform: translateX(90px);
 -webkit-transition: all 0.4s;
 transition: all 0.4s;
 }
+
+.active{
+  padding-bottom: 80rpx;
+}
+
+.notice{
+  float:initial;
+  background-color:white;
+  font-size: 25rpx;
+  color: grey;
+}
+
+.annotation{
+  border-top: 1rpx solid gray;
+  padding-top: 5rpx;
+  /* padding-block-end: 20rpx; */
+  background-color:#f7f8f7;
+  font-size: 35rpx;
+  color:#63a5d7; 
+  padding-left: 20rpx;
+}
+
+button{
+  margin-left: 10rpx;
+}
+.foot .setlinebtn{
+  height: 10rpx;
+  background-color: white;
+  padding-left: 10rpx;
+  padding-right: 27rpx;
+  width: 10rpx;
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+
+
+
+

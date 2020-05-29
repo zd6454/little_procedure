@@ -18,7 +18,7 @@
 }
 
 .big_image{
-  width:343rpx;
+  width:346rpx;
   height:234rpx;
    border-radius: 20rpx;
 }
@@ -44,7 +44,8 @@
   display: flex;
   background-color:#fff;
   /* justify-content:space-around; */
-  padding-left: 20rpx;
+  margin-left: 20rpx;
+  
 }
 .image{
     height: 46.8rpx;

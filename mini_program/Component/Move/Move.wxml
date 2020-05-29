@@ -11,7 +11,7 @@
   </view>
   <!-- 隐藏 -->
   <view class="menu">
-    <navigator animation="{{ !play?btn2Close:btn2Open }}" url="../../pages/gonglue/index" >
+    <navigator animation="{{ !play?btn2Close:btn2Open }}" url="../../pages/public_strategy/public_strategy" >
       <text style="font-size:35rpx">攻略</text>
     </navigator>
     <navigator animation="{{ !play?btn1Close:btn1Open }}" url="../../pages/public_travelnotes/public_travelnotes">

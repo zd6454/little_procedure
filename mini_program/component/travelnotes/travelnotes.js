@@ -9,10 +9,6 @@ Component({
         type:Array,
         value:""
       },
-      // like:{
-      //   type: Array,
-      //   value: ""
-      // },
       user:{
         type:String,
         vslue:""
@@ -38,14 +34,14 @@ handleIlike(e){
   this.triggerEvent("handleIlike", e);
 },
 
-handlecomment2(e){
-  this.triggerEvent("handlecomment2", e);
-},
+// handlecomment2(e){
+//   this.triggerEvent("handlecomment2", e);
+// },
 handlegood(e){
   this.triggerEvent("handlegood", e);
 },
-handleshow(){
-  this.triggerEvent("handleshow", e);
-}
+// handleshow(){
+//   this.triggerEvent("handleshow", e);
+// }
   }
 })
