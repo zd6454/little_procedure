@@ -28,7 +28,7 @@
     </view>
     
       <text class="name2" >#游客攻略</text>
-       <Strategy list="{{list}}" >
+       <Strategy list="{{list_strategy}}" >
        </Strategy>
     
     </block>

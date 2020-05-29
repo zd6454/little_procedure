@@ -8,12 +8,12 @@
        </view>
        <view class="head">
               <view class="head">
-                <image class="image" src="{{item.user_image}}" ></image>
-                 <text class="textset">{{item.user}}</text>
+                <image class="image" src="{{item.userInfo.avatarUrl}}" ></image>
+                 <text class="textset">{{item.userInfo.nickName}}</text>
               </view>
               <view class="wrap">
-                <image src="../../images/huangheluo.jpg" class="gethot"> </image>
-                <text class="good">{{item.num}}</text>
+                <image src="../../img/like.png" class="gethot"> </image>
+                <text class="good">{{item.likeamount}}</text>
               </view>
        </view>
       
@@ -27,12 +27,12 @@
        </view>
        <view class="head">
               <view class="head">
-                <image class="image" src="{{item.user_image}}" ></image>
-                 <text class="textset">{{item.user}}</text>
+                   <image class="image" src="{{item.userInfo.avatarUrl}}" ></image>
+                 <text class="textset">{{item.userInfo.nickName}}</text>
               </view>
             <view class="wrap">
-                <image src="../../images/huangheluo.jpg" class="gethot"> </image>
-                <text class="good">{{item.num}}</text>
+                 <image src="../../img/like.png" class="gethot"> </image>
+                <text class="good">{{item.likeamount}}</text>
               </view>
        </view>
       

@@ -1,5 +1,6 @@
 // pages/Introduction/index.js
 const DB = wx.cloud.database().collection("travelnotes");
+const DB1 = wx.cloud.database().collection("stategies");
 
 Page({
 
@@ -76,6 +77,7 @@ Page({
     ],
     list_travelnotes:[],
     user:"",//用户名
+    list_strategy:[],
   },
 
   //搜索框文本内容显示
@@ -98,7 +100,7 @@ Page({
     }
   },
 
-  // 标题点击事件  从子组件传递过来
+  // 标题点击事件  从子组件传递过来  标签
   handleTabsItemChange(e) {
     // console.log(e);
     // 1.获取被点击的标题
@@ -128,11 +130,21 @@ Page({
         console.log("查询失败", res);
       }
     })
-    // const list_travelnotes=this.data.list_travelnotes;
-    // //点赞初始化
-    // list_travelnotes.forEach(v=>{
-        
-    // })
+
+    //攻略
+    DB1.get({
+      success: res => {
+        // console.log("查询成功", res.data);
+        this.setData({
+          list_strategy: res.data,
+        })
+        console.log("hh", res.data.length);
+      },
+      file(res) {
+        console.log("查询失败", res);
+      }
+    })
+   
     //获取用户信息
     const that=this;
     wx.getUserInfo({
@@ -159,7 +171,7 @@ Page({
       list_travelnotes,
     })
   },
-//喜欢
+//喜欢  游记
   changehandleIlike(e){
     console.log(e);
     // const list_travelnotes = wx.getStorageSync("list_travelnotes");
@@ -169,7 +181,6 @@ Page({
     let likeamount = e.detail.currentTarget.dataset.likeamount;//本条id的点赞数
 
     var like;
-
     // const that=this;
     list_travelnotes.forEach(v => {;
       if (v._id === id) {//找到相关id的记录
@@ -227,43 +238,8 @@ Page({
     })
   },
 
-  //收藏
+  //收藏  游记
   changehandlegood(e) {
-  //   console.log(e);
-  //   const list_travelnotes = wx.getStorageSync("list_travelnotes");
-
-  //   let id = e.detail.currentTarget.dataset.id;
-  //   let good = e.detail.currentTarget.dataset.goodamount;
-  //   this.setData({
-  //     goodbool: -this.data.goodbool,
-  //   })
-  //   // console.log(this.data.likebool);
-  //   console.log(good);
-  //   good = good + this.data.goodbool;
-  //   // console.log(good);
-  //   list_travelnotes.forEach(v => {
-  //     if (v._id === id) {
-  //       v.goodamount = good
-  //       v.good = v.good == "../../img/good.png" ? "../../images/goods.png" : "../../img/good.png"
-
-  //     }
-  //   })
-
-  //   this.setData({
-  //     list_travelnotes: list_travelnotes,
-  //     // goodbool:-1
-  //   })
-  //   wx.setStorageSync("list_travelnotes", this.data.list_travelnotes);
-
-  //   DB.doc(id).update({
-  //     data: {
-  //       goodamount: good,
-  //     },
-  //     success(res) {
-  //       console.log(res);
-  //     }
-  //   })
-
     console.log(e);
     // const list_travelnotes = wx.getStorageSync("list_travelnotes");
     const list_travelnotes = this.data.list_travelnotes;
@@ -272,7 +248,6 @@ Page({
     let goodamount = e.detail.currentTarget.dataset.goodamount;//本条id的点赞数
 
     var good;
-
     // const that=this;
     list_travelnotes.forEach(v => {
       ;
