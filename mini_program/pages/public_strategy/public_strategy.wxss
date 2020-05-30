@@ -141,6 +141,12 @@ align-items: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+}
+  .stopset{
+  font-size:26rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
 }
 .buttonset .buttonwrite{
   font-family:Source Han Sans CN;
@@ -149,6 +155,8 @@ align-items: center;
   color:#b49999 ;
   height: 70rpx;
   width:200rpx;
+  padding: 0;
+
 }
 .buttonset .buttonwrite2{
   font-family:Source Han Sans CN;
@@ -157,6 +165,7 @@ align-items: center;
   color:#b49999 ;
   height: 70rpx;
   width:200rpx;
+  padding: 0;
 }
 
 .mapset{
