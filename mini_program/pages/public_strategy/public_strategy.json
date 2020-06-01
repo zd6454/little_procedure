@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "发布攻略"
+  "navigationBarTitleText": "发布攻略",
+  "navigationBarBackgroundColor": "#EC606B",
+  "navigationBarTextStyle": "white"
 }

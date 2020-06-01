@@ -5,25 +5,33 @@ var qqmapsdk=new QQMapWX({key: 'QO5BZ-VD6R4-M4AUD-D36UT-VGBVS-6HBZV' });
 var myAmap=new amapFile.AMapWX({key:"d761d2b7544fb04ddf783a0196fab4d3"});
 const util = require('../../utils/util.js');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     //标签部分
-   travel_date:"",//日期
-   travle_fees:" ",//费用
-   travel_type:["美食","建筑","动物园","美术馆","博物馆","名胜古迹","自然风光","地域特色","特色商圈"],
+   travel_date:1,//日期
+   travle_leastfee:" ",//最小费用
+   travle_mosttfee:"",//最大费用
+   travel_type:[{"name":"美食","state":0},{"name":"建筑","state":0},
+   {"name":"动物园","state":0},{"name":"美术馆","state":0},{"name":"博物馆","state":0},
+   {"name":"名胜古迹","state":0},{"name":"自然风光","state":0},{"name":"地域特色","state":0},
+   {"name":"特色商圈","state":0},{"name":"主题公园","state":0},{"name":"赤色之旅","state":0},
+   {"name":"现代气息","state":0}],
+   selectvehicles:[{"name":"步行","state":0},{"name":"公交","state":0},{"name":'驾车',"state":0},{"name":'骑行',"state":0},{"name":'地铁',"state":0},{"name":'火车',"state":0}],
    typeselectids:[],//类型
+   typeid:0,
    //景点部分
     index:0,
     spot:"",//缓存景点
-    vehicle:"",//缓存交通工具
+    vehicle:[],//缓存交通工具
     playcontent:"",//缓存游玩描述
    spots:[],//景点数组
    spotloa:[],//坐标集
    vehicles:[],//交通工具数组
    playcontents:[],//游玩描述
+   playimages:[],
+   playimage:"",
    location:"",//用户所在地
    mapimagesrc:"",//地图
    changeitem:"",
@@ -82,64 +90,48 @@ getlocation:function(){
       }
     })
 },
-//日期设置
-  dateset:function(e){
+//-日期设置
+  subdate:function(){
     let self=this;
     self.setData({
-      travel_date:e.detail.value,
+      travel_date:self.data.travel_date==0?0:self.data.travel_date-1,
     })
   },
-  //费用设置
-  feeset:function(e){
+  //+日期设置
+  adddate:function(){
+    let self=this;
+    self.setData({
+      travel_date:self.data.travel_date+1,
+    })
+  },
+  //最小费用设置
+  leastprice:function(e){
     let self=this;
     console.log(e);
     self.setData({
-      travle_fees:e.detail.value,
+      travle_leastfee:e.detail.value,
     })
   },
-  //删除旅游类型
-  deleteitem:function(e){
-    let self=this;
-    var type=self.data.typeselectids;
-    wx.showToast({
-      title: '删除了',
-      content:"是否删除该类型",
-      success:function(res){
-        type.splice(e.target.dataset.index,1);
-        self.setData({
-          typeselectids:type,
-        });
-      },
-      fail:function(err){
-        console.log(err);
-      }
-    })
-  },
+ //最大费用设置
+ mostprice:function(e){
+  let self=this;
+  console.log(e);
+  self.setData({
+    travle_mostfee:e.detail.value,
+  })
+ },
+
   //添加旅游类型
   additem:function(e){
   let self=this;
   var index=e.target.dataset.index;
-  var obj=self.data.travel_type[index];
-  if(self.data.typeselectids.indexOf(obj)==-1){
-    wx.showToast({
-      title: '添加成功',
-      success:function(err){
-      self.data.typeselectids.push(obj);
-      var data=self.data.typeselectids;
+  var obj=self.data.travel_type[index].name;
+   var sek=self.data.travel_type[index].state;
+   self.data.travel_type[index].state=sek==0?2:0;
+  var state=self.data.travel_type;
       self.setData({
-        typeselectids:data,
+        travel_type:state,
      })
-      },
-    fail:function(err){
-    console.log(err);
-    }
-    })
-  }
-  else{
-    wx.showToast({
-      title: '已添加',
-    })
-  }
   },
   //获取景点
   spotset:function(e){
@@ -149,13 +141,36 @@ getlocation:function(){
       spot:obj,
     })
   },
+  //检查是否已经有了
+  deletevehicle:function(index){
+    let self=this;
+    var arr=self.data.vehicle;
+    var ppl=self.data.selectvehicles;
+    arr.forEach(function(item,index2){
+       if(item.name==ppl[index].name){
+          self.data.vehicle.splice(index2,1);
+       }
+    })
+     var vehicle= self.data.vehicle;
+     self.setData({
+       vehicle:vehicle,
+     })
+  },
   //获取交通
   vehicleset:function(e){
     let self=this;
-    var obj=e.detail.value;
-    self.setData({
-      vehicle:obj,
-    })
+    var index=e.currentTarget.dataset.index;
+    var sek=this.data.selectvehicles[index].state;
+    this.data.selectvehicles[index].state=sek==0?2:0;
+    var state=this.data.selectvehicles;
+      if(sek==0){
+        self.data.vehicle.push( self.data.selectvehicles[index])
+      }else{
+        this.deletevehicle(index);
+      }
+        self.setData({
+          selectvehicles:state,
+       })
   },
   //获取游玩描述
   contentset:function(e){
@@ -167,10 +182,10 @@ getlocation:function(){
   }, 
   //放大图片
   checkmap:function(e){
-  var imageurl=this.data.mapimagesrc;
+  var imageurl=this.data.playimage;
   const idx = e.target.dataset.idx
   wx.previewImage({
-    urls: [imageurl],
+    urls: imageurl,
     current:'',
     success:function(res){
       console.log(res)
@@ -180,22 +195,106 @@ getlocation:function(){
     }
   })
   },
+  //选择图片
+  chooseImage(e) {
+    let self=this;
+      wx.chooseImage({
+        sizeType: ['original', 'compressed'],  //可选择原图或压缩后的图片
+        sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
+        success: res => {
+          const oneimage = res.tempFilePaths.length>1?res.tempFilePaths[0]:res.tempFilePaths[0];
+          // 限制1张照片
+          this.setData({
+            playimage:oneimage,
+          })
+        }
+      })
+    },
+    //删除照片
+    deleteimage:function(e){
+     var self=this;
+     self.setData({
+       playimage:"",
+     })
+    },
+    //上传图片
+    upload(){
+      let self=this;
+      wx.showToast({
+        icon: 'loading',
+        title:"处理中",
+      });
+      const promiseArr=[];
+      for(let i=0;i<self.data.playimages.length;i++){
+        let filePath=self.data.playimages[i];
+        let suffix=/\.[^\.]+$/.exec(filePath)[0];
+        console.log(typeof filePath,1);
+        promiseArr.push(new Promise((resolve,reject)=>{
+          wx.cloud.uploadFile({
+            cloudPath: 'strategies_images/' + new Date().getTime() + suffix,
+            filePath:filePath,
+            success:res=>{
+              console.log('上传成功', res.fileID);
+              let ig="travelnote.images";
+              self.setData({
+               playimages:self.data.playimages.concat(res.fileID),
+              })
+              resolve();
+            },
+            fail:err=>{
+              wx.showToast({
+                title: '上传失败',
+              })
+              console.log("shi",err)
+            }
+          })
+        }))
+      }
+      Promise.all(promiseArr).then(res=>{
+        console.log(res,"555");
+       self.comfirm();
+      })
+    },
+  //检测上一个
+  changevehicle:function(){
+    let self=this;
+    let showarr=self.data.selectvehicles;
+    let currentarr=self.data.vehicle;
+    showarr.forEach(function(item1,index){
+        currentarr.forEach(function(item2){
+         if(item1.name==item2.name){
+           self.data.selectvehicles[index].state=2;
+         }
+        })
+    })
+     let data= self.data.selectvehicles;
+     self.setData({
+       selectvehicles:data,
+     })
+  },
   //上一站
   lastplay:function(){
     let self=this;
     let index= self.data.index;
     index=index-1;
+    var chose=[{"name":"步行","state":0},{"name":"公交","state":0},
+                {"name":'驾车',"state":0},{"name":'骑行',"state":0},
+                {"name":'地铁',"state":0},{"name":'火车',"state":0}];
     if(index<0){
       wx.showModal({
         title:"已到达第一站"
       })
     }else{
+      let vehicle=self.data.vehicles[index];
      self.setData({
        spot:self.data.spots[index],
        vehicle:self.data.vehicles[index],
        playcontent:self.data.playcontents[index],
        index:index,
+       selectvehicles:chose,
+       playimage:self.data.playimages[index],
      })
+    this.changevehicle();
     }
   },
   //下一站
@@ -205,13 +304,21 @@ getlocation:function(){
      let vehicle=self.data.vehicle;
      let playcontent=self.data.playcontent;
      let index =self.data.index;
+     let chose=[{"name":"步行","state":0},{"name":"公交","state":0},
+                {"name":'驾车',"state":0},{"name":'骑行',"state":0},
+                {"name":'地铁',"state":0},{"name":'火车',"state":0}];
      self.changetoloa(spot);
      if(typeof spot == "undefined" || spot == null ||spot == ""||
-     typeof vehicle == "undefined" || vehicle == null ||vehicle == ""||
+     typeof vehicle == "undefined" || vehicle == null ||vehicle == []||
      typeof playcontent == "undefined" ||playcontent == null ||playcontent == ""
      ){
       wx.showModal({
         title:"有数据未填写",
+        success:function(){
+         self.setData({
+         selectvehicles:chose,
+         })
+        },
       })
      }else{
       wx.showToast({
@@ -235,53 +342,66 @@ getlocation:function(){
   let spot=self.data.spot;
   let vehicle=self.data.vehicle;
   let playcontent=self.data.playcontent;
+  let image=self.data.playimage;
   self.changetoloa(spot);
   self.data.spotloa.splice(index,1,self.data.changeitem);
   self.data.spots.splice(index,1,spot);
   self.data.vehicles.splice(index,1,vehicle);
   self.data.playcontents.splice(index,1,playcontent);
+  self.data.playimages.splice(index,1,image)
   var spots=self.data.spots;
   var vehicles=self.data.vehicles;
   var playcontents=self.data.playcontents;
   var spotloa=self.data.spotloa;
+  var playimages=self.data.playimages;
   var play= playcontents[index+1];
   var vs= vehicles[index+1];
   var sp = spots[index+1];
+  var ig= playimages[index+1]
+  var chose=[{"name":"步行","state":0},{"name":"公交","state":0},
+              {"name":'驾车',"state":0},{"name":'骑行',"state":0},
+              {"name":'地铁',"state":0},{"name":'火车',"state":0}];
   self.setData({
     spots:spots,
     spotloa:spotloa,
     vehicles:vehicles, 
     playcontents:playcontents,
+    playimages:playimages,
     spot:typeof sp=='undefined'?'':sp,
-    vehicle:typeof vs=='undefined'?'':vs,
+    vehicle:typeof vs=='undefined'?[]:vs,
     playcontent:typeof play=='undefined'?'':play,
+    playimage:typeof ig=='undefined'?'':ig,
+    selectvehicles:chose,
     index:index+1,
   })
+  this.changevehicle();
   },
+
   //删除最新添加进数组的东西
   deletearray:function(){
     let self=this;
-    let spot=self.data.spot;
-    let vehicle=self.data.vehicle;
-    let playcontent=self.data.playcontent;
     var index=self.data.index;
     self.data.spotloa.pop();
     self.data.spots.pop();
     self.data.vehicles.pop();
     self.data.playcontents.pop();
+    self.data.playimages.pop();
     var spots=self.data.spots;
     var vehicles=self.data.vehicles;
     var playcontents=self.data.playcontents;
     var spotloa=self.data.spotloa;
+    var images=self.data.playimages;
     self.setData({
       spots:spots,
       spotloa:spotloa,
       vehicles:vehicles, 
       playcontents:playcontents,
+      playimages:images,
       index:index-1,
       spot:"",
-      vehicle:"",
+      vehicle:[],
       playcontent:"",
+      playimage:"",
     })
   },
   //添加进数组
@@ -291,10 +411,12 @@ getlocation:function(){
   let vehicle=self.data.vehicle;
   let playcontent=self.data.playcontent;
   var index=self.data.index;
+  var image=self.data.playimage;
   self.data.spotloa.push(self.data.changeitem);
   self.data.spots.push(spot);
   self.data.vehicles.push(vehicle);
   self.data.playcontents.push(playcontent);
+  self.data.playimages.push(image);
   index=index+1;
   var spots=self.data.spots;
   var vehicles=self.data.vehicles;
@@ -307,8 +429,12 @@ getlocation:function(){
     playcontents:playcontents,
     index:index,
     spot:"",
-    vehicle:"",
+    vehicle:[],
     playcontent:"",
+    playimage:"",
+    selectvehicles:[{"name":"步行","state":0},{"name":"公交","state":0},
+                    {"name":'驾车',"state":0},{"name":'骑行',"state":0},
+                    {"name":'地铁',"state":0},{"name":'火车',"state":0}],
   })
   setTimeout(function(){
     self.getmapimage();
@@ -418,15 +544,18 @@ getlocation:function(){
           goodamount:0,//初始收藏数
           commentamount:0,//初始评论数
           time:time,//
+          like:[],
           travel_date:self.data.travel_date,//时间
-          travle_fees:self.data.travle_fees,//费用
+          travle_leastfee:self.data.travle_leastfee,//费用
+          travle_mostfee:self.data.travle_mostfee,//费用
           travel_type:self.data.travel_type,//所有类型
-          typeselectids:self.data.typeselectids,//类型id
           spots:self.data.spots,//景点集合
           spotloa:self.data.spotloa,//景点经纬度
           vehicles:self.data.vehicles,//交通集合
           playcontents:self.data.playcontents,//游玩描述集合
-          imageurl:self.data.mapimagesrc,
+          playimages:self.data.playimages,
+          imageurl:self.data.mapimagesrc,//地图
+          selectvehicles:self.data.selectvehicles,//交通选择
         },
         success:function(e){
           console.log(e);
@@ -464,5 +593,5 @@ getlocation:function(){
   onLoad: function (options) {
     this.getlocation();
   },
-
+  
 })

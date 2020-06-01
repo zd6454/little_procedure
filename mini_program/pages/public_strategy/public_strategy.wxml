@@ -1,49 +1,77 @@
-  <view class="pageset" >
+<view class="pageset" >
       <view class="head">
           <view class="line">
-          <text class="selecttext">期限设置:</text>
-           <input type="text" placeholder='输入天数' class="inputset" bindinput="dateset"></input>
-           <text class="selecttext">日游</text>
+          <text class="datetext">游玩天数</text>
+           <view class="dateset">
+                  <button class="datesub"><image src="../../img/datesub.png" class="subset"  bindtap="subdate"></image></button>
+                    <text class="changeset">{{travel_date}}</text>
+                  <button class="dateadd"> <image src="../../img/dateadd.png" class="addset" bindtap="adddate" ></image></button>
+           </view>
           </view>
-           <view class="line">
-          <text class="selecttext">经费设置:</text>
-           <input type="text" placeholder='输入经费' class="inputset" bindinput="feeset"></input>
-           <text class="selecttext">元以下</text>
+          <view class="drawline"></view>
+        <view class="line">
+          <text class="datetext">经费区间（元）</text>
+              <view class="feeset">
+                <input class="lastset" placeholder="最低价" placeholder-class="placeholderset" bindinput="leastprice"></input>
+                <image class="lineset" src="../../img/line.png"></image>
+                <input class="lastset" placeholder="最高价" placeholder-class="placeholderset" bindinput="mostprice"></input>
+              </view>
           </view>
+         <view class="drawline"></view>
           <view class="line3">
-            <text class="texthead">旅游类型：</text>
-            <scroll-view scroll-x="true" class="scorllset">
-            <view class="setscroll">
-             <view wx:for="{{typeselectids}}" wx:for-index="index" class="cycleset3"  hover-class="cycleset4" wx:key="index" >
-             <text class="textset" data-index="{{index}}" bindtap="deleteitem">{{item}}</text>
-            </view>
-            </view>
-            </scroll-view>
+            <text class="datetext">旅游类型：</text>
           </view>
            <view class="line2">
-           <view wx:for="{{travel_type}}"  wx:for-index="index" class="cycleset"  hover-class="cycleset2" wx:key="index">
-              <text class="textset" data-index="{{index}}" bindtap="additem">{{item}}</text>
+           <view wx:for="{{travel_type}}"  wx:for-index="index" class=" {{item.state==2?'cycleset2':'cycleset'}}"  wx:key="index" data-index='{{index}}'  bindtap="additem" >
+              <text class="textset" data-index="{{index}}" >{{item.name}}</text>
             </view>
           </view>
+          
       </view>
       <view class="body">
+      <view class="drawline"></view>
           <view class="areaset">
-            <textarea class="textareaset" placeholder="输入景点(请包含城市名称)" bindinput="spotset"  value="{{spot}}"></textarea>
-            <textarea class="textareaset" placeholder="交通选择:(公交,驾车,骑行,地铁,火车)" bindinput="vehicleset" value="{{vehicle}}"></textarea>
+            <text class="inputspot">输入景点</text>
+            <view class="setcenter">
+            <textarea class="textareaset" placeholder="(请包含城市名称)" bindinput="spotset"  value="{{spot}}" placeholder-class="placeholderset"></textarea>
+            </view>
+            
           </view>
+      <view class="drawline"></view>
+          <view class="vehicles">
+          <text class="vehicleset"> 交通选择</text>
+          <view class="vehicleselect">
+             <view    wx:for="{{selectvehicles}}" class="{{item.state==2? 'selected2':'selected'}}"  wx:for-index="index" wx:key="index" data-index='{{index}}' bindtap="vehicleset">
+               <text class="vehicletext">{{item.name}}</text>
+             </view>
+          </view>
+          </view>
+
           <view class="describe">
           <textarea class="describewrite" placeholder="输入游玩描述" maxlength="-1" bindinput="contentset" value="{{playcontent}}"></textarea>
+           <view class="setflex">
+           <view class="haveadd"  wx:if="{{playimage}}">
+              <image class="autoimage" src="{{playimage}}"  mode="aspectFill"  bindtap="checkmap"></image>
+             <view class="setdelete"   >
+                    <image src="../../img/deleteImage.png" class="delete" bindtap="deleteimage"></image>
+            </view>
+            </view>
+            <view class="setaddimage" wx:if="{{!playimage}}">
+              <button class="addimage" bindtap="chooseImage">
+                 <image class="imageset" src="../../img/addimage.png"></image>
+              </button>    
+            </view>
+           </view>
           </view>
           <view  class="buttonset">
            <button class="buttonwrite2" bindtap="lastplay">上一站</button>
            <button class="buttonwrite" bindtap="nextplay">下一站</button>
           </view>
           <view class="mapset">
-               <text class="maptext">景点图例</text>
                <image class="mapig" src="{{mapimagesrc}}" bindtap="checkmap"></image>
           </view>
       </view>
       <view class="foot">
-        <button class="commit" bindtap="comfirm" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" > 发布</button>
+        <button class="commit" bindtap="upload" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" > <text class="tocomfirm">发布</text></button>
       </view>
   </view>
