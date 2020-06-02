@@ -31,6 +31,7 @@ Page({
    vehicles:[],//交通工具数组
    playcontents:[],//游玩描述
    playimages:[],
+   playimagescloud:[],//
    playimage:"",
    location:"",//用户所在地
    mapimagesrc:"",//地图
@@ -38,30 +39,7 @@ Page({
    userinfo:{},
    time:"",
   },
-  //地址转换成坐标
-changetoloa:function(e){
-  let self=this;
-  var local="";
-  qqmapsdk.geocoder({
-    address:e,
-    success:function(res){
-        var res=res.result;
-        local=res.location.lng+","+res.location.lat;
-        self.setData({
-          changeitem:local,
-        })
-        console.log(local);
-    },
-    fail:function(err){
-        console.error(err);
-        wx.showModal({
-          cancelColor: 'cancelColor',
-          title:'景点填写有误，请重新填写',
-        })
-        self.deletearray();
-    }
-  })
-},
+
   //获取用户信息
 getlocation:function(){
   var self=this;
@@ -228,16 +206,15 @@ getlocation:function(){
       for(let i=0;i<self.data.playimages.length;i++){
         let filePath=self.data.playimages[i];
         let suffix=/\.[^\.]+$/.exec(filePath)[0];
-        console.log(typeof filePath,1);
+        console.log(filePath,1);
         promiseArr.push(new Promise((resolve,reject)=>{
           wx.cloud.uploadFile({
             cloudPath: 'strategies_images/' + new Date().getTime() + suffix,
             filePath:filePath,
             success:res=>{
               console.log('上传成功', res.fileID);
-              let ig="travelnote.images";
               self.setData({
-               playimages:self.data.playimages.concat(res.fileID),
+                playimagescloud:self.data. playimagescloud.concat(res.fileID),
               })
               resolve();
             },
@@ -251,7 +228,6 @@ getlocation:function(){
         }))
       }
       Promise.all(promiseArr).then(res=>{
-        console.log(res,"555");
        self.comfirm();
       })
     },
@@ -443,17 +419,21 @@ getlocation:function(){
   //获取地图
  getmapimage:function(){
    let self=this;
+   let lot="";
    wx.getSystemInfo({
      complete: (res) => {
        var height=res.windowHeight;
        var width=res.windowWidth;
        var size= 1.2*width+"*"+height;
+       setTimeout(function(){
+        lot=self.setmarks();
+       },1000);
        myAmap.getStaticmap({
          location:'114.304695,30.593309',
          zoom:10,
          size:size,
          scale:2,
-         markers: this.setmarks(),
+         markers: lot,
         //  labels:this.setlabel(),
          success:function(e){
           self.setData({
@@ -489,6 +469,29 @@ getlocation:function(){
   })
   console.log(changespot);
  },
+   //地址转换成坐标
+changetoloa:function(e){
+  let self=this;
+  var local="";
+  qqmapsdk.geocoder({
+    address:e,
+    success:function(res){
+        var res=res.result;
+        local=res.location.lng+","+res.location.lat;
+        self.setData({
+          changeitem:local,
+        })
+        console.log(local);
+    },
+    fail:function(err){
+      self.deletearray();
+        console.error(err);
+        wx.showModal({
+          title:'景点填写有误，请重新填写',
+        })
+    }
+  })
+},
  //转化路标
  setmarks:function(){
   let self=this;
@@ -553,7 +556,7 @@ getlocation:function(){
           spotloa:self.data.spotloa,//景点经纬度
           vehicles:self.data.vehicles,//交通集合
           playcontents:self.data.playcontents,//游玩描述集合
-          playimages:self.data.playimages,
+          playimagescloud:self.data. playimagescloud,
           imageurl:self.data.mapimagesrc,//地图
           selectvehicles:self.data.selectvehicles,//交通选择
         },
