@@ -15,7 +15,6 @@ border: 11.7rpx solid #ffffff;
   margin-right:10rpx;
   margin-top: 10rpx;
   margin-bottom: 5rpx;
-  /* height: 1000rpx; */
 }
 
 
@@ -108,13 +107,13 @@ opacity:1;
 
 .foot{
   
-
   display: flex;
   padding-top:10rpx;
   margin-top:10rpx; 
   margin-bottom: 10rpx;
-  padding-bottom: 10rpx;
+  padding-bottom: 15rpx;
   height:30rpx; 
+  overflow: hidden;
 }
 .foot .Ilike{
   height: 38.4rpx;
@@ -422,9 +421,9 @@ transform: translateX(90px);
 transition: all 0.4s;
 }
 
-.active{
+/* .active{
   padding-bottom: 80rpx;
-}
+} */
 
 .notice{
   float:initial;
@@ -449,7 +448,7 @@ button{
 .foot .setlinebtn{
   height: 10rpx;
   background-color: white;
-  padding-left: 10rpx;
+  padding-left: 9rpx;
   padding-right: 27rpx;
   width: 10rpx;
   /* display: flex; */

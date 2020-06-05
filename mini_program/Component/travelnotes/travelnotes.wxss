@@ -61,9 +61,9 @@ padding-top: 10rpx;
 }
 .conpute{
 
-width:692.64rpx;
+width:692rpx;
 /* height:160px; */
-font-size:35.1rpx;
+font-size:35rpx;
 font-family:Source Han Sans CN;
 font-weight:300;
 line-height:46.8rpx;

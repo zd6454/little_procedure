@@ -22,7 +22,7 @@ Page({
     startX: 0, //开始坐标
     startY: 0,
     user:"",
-    like_true:false
+    // like_true:false
   },
 
   /**
@@ -70,6 +70,7 @@ Page({
 
   },
 
+  //添加评论
   onADD: function (e, contenxt) {
     const note_id=this.data.note_id
     var travelnotes = this.data.travelnotes
@@ -112,13 +113,8 @@ Page({
         wx.showToast({
           title: '新增记录成功',
         })
-        // if (getCurrentPages().length != 0) {
-        //刷新当前页面的数据
+       
         this.onQuery();
-        // const _id=this.data.note_id;
-        // getCurrentPages()[getCurrentPages().length - 1].onLoad(_id)
-        // }
-      
       },
       fail: (res) => {
         wx.showToast({

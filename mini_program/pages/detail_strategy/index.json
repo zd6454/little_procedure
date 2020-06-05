@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "comment": "../../Component/comment_list/comment_list",
+    "mp-loading": "../../weui-miniprogram/loading/loading"
+  },
+  "navigationBarTitleText": "攻略"
 }

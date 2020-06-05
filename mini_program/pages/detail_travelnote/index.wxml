@@ -84,7 +84,7 @@
       <scroll-view scroll-top="{{scrollTop}}" scroll-y="true"  class="list {{comment_user_list.length?'active':''}}" bindscrolltolower="bindDownLoad" bindscrolltoupper="refresh" >
        <view class="pro-con">
         <view class="annotation" wx:if="{{comment_user_list.length}}">评论可以长按删除哦</view>
-        <view class="annotation" wx:else>快来添加评论吧</view>
+        <view class="annotation" wx:else>什么都没有呢</view>
 
          <block wx:for="{{comment_user_list}}" wx:key="{{index}}">
            <view class="pro-box" bindlongpress='longPress'data-index="{{item._id}}">
@@ -108,9 +108,9 @@
                  {{item.user_context}}
                </view>
               </view>
-             
            </view>
          </block>
+              <view style="height:70rpx;color:#8f8f8f;text-align:center;font-size:35rpx;" wx:if="{{comment_user_list.length}}">再也没有了（づ￣3￣）づ╭❤～</view>
             <!-- <view class="del" catchtap="del" data-index="{{item._id}}">删除</view> -->
        </view>
          <!-- <text class="notice">长按可以删除哦</text> -->
@@ -120,7 +120,7 @@
 <form bindsubmit="submitForm" report-submit="true">
   <view class="release">
     <view class="replyinfo2">
-      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="请输入评论" name="comment" value="{{inputValue}}"></textarea>
+      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="请输入评论" name="comment" value="{{inputValue}}" auto-focus="true"></textarea>
       <button form-type="submit"  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"  class="submit">发送</button>
     </view>
   </view>

@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/index/index",
     "pages/record/index",
     "pages/detail_travelnote/index",

@@ -20,43 +20,7 @@ Page({
         isActive: false
       }
     ],
-    // list: [
-    //   {
-    //     index: 0,
-    //     user_image: "../../images/bowuguan.jpg",
-    //     user: "1111",
-    //     user_text: "gbhnhuhn vdregvdsfdsfcsdbuununuinjknjkn",
-    //     num: 211,
-    //     image: "../../images/wuda.jpg",
-    //   },
-    //   {
-    //     index: 1,
-    //     user_image: "../../images/wuda.jpg",
-    //     user: "1111",
-    //     user_text: "超速二次南湖搜出",
-    //     num: 2,
-    //     image: "../../images/wuda.jpg",
 
-    //   },
-    //   {
-    //     index: 2,
-    //     user_image: "../../images/bowuguan.jpg",
-    //     user: "1111",
-    //     user_text: "gbcs督促色IC或碾碎凑南湖U护禾谷渔粉挺有缘分",
-    //     num: 2,
-    //     image: "../../images/wuda.jpg",
-
-    //   },
-    //   {
-    //     index: 3,
-    //     user_image: "../../images/huangheluo.jpg",
-    //     user: "1111",
-    //     user_text: "gbhnhuhnvfdxczdrsvfdfvgedgrtrf5",
-    //     num: 21,
-    //     image: "../../images/wuda.jpg",
-
-    //   }
-    // ],
     system_strategy: [
       {
         id: 0,

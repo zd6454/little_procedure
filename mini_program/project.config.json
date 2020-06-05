@@ -70,13 +70,6 @@
 				},
 				{
 					"id": -1,
-					"name": "个人",
-					"pathName": "pages/user/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "发布游记",
 					"pathName": "pages/public_travelnotes/public_travelnotes",
 					"query": "",
@@ -105,15 +98,57 @@
 				},
 				{
 					"id": -1,
-					"name": "评论",
-					"pathName": "pages/comment/comment",
+					"name": "发布攻略",
+					"pathName": "pages/public_strategy/public_strategy",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "收藏",
+					"pathName": "pages/user/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "发布攻略",
-					"pathName": "pages/public_strategy/public_strategy",
+					"name": "发布",
+					"pathName": "pages/record/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "攻略详情",
+					"pathName": "pages/detail_strategy/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "攻略详情",
+					"pathName": "pages/detail_strategy/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "攻略详情",
+					"pathName": "pages/detail_strategy/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "攻略详情",
+					"pathName": "pages/detail_strategy/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论",
+					"pathName": "pages/comment/comment",
 					"query": "",
 					"scene": null
 				}
