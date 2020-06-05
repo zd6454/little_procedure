@@ -1,0 +1,68 @@
+ .page{
+   margin: 62rpx 42rpx 0 42rpx;
+ }
+ .newlight{
+   height: 64rpx;
+  flex-direction: column;
+  line-height: 0;
+ }
+ .po{
+   margin-top: 2rpx;
+   display: flex;
+   height: 100%;
+ }
+ .po .line{
+   flex-direction: column;
+   line-height: 0;
+ }
+ .code1{
+  height: 26rpx;
+  width: 26rpx;
+  border: 1rpx solid #a3a5a7; 
+}
+ .code{
+   height: 32rpx;
+   width: 32rpx;
+ }
+  .po .line .drawline{
+  background: #B2B2B2;
+  height: 100%;
+  width: 5rpx;
+  margin-left: 13rpx;
+ }
+  .po .info{
+    flex-direction: column;
+    margin-left: 22rpx;
+  }
+.po .info .detail{
+  display: flex;
+  justify-content: space-between;
+}
+.image{
+  margin-top: 32rpx;
+  width:586rpx;
+  height: 256rpx;
+}
+.textset1{
+  width:274rpx;
+  height:32rpx;
+  font-size:30rpx;
+  font-family:Source Han Sans CN;
+  font-weight:bold;
+  line-height:52rpx;
+  color:rgba(53,53,53,1);
+  letter-spacing:1.000000953674316px;
+  opacity:1;
+}
+.textset2{
+  width:188rpx;
+  height:32rpx;
+  font-size:26rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  line-height:40rpx;
+  color:rgba(53,53,53,1);
+  letter-spacing:1.000000953674316px;
+  opacity:1;
+}
+ 

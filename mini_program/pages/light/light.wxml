@@ -1,0 +1,20 @@
+
+<view class="page">
+    <view class="newlight">
+       <image class="code1" src="../../img/dateadd.png"></image>
+       <view class="drawline"></view>
+    </view>
+    <view class="po ">
+        <view class="line">
+           <image class="code" src="../../img/lighting.png"></image>
+           <view class="drawline"></view>
+        </view>
+        <view class="info">
+          <view  class="detail">
+            <text class="textset1"> 武汉大学</text>
+            <text class="textset2"> 2020年6月1日</text>
+           </view>
+          <image class="image"  src="../../img/example.png"></image>
+        </view>
+    </view>
+</view>

@@ -23,6 +23,7 @@ Page({
    typeid:0,
    //景点部分
     index:0,
+    all:[],
     spot:"",//缓存景点
     vehicle:[],//缓存交通工具
     playcontent:"",//缓存游玩描述
@@ -163,8 +164,8 @@ getlocation:function(){
   var imageurl=this.data.playimage;
   const idx = e.target.dataset.idx
   wx.previewImage({
-    urls: imageurl,
-    current:'',
+    urls: [imageurl],
+    current:imageurl,
     success:function(res){
       console.log(res)
     },
@@ -173,6 +174,20 @@ getlocation:function(){
     }
   })
   },
+  checkmap2:function(e){
+    var imageurl=this.data.mapimagesrc;
+    const idx = e.target.dataset.idx
+    wx.previewImage({
+      urls: [imageurl],
+      current:imageurl,
+      success:function(res){
+        console.log(res)
+      },
+      fail:function(res){
+        console.log(res);
+      }
+    })
+    },
   //选择图片
   chooseImage(e) {
     let self=this;
@@ -195,6 +210,27 @@ getlocation:function(){
        playimage:"",
      })
     },
+    //合并数组
+    intoone:function(){
+     let self=this;
+     var all=[];
+     self.data.spots.forEach(function(item,index){
+        var one=[];
+        var t1=new Object();
+        t1.spot=item;
+        var t2=[];
+        self.data.vehicles[index].forEach(function(item1,index1){
+             t2.push(item1.name);
+        })
+        one.push(t2);
+        t1.content=self.data.playcontents[index];
+        one.push(t1)
+        all.push(one);
+     })
+     self.setData({
+       all:all,
+     })
+    },
     //上传图片
     upload(){
       let self=this;
@@ -202,7 +238,12 @@ getlocation:function(){
         icon: 'loading',
         title:"处理中",
       });
-      const promiseArr=[];
+      this.intoone();
+      if(Array.isArray(self.data.playimages)){
+        this.comfirm();
+        return ;
+      }else{
+         const promiseArr=[];
       for(let i=0;i<self.data.playimages.length;i++){
         let filePath=self.data.playimages[i];
         let suffix=/\.[^\.]+$/.exec(filePath)[0];
@@ -230,6 +271,7 @@ getlocation:function(){
       Promise.all(promiseArr).then(res=>{
        self.comfirm();
       })
+      }  
     },
   //检测上一个
   changevehicle:function(){
@@ -425,9 +467,7 @@ getlocation:function(){
        var height=res.windowHeight;
        var width=res.windowWidth;
        var size= 1.2*width+"*"+height;
-       setTimeout(function(){
         lot=self.setmarks();
-       },1000);
        myAmap.getStaticmap({
          location:'114.304695,30.593309',
          zoom:10,
@@ -447,15 +487,15 @@ getlocation:function(){
      },
    })
  },
- //
- getstaticmap:function(){
-   var base='https://apis.map.qq.com/ws/staticmap/v2/?';
-   var size='375*603';
-   var key='QO5BZ-VD6R4-M4AUD-D36UT-VGBVS-6HBZV';
-  wx.request({
-    url: 'url',
-  })
- },
+//  //
+//  getstaticmap:function(){
+//    var base='https://apis.map.qq.com/ws/staticmap/v2/?';
+//    var size='375*603';
+//    var key='QO5BZ-VD6R4-M4AUD-D36UT-VGBVS-6HBZV';
+//   wx.request({
+//     url: 'url',
+//   })
+//  },
 //转化地点
  setspots:function(){
   let self=this;
@@ -533,6 +573,7 @@ changetoloa:function(e){
   var time = util.formatTime(new Date());
   wx.getSetting({
     success (res) {
+      var all=""
       console.log(res.authSetting)
       wx.getUserInfo({
         success:function(e){
@@ -548,6 +589,7 @@ changetoloa:function(e){
           commentamount:0,//初始评论数
           time:time,//
           like:[],
+          all:self.data.all,//景点，交通，描述
           travel_date:self.data.travel_date,//时间
           travle_leastfee:self.data.travle_leastfee,//费用
           travle_mostfee:self.data.travle_mostfee,//费用

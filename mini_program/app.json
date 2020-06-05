@@ -1,6 +1,7 @@
 {
   "pages": [
-  
+    "pages/public_strategy/public_strategy",
+    "pages/light/light",
     "pages/index/index",
     "pages/record/index",
     "pages/detail_travelnote/index",
@@ -13,11 +14,12 @@
     "pages/spot_detail_intro/index",
     "pages/spot_detail_map/index",
     "pages/public_travelnotes/public_travelnotes",
-    "pages/public_strategy/public_strategy",
+    
     "pages/show/show",
     "pages/moredetail/moredetail",
     "pages/logs/logs",
     "pages/comment/comment"
+    
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -25,8 +27,6 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "武汉APP",
     "navigationBarTextStyle": "black"
-   
-
   },
   "tabBar": {
     "color": "#999",
@@ -62,5 +62,4 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   }
- 
 }
