@@ -51,11 +51,12 @@ color: #4ebc97;
 }
 
 .conduct{
-  flex: 1;
+  /* flex: 1; */
   text-align:center;
   /* border: 1rpx solid rgb(199, 197, 197); */
   background-color: #def1e9;
   border-radius: 5rpx;
+  width: 95rpx;
 }
 
 .head {

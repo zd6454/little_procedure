@@ -84,13 +84,6 @@
 				},
 				{
 					"id": -1,
-					"name": "测试点赞",
-					"pathName": "pages/home/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "游记详情",
 					"pathName": "pages/detail_travelnote/index",
 					"query": "",
@@ -149,6 +142,13 @@
 					"id": -1,
 					"name": "评论",
 					"pathName": "pages/comment/comment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "回复",
+					"pathName": "pages/response/index",
 					"query": "",
 					"scene": null
 				}

@@ -28,7 +28,7 @@
     </view>
     
       <text class="name2" >#游客攻略</text>
-       <Strategy list="{{list_strategy}}" user="{{user}}" bindhandleIlike="changehandleIlike1">
+       <Strategy list="{{list_strategy}}" user="{{user}}" bindhandleIlike="changehandleIlike1" tabs_small="{{tabs_small}}">
        </Strategy>
     
     </block>

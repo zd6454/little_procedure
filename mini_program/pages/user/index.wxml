@@ -19,6 +19,7 @@
   <block wx:if="{{tabs[1].isActive}}">
    <view wx:if="{{collect_strategy===0}}">
         <image src="../../images/blank.gif"></image>
+        <navigator open-type="switchTab"  url="../../pages/Introduction/index" class="add">快去看看吧</navigator>
     </view>
     <view  wx:if="{{collect_strategy}}">
      <navigator
@@ -55,6 +56,8 @@
   <block wx:if="{{tabs[2].isActive}}">
    <view wx:if="{{collect_travelnotes===0}}">
         <image src="../../images/blank.gif"></image>
+        <navigator open-type="switchTab" url="../../pages/Introduction/index?tabs[1].isActive" class="add">快去看看吧</navigator>
+
     </view>
     <view  wx:if="{{collect_travelnotes}}">
      <navigator

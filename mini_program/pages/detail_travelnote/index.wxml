@@ -86,34 +86,33 @@
         <view class="annotation" wx:if="{{comment_user_list.length}}">评论可以长按删除哦</view>
         <view class="annotation" wx:else>什么都没有呢</view>
 
-         <block wx:for="{{comment_user_list}}" wx:key="{{index}}">
+         <block wx:for="{{comment_user_list}}" wx:key="{{index}}" wx:for-item="item1">
            <view class="pro-box" bindlongpress='longPress'data-index="{{item._id}}">
              <view class="head">
-               <image class="img" src="{{item.user_image}}" mode="aspectFit"></image>
+               <image class="img" src="{{item1.user_image}}" mode="aspectFit"></image>
                <view class="box">
                  <view class="shead clear">
-                   <view class="names fl">{{item.user}}
+                   <view class="names fl">{{item1.user}}
                    </view>
                    <view class="info">
                     <view class="text">
-                    <text decode="true">{{item.time}}</text>
+                    <text decode="true">{{item1.time}}</text>
                    </view>
                   </view>
                  </view>
                </view>
              </view>
              <view class="addr-info">
-              <navigator url="/pages/record/index" class="record">回复</navigator>
+              <navigator url="../../pages/response/index?_id={{item1._id}}&author={{item.userInfo.nickName}}" class="record" wx:if="{{item1.responseamount}}">回复({{item1.responseamount}})</navigator>
+              <navigator url="../../pages/response/index?_id={{item1._id}}&author={{item.userInfo.nickName}}" class="record" wx:else>回复</navigator>
                <view class="addr-text">
-                 {{item.user_context}}
+                 {{item1.user_context}}
                </view>
               </view>
            </view>
          </block>
-              <view style="height:70rpx;color:#8f8f8f;text-align:center;font-size:35rpx;" wx:if="{{comment_user_list.length}}">再也没有了（づ￣3￣）づ╭❤～</view>
-            <!-- <view class="del" catchtap="del" data-index="{{item._id}}">删除</view> -->
+              <view style="height:70rpx;color:#8f8f8f;text-align:center;font-size:35rpx;background-color:white" wx:if="{{comment_user_list.length}}">再也没有了（づ￣3￣）づ╭❤～</view>
        </view>
-         <!-- <text class="notice">长按可以删除哦</text> -->
      </scroll-view> 
     </block>
 </view>

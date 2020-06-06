@@ -11,6 +11,10 @@ Component({
     user: {
       type: String,
       vslue: ""
+    },
+    tabs_small:{
+      type:Array,
+      value:[],
     }
   },
 

@@ -42,6 +42,7 @@ Page({
     list_travelnotes:[],
     user:"",//用户名
     list_strategy:[],
+    tabs_small:[],
   },
 
   //搜索框文本内容显示
@@ -102,7 +103,17 @@ Page({
         this.setData({
           list_strategy: res.data,
         })
-        console.log("hh", res.data.length);
+        res.data.forEach(v=>{
+          v.travel_type.forEach(u=>{
+            if(u.state===2){
+              this.setData({
+                tabs_small: this.data.tabs_small.concat(u.name),
+              })
+            }
+          })
+        })
+        console.log("9", this.data.tabs_small);
+
       },
       file(res) {
         console.log("查询失败", res);

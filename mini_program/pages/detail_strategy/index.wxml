@@ -34,21 +34,68 @@
 </view>
 
 <!-- 标签 -->
- <view class="taps">
+ <view class="taps" style="padding-bottom:0rpx;">
       <!-- <view class="array" wx:for="{{item.travel_type}}" wx:for-item="item1" wx:if="{{item1.state===2}}"> -->
           <view class="conduct1">{{item.travel_date}}天</view>
           <view class="conduct1">{{item.travle_leastfee}}-{{item.travle_mostfee}}元</view>
        <!-- </view> -->
-       <view class="array" wx:for="{{item.travel_type}}" wx:for-item="item1" wx:if="{{item1.state===2}}">
-          <view class="conduct">{{item1.name}}</view>
+       <view class="array" >
+          <view class="conduct">{{tabs_small[0]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[1]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[2]}}</view>
+       </view>
+</view>
+<view class="taps" wx:if="{{tabs_small.length>3}}" style="padding-top:0rpx;padding-bottom:0rpx;">
+     <view class="array" >
+          <view class="conduct">{{tabs_small[3]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[4]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[5]}}</view>
+       </view>  
+         <view class="array" >
+          <view class="conduct">{{tabs_small[6]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[7]}}</view>
+       </view>         
+     
+</view>
+<view class="taps" wx:if="{{tabs_small.length>8}}" style="padding-top:0rpx;">
+     <view class="array" >
+          <view class="conduct">{{tabs_small[8]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[9]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[10]}}</view>
+       </view>  
+         <view class="array" >
+          <view class="conduct">{{tabs_small[11]}}</view>
        </view>
 </view>
 
 <!-- 详细攻略 -->
-<view>
-  
-
-
+<view wx:for="{{item.all}}" wx:for-item="item1" style="padding-left:25rpx;width:95%">
+  <view class="spot_warap">
+  <image src="../../images/spot.png" class="spot_img"></image>
+  <view class="spot">{{item1[1].spot}}</view>
+  </view>
+  <view class="cont">{{item1[1].content}}</view>
+  <!-- <view class="spot_warap" style="padding-top:0rpx;">
+  <image src="../../images/vehicle.png" class="spot_img"></image>
+   <view wx:for="{{item1[0]}}" wx:for-item="item2">
+    <view class="spot">{{item2}}</view>
+  </view>
+  </view> -->
+ 
 </view>
 
    <!-- 加载模块 -->
@@ -56,20 +103,24 @@
 <block wx:if="{{loading==false}}" >
  <view class="wrap">
   <text style="margin:40rpx 0;font-size:35rpx;color:#cac3c3 ;">共{{item.commentamount}}条评论</text>
-  <view   wx:for="{{comment_user_list}}" wx:key="{{index}}" >
-    <view class="pro-box" bindlongpress='longPress'data-index="{{item._id}}">
-      <image  src="{{item.user_image}}" mode="aspectFit" class="img_user"></image>
+  <view   wx:for="{{comment_user_list}}" wx:key="{{index}}" wx:for-item="item1">
+    <view class="pro-box" bindlongpress='longPress'data-index="{{item1._id}}" >
+      <image  src="{{item1.user_image}}" mode="aspectFit" class="img_user"></image>
       <view class="box">
         <view class="head">
-          <view class="names">{{item.user}} </view>
-          <text decode="true" class="text">{{item.time}}</text>
-          <image src="../../img/like.png" class="img_like"></image>
+          <view class="names">{{item1.user}} </view>
+          <text decode="true" class="text">{{item1.time}}</text>
+          <view class="condent">{{item.responseamount}}</view>
+
+           <navigator url="../../pages/response/index?_id={{item1._id}}&author={{item.userInfo.nickName}}" class="nav" >
+            <image src="../../images/评论 .png" class="img_like"></image>
+          </navigator>
         </view>
-          <view class="addr-text">{{item.user_context}}</view>
+          <view class="addr-text">{{item1.user_context}}</view>
         </view>
     </view>
   </view>
-   <view style="height:70rpx;color:#8f8f8f;text-align:center;font-size:35rpx;border-top: 1rpx solid #e5e5e5;">再也没有了w(ﾟДﾟ)w</view>
+   <view style="height:80rpx;color:#8f8f8f;text-align:center;font-size:35rpx;border-top: 1rpx solid #e5e5e5;">再也没有了w(ﾟДﾟ)w</view>
  </view>
 </block>
 

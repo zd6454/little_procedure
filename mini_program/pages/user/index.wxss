@@ -173,3 +173,14 @@ color: #4ebc97;
   background-color: #def1e9;
   border-radius: 155rpx;
 }
+
+.add{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  justify-content: center;
+  text-align: center;
+  border: 2rpx solid #4ebc97;
+  padding: 10rpx;
+  margin-left: 200rpx;
+  margin-right: 200rpx;
+}

@@ -22,6 +22,7 @@ Page({
     user:"",
 
     urls:[],
+    tabs_small: [],
     // commentamount:0,
   },
 
@@ -43,6 +44,15 @@ Page({
               strategy: v,
             })
           }
+        })
+        res.data.forEach(v => {
+          v.travel_type.forEach(u => {
+            if (u.state === 2) {
+              this.setData({
+                tabs_small: this.data.tabs_small.concat(u.name),
+              })
+            }
+          })
         })
         console.log("查询成功", this.data.list_strategy);
         const that = this;
@@ -80,7 +90,9 @@ Page({
         user_context: contenxt.comment,//评论的内容
         time: time,
         key:1,
-        isTouchMove:false
+        isTouchMove:false,
+        response: [],
+        responseamount:0,
       },
       success: res => {
         var commentamount
@@ -327,4 +339,11 @@ Page({
     });
   },
 
+  // navig(e){
+  //   let _id = e.currentTarget.dataset.id;//本条id的点赞数
+  // console.log(_id);
+  //   wx.navigateTo({
+  //     url: '../../pages/response/index?_id={{_id}}&author=this.data.strategy.userInfo.nickName',
+  //   })
+  // }
 })
