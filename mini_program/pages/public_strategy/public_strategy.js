@@ -573,7 +573,6 @@ changetoloa:function(e){
   var time = util.formatTime(new Date());
   wx.getSetting({
     success (res) {
-      var all=""
       console.log(res.authSetting)
       wx.getUserInfo({
         success:function(e){
@@ -589,6 +588,7 @@ changetoloa:function(e){
           commentamount:0,//初始评论数
           time:time,//
           like:[],
+          good:[],
           all:self.data.all,//景点，交通，描述
           travel_date:self.data.travel_date,//时间
           travle_leastfee:self.data.travle_leastfee,//费用

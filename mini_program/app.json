@@ -1,6 +1,6 @@
 {
+  "cloud":true,
   "pages": [
-    "pages/public_strategy/public_strategy",
     "pages/light/light",
     "pages/index/index",
     "pages/record/index",
@@ -14,7 +14,7 @@
     "pages/spot_detail_intro/index",
     "pages/spot_detail_map/index",
     "pages/public_travelnotes/public_travelnotes",
-    
+    "pages/public_strategy/public_strategy",
     "pages/show/show",
     "pages/moredetail/moredetail",
     "pages/logs/logs",
