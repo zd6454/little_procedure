@@ -3,8 +3,8 @@
     <view class="newlight">
      <view class="center">
       <button class="setlight" bindtap="addlight"> <image class="code1" src="../../img/addlight.png"></image> <text class="settext">点亮你的足迹</text> </button>
-    </view>
-    </view>
+      </view>
+     </view>
     <view wx:for="{{arraylight}}" wx:for-index="index" wx:key="index">
     <view class="po ">
         <view class="line">
