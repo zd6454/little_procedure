@@ -1,8 +1,10 @@
 {
   "usingComponents": {
-    "show":"../../component/show/show",
-    "strategy":"../../component/strategy/strategy",
-    "travelnotes":"../../component/travelnotes/travelnotes"
+    "show":"../../Component/show/show",
+    "strategy":"../../Component/strategy/strategy",
+    "travelnotes":"../../Component/travelnotes/travelnotes"
   },
-  "navigationBarTitleText": "详情"
+  "navigationBarTitleText": "详情",
+  "navigationBarBackgroundColor": "#EC606B",
+  "navigationBarTextStyle": "white"
 }

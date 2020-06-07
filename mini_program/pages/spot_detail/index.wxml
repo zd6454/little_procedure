@@ -75,8 +75,10 @@
 <!--酒店民宿-->
 <view class='brand2' wx:if="{{menuIndex== 2}}">
 <scroll-view scroll-y="true" style="height: 1000rpx;">
-<block  wx:for="{{hotels}}"  wx:key="id" >
+<block  wx:for="{{hotels}}"  wx:key="id" wx:for-index="index" wx:key="index" >
 <view  
+  data-index="{{index}}"
+  bindtap="todetail"
   hover-class="hover-class" id="{{item.id}}"
   style='display:flex; height:120px;border-bottom: 1px solid #DBDBDB'>
         <view style='width:128rpx; height:128rpx; margin:20rpx;'>

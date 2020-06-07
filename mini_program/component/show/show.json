@@ -2,5 +2,7 @@
   "component": true,
   "usingComponents": {
     "start":"../start/start"
-  }
+  },
+  "navigationBarBackgroundColor": "#EC606B",
+  "navigationBarTextStyle": "white"
 }

@@ -69,6 +69,11 @@ Page({
    */
   onLoad: function (options) {
            this.onQuery();
+           console.log(options.query)
+           const eventChannel=this.getOpenerEventChannel()
+           eventChannel.on('accept',function(data){
+             console.log(data,"here")
+           })
   },
 
   /**

@@ -116,6 +116,12 @@
 					"pathName": "pages/public_strategy/public_strategy",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/show/show",
+					"pathName": "pages/show/show",
+					"scene": null
 				}
 			]
 		}

@@ -1,7 +1,6 @@
 {
   "cloud":true,
   "pages": [
-    "pages/light/light",
     "pages/index/index",
     "pages/record/index",
     "pages/detail_travelnote/index",
@@ -18,8 +17,8 @@
     "pages/show/show",
     "pages/moredetail/moredetail",
     "pages/logs/logs",
-    "pages/comment/comment"
-    
+    "pages/comment/comment",
+    "pages/light/light"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
