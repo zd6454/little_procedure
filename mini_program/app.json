@@ -16,7 +16,6 @@
     "pages/public_strategy/public_strategy",
     "pages/show/show",
     "pages/moredetail/moredetail",
-    "pages/logs/logs",
     "pages/comment/comment",
     "pages/light/light"
   ],

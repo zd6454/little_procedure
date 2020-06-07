@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "show":"../../Component/show/show",
     "strategy":"../../Component/strategy/strategy",
     "travelnotes":"../../Component/travelnotes/travelnotes"
   },

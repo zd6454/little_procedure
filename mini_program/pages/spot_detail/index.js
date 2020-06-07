@@ -2,7 +2,7 @@
 const db=wx.cloud.database();
 const _=db.command;
 
-var QQMapWX = require('../../util/qqmap-wx-jssdk.js')//腾讯地图 api下载
+var QQMapWX = require('../../lib/qqmap-wx-jssdk.js')//腾讯地图 api下载
 var qqmapsdk;
 
 var scrollTopH; //获取顶部高度，用于设置浮动顶部的菜单（不同尺寸手机，高度不同）
