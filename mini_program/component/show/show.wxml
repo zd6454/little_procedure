@@ -26,18 +26,13 @@
     </view>
 </view>
 
-
- 
-
-
-
 <block wx:if="{{pjDataList!=''}}">
   <!--评价-->
   <view class='pj_box'>
     <view style="height:93.6rpx;line-height: 93.6rpx;border-bottom:2.34rpx solid #f5f5f5;">
      <view style='float:left;'>#网友点评</view>
      <view >
-        <!-- <image src="../../img/arrow.png" class="ico_img_jt"></image> -->
+        <image src="../../img/arrow.png" class="ico_img_jt"></image>
      </view>
      <view style='float:right;font-size:28.08‬rpx;color:#A2A2A2;'>
         <navigator url="../../pages/comment/comment?city={{city}}&&scenary={{scenary}}&&catelorgy={{catelorgy}}&&detail_id={{detail_id}}">{{list_length}}条评论</navigator>

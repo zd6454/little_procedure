@@ -92,3 +92,12 @@ height:20rpx;
   opacity:1;
  }
  
+ /* /评论 */
+ .pj_u_info .header_img{float:left;}
+.pj_u_info .header_img image{width:46.8rpx;height:46.8rpx;border-radius: 50%;overflow: hidden;}
+.pj_u_info .name{float:left; margin-left:23.4rpx;font-size: 117rpx;color:#333;}
+.pj_u_info .time{ float:right;font-size: 28.08rpx;color:#999;}
+ 
+.pj_cont{font-size: 30.42‬rpx;}
+.pj_img{ margin:23.4rpx 23.4rpx 0rpx 23.4rpx;width:23.4‬rpx;height:234rpx;}
+.list_item{position:relative;padding:117rpx 23.4rpx;background:#fff; border-bottom:2.34rpx solid #f5f5f5;}
