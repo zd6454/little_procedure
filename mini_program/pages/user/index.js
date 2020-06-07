@@ -454,7 +454,7 @@ lighting:function(){
     time:self.data.time,
     cratedAt:self.data.cratedAt,
     lightimage:self.data.lightimage,
-    userInfo:self.data.userInfo,
+    userInfo:self.data.userinfo,
    },
    success:function(res){
     if (getCurrentPages().length != 0) {

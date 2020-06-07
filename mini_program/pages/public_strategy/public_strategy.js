@@ -239,7 +239,7 @@ getlocation:function(){
         title:"处理中",
       });
       this.intoone();
-      if(Array.isArray(self.data.playimages)){
+      if(!Array.isArray(self.data.playimages)){
         this.comfirm();
         return ;
       }else{
@@ -254,8 +254,10 @@ getlocation:function(){
             filePath:filePath,
             success:res=>{
               console.log('上传成功', res.fileID);
+              var imagecloud=self.data. playimagescloud;
+              imagecloud.push(res.fileID);
               self.setData({
-                playimagescloud:self.data. playimagescloud.concat(res.fileID),
+                playimagescloud:imagecloud,
               })
               resolve();
             },

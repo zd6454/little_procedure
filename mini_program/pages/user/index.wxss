@@ -237,6 +237,7 @@ display:block ;
 .code{
   height: 32rpx;
   width: 32rpx;
+  margin-top: 9rpx;
 }
  .po .line .drawline{
  background: #B2B2B2;
