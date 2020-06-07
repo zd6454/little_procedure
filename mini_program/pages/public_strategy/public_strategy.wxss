@@ -1,4 +1,8 @@
 .pageset{
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  box-shadow: 8rpx 8rpx 16rpx  rgba(194, 126, 126, 0.5);
   height: 100%;
   width: 100%;
   margin-left: 42rpx;
@@ -8,9 +12,11 @@
 .head{
   display: block;
   overflow: hidden;
+  margin-top: 23rpx;
 }
 .head .line{
   display: flex;
+  margin:20rpx 0 0 50rpx;
   margin-top: 30rpx;
   font-size:22rpx;
   font-family:Source Han Sans CN;
@@ -18,6 +24,9 @@
   color:rgb(161, 115, 115);
   line-height:30rpx;
 }
+
+.head .selecttext{
+  width:30%;
 .head .line .dateset{
   display: flex;
   text-align: center;
@@ -45,6 +54,8 @@
 .head .line .dateset .datesub .subset{
   width:20rpx;
   height:20rpx;
+  color:rgb(161, 115, 115);
+  letter-spacing:1.000000953674316px;
   margin-bottom: 8rpx;
 }
 .head .line .dateset .dateadd{
@@ -94,10 +105,15 @@
   opacity:1;
   border-radius:12px;
 }
+.head .inputset{
 .placeholderset{
   width:112rpx;
   height:24rpx;
   font-size:22rpx;
+  border-radius: 30rpx;
+  width: 30%;
+  height: 25rpx;
+  min-height: 25rpx;
   font-family:Source Han Sans CN;
   font-weight:400;
   line-height:38rpx;
@@ -108,8 +124,12 @@
 }
 
 .head .line2{
+  display: flex;
+  margin:20rpx ;
   font-size:22rpx;
   font-family:Source Han Sans CN;
+  color:rgb(161, 115, 115);
+  line-height:18rpx;
   font-weight:400;
   line-height:30rpx;
   color:rgba(53,53,53,1);
@@ -121,6 +141,9 @@
   justify-content:space-between;
 }
 .head .line2 .cycleset{
+  width:26%;
+  height:34.4rpx;
+  color:rgb(161, 115, 115);
   display: flex;
   text-align: center;
   justify-content: center;
@@ -133,6 +156,9 @@
   margin-top: 16rpx;
 }
 .head .line2 .cycleset2{
+  width:26%;
+  height:34.4rpx;
+  color:rgb(180, 156, 156);
   display: flex;
   text-align: center;
   justify-content: center;
@@ -151,14 +177,49 @@
 }
 .line3{
   display: flex;
+  width:70%;
   width:84%;
   height:38rpx;
+  margin:20rpx 0 0 50rpx ;
   margin-top: 20rpx ;
   font-size:22rpx;
   font-family:Source Han Sans CN;
   font-weight:400;
   white-space: nowrap;
   color:rgb(161, 115, 115);
+}
+.head .line .scrollset{
+  white-space: nowrap;
+}
+.head .line .scrollset .cycleset3{
+  width:18%;
+  height:34.4rpx;
+  color:rgb(161, 115, 115);
+  display: flex;
+  flex-direction: row;
+  display: inline-block;
+  margin-left:10rpx;
+}
+.head .line .scrollset .cycleset4{
+  width:18%;
+  height:34.4rpx;
+  color:rgb(180, 156, 156);
+  display: flex;
+  flex-direction: row;
+  display: inline-block;
+  margin-left:10rpx;
+}
+ .setscroll{
+  width:100%;
+  height:38rpx;
+  display: flex;
+  flex-direction: row;
+}
+ .textset{
+  letter-spacing:1.000000953674316px;
+  border: 0 solid #b2b7bb; 
+  border-radius: 4rpx;
+  margin-left: 40rpx;
 }
 
 
@@ -172,8 +233,12 @@
   width:100%;
   height: 100%;
   display:flex;
+  justify-content:space-around;
   margin-top: 20rpx;
 }
+.areaset .textareaset{
+  width:200rpx;
+  height:60rpx;
 .areaset .inputspot{
   width:52px;
   height:10px;
@@ -197,6 +262,8 @@
   font-size:22rpx;
   font-family:Source Han Sans CN;
   font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
   line-height:38rpx;
   color:rgba(53,53,53,1);
   letter-spacing:1.000000953674316px;
@@ -260,6 +327,7 @@
   opacity:1;
 }
 .describe{
+align-items: center;
   width:640rpx;
   height:336rpx;
   background:rgba(246,246,246,1);
@@ -268,11 +336,16 @@
   margin-top: 50rpx;
 }
 .describe .describewrite{
+  width: 500rpx;
+  height: 100rpx;
   width:592rpx;
   height:152rpx;
   font-size:22rpx;
   font-family:Source Han Sans CN;
   font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  margin: 20rpx 0 20rpx 50rpx;
   line-height:38rpx;
   color:rgba(53,53,53,1);
   letter-spacing:1.000000953674316px;
@@ -333,6 +406,8 @@
 }
 .buttonset{
   display: flex;
+  align-items: center;
+  justify-content: center;
   width:85%;
   margin-top: 32rpx;
 
@@ -346,6 +421,11 @@
   border-radius:16rpx;
   font-size:26rpx;
   font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  height: 70rpx;
+  width:200rpx;
   font-weight:500;
   line-height:30rpx;
 }
@@ -357,11 +437,19 @@
   border-radius:16rpx;
   font-size:26rpx;
   font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  height: 70rpx;
+  width:200rpx;
   font-weight:500;
   line-height:30rpx;
 }
 
 .mapset{
+  width: 500rpx;
+  align-items: center;
+  margin: 20rpx 0 20rpx 50rpx;
   width:640rpx;
   height:592rpx;
   background:rgba(246,246,246,1);
@@ -369,14 +457,26 @@
   border-radius:16px;
   margin-top: 64rpx;
 }
+.maptext{
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
+  margin-left: 182rpx;
+}
 
 .mapset .mapig{
   width:100%;
+  height: 400rpx;
+  border:solid 1rpx #b49999;
   height: 592rpx;
 
 }
 
 .foot{
+  width:80%;
+  margin-left: 60rpx;
+  margin-bottom: 20rpx;
   width:144rpx;
   height:34rpx;
   font-size:134rpx;
@@ -391,6 +491,10 @@
 }
 
 .foot .commit{
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  border:solid 1rpx #b49999;
+  color:#b49999 ;
   width:640rpx;
   height:80rpx;
   background:rgba(236,96,107,1);

@@ -64,8 +64,8 @@
            </view>
           </view>
           <view  class="buttonset">
-           <button class="buttonwrite2" bindtap="lastplay">上一站</button>
-           <button class="buttonwrite" bindtap="nextplay">下一站</button>
+           <button class="buttonwrite2" bindtap="lastplay"><text class="stopset">上一站</text></button>
+           <button class="buttonwrite" bindtap="nextplay"><text class="stopset">下一站</text></button>
           </view>
           <view class="mapset">
                <image class="mapig" src="{{mapimagesrc}}" bindtap="checkmap2"></image>
