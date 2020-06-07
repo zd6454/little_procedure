@@ -6,6 +6,7 @@ Page({
    */
   data: {
      list:{},
+     data1:{},
      list_length:0,
   },
   // onDelete:function(){
@@ -68,11 +69,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+           let self=this;
            this.onQuery();
            console.log(options.query)
            const eventChannel=this.getOpenerEventChannel()
            eventChannel.on('accept',function(data){
              console.log(data,"here")
+             self.setData({
+               data1:data
+             })
            })
   },
 
