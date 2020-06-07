@@ -12,7 +12,7 @@
     width: 100rpx;
     height: 100rpx;
     text-align: center;
-    background-color: pink;
+    background-color: #f07e87;
     color: white;
     font-size: 0rpx;
     border-radius: 50%;
@@ -33,7 +33,7 @@
     font-size: 25rpx;
 }
 .menu-box .active {
-    background-color: pink;
+    background-color: #f07e87;
 }
 .menu-box .menu{
     /* width: 100rpx; */
@@ -45,7 +45,7 @@
 }
 .menu-box .menu>navigator {
     z-index: 100;
-    background-color:pink;
+    background-color:#f07e87;
     margin-bottom: 20rpx;
     border-radius: 50%;
     line-height: 100rpx;
@@ -73,7 +73,7 @@
   height: 100rpx; 
   width: 100rpx;
   border-radius:130rpx; 
-  background: #ffc0cb;
+  background: #f07e87;
   position:absolute;
   left:650rpx;
   top:700rpx;

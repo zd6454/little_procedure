@@ -12,9 +12,10 @@
   align-self: center;
   background-color: #fff;
   margin-left: 30rpx;
+  margin-top: 15rpx;
 }
 .search input{
-  flex:6;
+  flex:9;
   font-size:35rpx;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

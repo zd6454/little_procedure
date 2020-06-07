@@ -12,23 +12,18 @@
     "pages/spot_detail_map/index",
     "pages/public_travelnotes/public_travelnotes",
     "pages/public_strategy/public_strategy",
-    "pages/show/show",
-    "pages/moredetail/moredetail",
-    "pages/logs/logs",
-    "pages/comment/comment"
+    "pages/moredetail/moredetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor":"#ec606b",
     "navigationBarTitleText": "武汉APP",
     "navigationBarTextStyle": "black"
-   
-
   },
   "tabBar": {
     "color": "#999",
-    "selectedColor": "",
+    "selectedColor": "#ec606b",
     "backgroundColor": "",
     "position": "bottom",
     "borderStyle": "black",

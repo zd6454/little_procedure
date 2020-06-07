@@ -151,6 +151,20 @@
 					"pathName": "pages/response/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/show/index",
+					"pathName": "pages/show/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/show/show",
+					"pathName": "pages/show/show",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

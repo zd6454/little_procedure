@@ -29,7 +29,7 @@
               <view wx:for="{{item.good}}" wx:for-item="item1" wx:if="{{user.nickName===item1}}"  class="second_tab"  bindlongpress='longPress_good_str' data-index="{{item._id}}" data-goodamount="{{item.goodamount}}">
                 <!-- 左侧 图片容器 -->
                 <view class="goods_img_wrap" wx:if="{{item.playimagescloud.length===0}}">
-                    <image mode="scaleToFill" class="img" src="../../images/active.jpg" />
+                    <image mode="scaleToFill" class="img" src="../../images/wan.jpg" />
                 </view>
                  <view class="goods_img_wrap" wx:else >
                     <image mode="scaleToFill" class="img" src="{{item.playimagescloud[0]}}" />

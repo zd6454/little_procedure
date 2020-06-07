@@ -72,7 +72,6 @@
          <navigator class="setline" url="../../pages/detail_travelnote/index?_id={{item._id}}">
            <image src="../../img/show.png" class="share" bindtap="handleshow" data-id="{{item._id}}"></image>
           </navigator>
-
        </view>
    </view>
 </view>
