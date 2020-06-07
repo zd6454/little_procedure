@@ -1,2 +1,181 @@
-<!--pages/detail_strategy/index.wxml-->
-<text>pages/detail_strategy/index.wxml</text>
+<view wx:for="{{list_strategy}}" wx:if="{{item._id===strategy_id}}">
+<!-- 轮播图 -->
+<view class="detail_swiper">
+    <swiper 
+    autoplay="{{true}}"
+    circular="{{true}}"
+    indicator-dots="{{true}}"
+    interval='2000'
+    >
+        <swiper-item 
+        wx:for="{{item.playimagescloud}}"
+        wx:for-item="item2"
+        wx:key="index"
+        bindtap="handlePreviewImage"
+        style="height:1000rpx;"
+       >
+            <image mode="scaleToFill" style="height:700rpx;width:100%"  src="{{item2}}" bindtap="handlePreviewImage"  data-url="{{item2}}"/>
+        </swiper-item>    
+        <swiper-item>
+          <image mode="scaleToFill" style="height:700rpx;width:100%"  src="{{item.imageurl}}" bindtap="handlePreviewImage"  data-url="{{item.imageurl}}"/>
+        </swiper-item>
+    </swiper>
+</view>
+
+<!-- 用户信息 -->
+<view>
+     <view class="wrap_user">
+      <image  src="{{item.userInfo.avatarUrl}}" mode="aspectFit" class="img_user1"></image>
+        <view class="user_head">
+          <view class="user_names">{{item.userInfo.nickName}} </view>
+          <text decode="true" class="user_text">{{item.time}}</text>
+        </view>
+    </view>
+</view>
+
+<!-- 标签 -->
+ <view class="taps" style="padding-bottom:0rpx;">
+      <!-- <view class="array" wx:for="{{item.travel_type}}" wx:for-item="item1" wx:if="{{item1.state===2}}"> -->
+          <view class="conduct1">{{item.travel_date}}天</view>
+          <view class="conduct1">{{item.travle_leastfee}}-{{item.travle_mostfee}}元</view>
+       <!-- </view> -->
+       <view class="array" >
+          <view class="conduct">{{tabs_small[0]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[1]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[2]}}</view>
+       </view>
+</view>
+<view class="taps" wx:if="{{tabs_small.length>3}}" style="padding-top:0rpx;padding-bottom:0rpx;">
+     <view class="array" >
+          <view class="conduct">{{tabs_small[3]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[4]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[5]}}</view>
+       </view>  
+         <view class="array" >
+          <view class="conduct">{{tabs_small[6]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[7]}}</view>
+       </view>         
+     
+</view>
+<view class="taps" wx:if="{{tabs_small.length>8}}" style="padding-top:0rpx;">
+     <view class="array" >
+          <view class="conduct">{{tabs_small[8]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[9]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{tabs_small[10]}}</view>
+       </view>  
+         <view class="array" >
+          <view class="conduct">{{tabs_small[11]}}</view>
+       </view>
+</view>
+
+<!-- 详细攻略 -->
+<view wx:for="{{item.all}}" wx:for-item="item1" style="padding-left:25rpx;width:95%">
+  <view class="spot_warap">
+  <image src="../../images/spot.png" class="spot_img"></image>
+  <view class="spot">{{item1[1].spot}}</view>
+  </view>
+  <view class="cont">{{item1[1].content}}</view>
+  <!-- <view class="spot_warap" style="padding-top:0rpx;">
+  <image src="../../images/vehicle.png" class="spot_img"></image>
+   <view wx:for="{{item1[0]}}" wx:for-item="item2">
+    <view class="spot">{{item2}}</view>
+  </view>
+  </view> -->
+ 
+</view>
+
+   <!-- 加载模块 -->
+<block wx:if="{{loading}}"> <mp-loading type="circle"></mp-loading></block>
+<block wx:if="{{loading==false}}" >
+ <view class="wrap">
+  <text style="margin:40rpx 0;font-size:35rpx;color:#cac3c3 ;">共{{item.commentamount}}条评论</text>
+  <view   wx:for="{{comment_user_list}}" wx:key="{{index}}" wx:for-item="item1">
+    <view class="pro-box" bindlongpress='longPress'data-index="{{item1._id}}" >
+      <image  src="{{item1.user_image}}" mode="aspectFit" class="img_user"></image>
+      <view class="box">
+        <view class="head">
+          <view class="names">{{item1.user}} </view>
+          <text decode="true" class="text">{{item1.time}}</text>
+          <view class="condent">{{item.responseamount}}</view>
+
+           <navigator url="../../pages/response/index?_id={{item1._id}}&author={{item.userInfo.nickName}}" class="nav" >
+            <image src="../../images/评论 .png" class="img_like"></image>
+          </navigator>
+        </view>
+          <view class="addr-text">{{item1.user_context}}</view>
+        </view>
+    </view>
+  </view>
+   <view style="height:80rpx;color:#8f8f8f;text-align:center;font-size:35rpx;border-top: 1rpx solid #e5e5e5;">再也没有了w(ﾟДﾟ)w</view>
+ </view>
+</block>
+
+<form bindsubmit="submitForm" report-submit="true">
+  <view class="release" >
+  <!-- 评论 -->
+   <view class="wrap_comment">
+     <image src="../../images/评论(1).png" class="img" ></image>
+      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="说点什么..." name="comment" value="{{inputValue}}" auto-focus="true" >     
+     </textarea>
+      <button form-type="submit"  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"  class="submit">发送</button>
+    </view>
+
+    <!-- 点赞 收藏 分享 -->
+        <!-- 没有点赞过的用户 -->
+        <view class="setline" wx:if="{{item.like.length===0}}">
+           <image src="../../images/点赞(3).png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+        </view>
+        <!-- 有点赞的用户  用循环查看like -->
+        <view wx:else >
+         <view wx:for="{{item.like}}"  wx:for-item="item1">
+         <!-- 用户点过赞 -->
+          <view class="setline"  wx:if="{{item1===user}}" >
+           <image src="../../images/likes.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+          </view>
+        </view>
+          <view class="setline" >
+           <image src="../../images/点赞(3).png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+         <text class="mach" >{{item.likeamount}}</text>
+          </view>
+      </view>
+
+           <!-- 没有收藏过的 -->
+        <view class="setline" wx:if="{{item.good.length===0}}">
+         <image src="../../images/good(3).png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+        </view>
+        <!-- 有收藏的用户  用循环查看good -->
+        <view wx:else >
+         <view wx:for="{{item.good}}"  wx:for-item="item1">
+         <!-- 用户收藏过 -->
+          <view class="setline"  wx:if="{{item1===user}}">
+             <image src="../../images/goods.png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+          </view>
+        </view>
+          <view class="setline" >
+          <image src="../../images/good(3).png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+          </view>
+        </view>
+
+        <button open-type="share" class="setlinebtn"  style="background-image:url(../../img/share3.png);"></button>
+  </view>
+</form>
+</view>

@@ -2,13 +2,22 @@
 <view class="list" style="">
   <view class='list-half'>
     <view wx:for="{{list}}" wx:key="index" wx:if="{{index%2 == 0}}" class='card' >
-    <navigator url="/pages/detail_strategy/index?id={{item.index}}">
-      <image src="{{item.imageurl}}" mode="scaleToFill" class="big_image"style="" ></image>
-           <view class="taps">
-       <view class="array" wx:for="{{item.typeselectids}}" wx:for-item="item1">
-          <view class="conduct">{{item1}}</view>
+    <navigator url="/pages/detail_strategy/index?_id={{item._id}}">
+        <image src="{{item.playimagescloud[0]}}" mode="scaleToFill" class="big_image"  ></image>
+      <view class="taps">
+       <!-- <view class="array" wx:for="{{tabs_small}}" wx:for-item="item1" wx:if="{{item1.state===2}}">
+          <view class="conduct">{{item1.name}}</view>
+       </view> -->
+        <view class="array">
+          <view class="conduct">{{tabs_small[0]}}</view>
        </view>
-</view>
+         <view class="array">
+          <view class="conduct">{{tabs_small[1]}}</view>
+       </view>
+         <view class="array">
+          <view class="conduct">{{tabs_small[2]}}</view>
+       </view>
+     </view>
        </navigator>
        <view class="head">
               <view class="head">
@@ -41,12 +50,30 @@
   <view class='list-half'>
    <view wx:for="{{list}}" wx:key="index" wx:if="{{index%2 != 0}}" class='card'>
 
-    <navigator  url="/pages/detail_strategy/index?id={{item.index}}">
-       <image src="{{item.imageurl}}" mode="scaleToFill" style="width:346rpx;height:250rpx; border-radius: 20rpx;"></image>
+    <navigator  url="/pages/detail_strategy/index?_id={{item._id}}">
+        <image src="{{item.playimagescloud[0]}}" mode="scaleToFill" class="big_image"  ></image>
        <view class="taps">
-       <view class="array" wx:for="{{item.typeselectids}}" wx:for-item="item1">
-          <view class="conduct">{{item1}}</view>
+        <!-- <view class="array" wx:for="{{item.travel_type}}" wx:for-item="item1" wx:if="{{item1.state===2}}">
+          <view class="conduct">{{item1.name}}</view> -->
+          
+      <view class="array">
+          <view class="conduct">{{tabs_small[0]}}</view>
        </view>
+         <view class="array">
+          <view class="conduct">{{tabs_small[1]}}</view>
+       </view>
+         <view class="array">
+          <view class="conduct">{{tabs_small[2]}}</view>
+       </view>
+       <!-- <view class="array" >
+          <view class="conduct">{{item.typeselectids[0]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{item.typeselectids[1]}}</view>
+       </view>
+        <view class="array" >
+          <view class="conduct">{{item.typeselectids[2]}}</view>
+       </view> -->
 </view>
     </navigator>
 

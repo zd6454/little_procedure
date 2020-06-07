@@ -20,43 +20,7 @@ Page({
         isActive: false
       }
     ],
-    // list: [
-    //   {
-    //     index: 0,
-    //     user_image: "../../images/bowuguan.jpg",
-    //     user: "1111",
-    //     user_text: "gbhnhuhn vdregvdsfdsfcsdbuununuinjknjkn",
-    //     num: 211,
-    //     image: "../../images/wuda.jpg",
-    //   },
-    //   {
-    //     index: 1,
-    //     user_image: "../../images/wuda.jpg",
-    //     user: "1111",
-    //     user_text: "超速二次南湖搜出",
-    //     num: 2,
-    //     image: "../../images/wuda.jpg",
 
-    //   },
-    //   {
-    //     index: 2,
-    //     user_image: "../../images/bowuguan.jpg",
-    //     user: "1111",
-    //     user_text: "gbcs督促色IC或碾碎凑南湖U护禾谷渔粉挺有缘分",
-    //     num: 2,
-    //     image: "../../images/wuda.jpg",
-
-    //   },
-    //   {
-    //     index: 3,
-    //     user_image: "../../images/huangheluo.jpg",
-    //     user: "1111",
-    //     user_text: "gbhnhuhnvfdxczdrsvfdfvgedgrtrf5",
-    //     num: 21,
-    //     image: "../../images/wuda.jpg",
-
-    //   }
-    // ],
     system_strategy: [
       {
         id: 0,
@@ -78,6 +42,7 @@ Page({
     list_travelnotes:[],
     user:"",//用户名
     list_strategy:[],
+    tabs_small:[],
   },
 
   //搜索框文本内容显示
@@ -138,7 +103,17 @@ Page({
         this.setData({
           list_strategy: res.data,
         })
-        console.log("hh", res.data.length);
+        res.data.forEach(v=>{
+          v.travel_type.forEach(u=>{
+            if(u.state===2){
+              this.setData({
+                tabs_small: this.data.tabs_small.concat(u.name),
+              })
+            }
+          })
+        })
+        console.log("9", this.data.tabs_small);
+
       },
       file(res) {
         console.log("查询失败", res);

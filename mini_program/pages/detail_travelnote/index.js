@@ -19,10 +19,10 @@ Page({
     time: "",//当前时间
     loading: true,
     inputValue: "",
-    startX: 0, //开始坐标
-    startY: 0,
+    // startX: 0, //开始坐标
+    // startY: 0,
     user:"",
-    like_true:false
+    // like_true:false
   },
 
   /**
@@ -66,10 +66,34 @@ Page({
     this.onQuery();
   },
 
+  onShow: function () {
+    db.collection('comment').where({
+      note_id: this.data.note_id,
+    }).get({
+      success: res => {
+        console.log(res);
+        this.setData({
+          comment_user_list: res.data,
+          loading: false,
+          key: 1,
+        })
+        console.log("数据库查询成功", res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败',
+        })
+        console.error('数据库查询失败', err)
+      }
+    })
+  },
+
   onShareAppMessage(){
 
   },
 
+  //添加评论
   onADD: function (e, contenxt) {
     const note_id=this.data.note_id
     var travelnotes = this.data.travelnotes
@@ -82,7 +106,9 @@ Page({
         user_context: contenxt.comment,//评论的内容
         time: time,
         key:1,
-        isTouchMove:false//默认隐藏删除
+        isTouchMove:false,//默认隐藏删除
+        // response:[],//回复
+        responseamount:0,
       },
       success: res => {
         var commentamount
@@ -112,13 +138,8 @@ Page({
         wx.showToast({
           title: '新增记录成功',
         })
-        // if (getCurrentPages().length != 0) {
-        //刷新当前页面的数据
+       
         this.onQuery();
-        // const _id=this.data.note_id;
-        // getCurrentPages()[getCurrentPages().length - 1].onLoad(_id)
-        // }
-      
       },
       fail: (res) => {
         wx.showToast({
@@ -131,7 +152,6 @@ Page({
 
   //数据库查询
   onQuery: function () {
-
     db.collection('comment').where({
       note_id: this.data.note_id,
     }).get({

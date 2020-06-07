@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Collect": "../../Component/Collect/Collect"
+  },
+  "navigationBarTitleText": "发布",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

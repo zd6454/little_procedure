@@ -1,12 +1,90 @@
-<view class="user_info_wrap">
-    <view wx:if="{{userInfo}}" class="user_img_wrap">
-        <image class="user_bg" src="{{userInfo.avatarUrl}}" />
+<!-- <view class="user_info_wrap">
+    <view wx:if="{{user}}" class="user_img_wrap">
+        <image class="user_bg" src="{{user.avatarUrl}}" />
         <view class="user_info">
-            <image  class="user_icon" src="{{userInfo.avatarUrl}}"/>
-            <view class="user_name">{{userInfo.nickName}}</view>
+            <image  class="user_icon" src="{{user.avatarUrl}}"/>
+            <view class="user_name">{{user.nickName}}</view>
         </view> 
     </view>
     <view class="user_btn" wx:else>
         <navigator url="/pages/login/index">登录</navigator>
     </view>
-</view>
+</view> -->
+
+
+<Collect tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" style="width:720">
+  <block wx:if="{{tabs[0].isActive}}">
+    1
+  </block>
+  <block wx:if="{{tabs[1].isActive}}">
+   <view wx:if="{{collect_strategy===0}}">
+        <image src="../../images/blank.gif"></image>
+        <navigator open-type="switchTab"  url="../../pages/Introduction/index" class="add">快去看看吧</navigator>
+    </view>
+    <view  wx:if="{{collect_strategy}}">
+     <navigator
+          wx:for="{{list_strategy}}"
+          wx:key="{{item._id}}" 
+          url="../../pages/detail_strategy/index?_id={{item._id}}">
+              <view wx:for="{{item.good}}" wx:for-item="item1" wx:if="{{user.nickName===item1}}"  class="second_tab"  bindlongpress='longPress_good_str' data-index="{{item._id}}" data-goodamount="{{item.goodamount}}">
+                <!-- 左侧 图片容器 -->
+                <view class="goods_img_wrap" wx:if="{{item.playimagescloud.length===0}}">
+                    <image mode="scaleToFill" class="img" src="../../images/wan.jpg" />
+                </view>
+                 <view class="goods_img_wrap" wx:else >
+                    <image mode="scaleToFill" class="img" src="{{item.playimagescloud[0]}}" />
+                </view>
+                <!-- 右侧 商品容器 -->
+                <view class="goods_info_wrap">
+                <!-- 用户信息 -->
+                 <view class="head">
+                   <image class="image" src="{{item.userInfo.avatarUrl}}" ></image>
+                   <text class="textset">{{item.userInfo.nickName}}</text>
+                   <image src="../../images/点赞(2).png" class="llike" mode="scaleToFill"></image>
+                   <view class="like">{{item.likeamount}}</view>
+                 </view>
+                    <view class="taps">
+                      <view class="array" wx:for="{{item.travel_type}}" wx:for-item="item1" wx:if="{{item1.state===2}}">
+                        <view class="conduct">{{item1.name}}</view>
+                      </view>
+                     </view>
+                </view>
+            </view>
+        </navigator>
+        </view>
+  </block>
+  <block wx:if="{{tabs[2].isActive}}">
+   <view wx:if="{{collect_travelnotes===0}}">
+        <image src="../../images/blank.gif"></image>
+        <navigator open-type="switchTab" url="../../pages/Introduction/index?tabs[1].isActive" class="add">快去看看吧</navigator>
+
+    </view>
+    <view  wx:if="{{collect_travelnotes}}">
+     <navigator
+          wx:for="{{list_travelnotes}}"
+          wx:key="{{item._id}}" 
+          url="../../pages/detail_travelnote/index?_id={{item._id}}">
+              <view wx:for="{{item.good}}" wx:for-item="item1" wx:if="{{user.nickName===item1}}"  class="second_tab"  bindlongpress='longPress_good' data-index="{{item._id}}" data-goodamount="{{item.goodamount}}">
+                <!-- 左侧 图片容器 -->
+                <view class="goods_img_wrap" wx:if="{{item.travelnote.images.length===0}}">
+                    <image mode="scaleToFill" class="img" src="https://ae01.alicdn.com/kf/Heef5fdfb6d4f4813b2fa6e321022f6feJ.jpg" />
+                </view>
+                 <view class="goods_img_wrap" wx:else >
+                    <image mode="scaleToFill" class="img" src="{{item.travelnote.images[0]}}" />
+                </view>
+                <!-- 右侧 商品容器 -->
+                <view class="goods_info_wrap">
+                <!-- 用户信息 -->
+                 <view class="head">
+                   <image class="image" src="{{item.userInfo.avatarUrl}}" ></image>
+                   <text class="textset">{{item.userInfo.nickName}}</text>
+                   <image src="../../images/点赞(2).png" class="llike" mode="scaleToFill"></image>
+                   <view class="like">{{item.likeamount}}</view>
+                 </view>
+                    <view class="content">{{item.travelnote.content}}</view>
+                </view>
+            </view>
+        </navigator>
+        </view>
+  </block>
+</Collect>
