@@ -27,6 +27,7 @@
 
 .head .selecttext{
   width:30%;
+}
 .head .line .dateset{
   display: flex;
   text-align: center;
@@ -105,7 +106,7 @@
   opacity:1;
   border-radius:12px;
 }
-.head .inputset{
+
 .placeholderset{
   width:112rpx;
   height:24rpx;
@@ -239,6 +240,7 @@
 .areaset .textareaset{
   width:200rpx;
   height:60rpx;
+}
 .areaset .inputspot{
   width:52px;
   height:10px;

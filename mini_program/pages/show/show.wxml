@@ -11,10 +11,9 @@
 <view class="baseinfo">
   <view class="title">
    <text class="titlename"> {{data1.data.title}}</text>
-   <text class="catelogry">{{data1.data.category}}</text>
   </view>
   <view class="cg">
-   
+   <text class="catelogry">{{data1.data.category}}</text>
   </view>
 </view>
     <view class="content">
