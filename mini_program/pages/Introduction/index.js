@@ -20,25 +20,7 @@ Page({
         isActive: false
       }
     ],
-
-    system_strategy: [
-      {
-        id: 0,
-        image: "../../images/lou.jpg",
-        name: "武汉景点一日游",
-
-      },
-      {
-        id: 0,
-        image: "../../images/yinghua.jpg",
-        name: "浪漫樱花两日游"
-      },
-      {
-        id: 0,
-        image: "../../images/wan.jpg",
-        name: "吃喝玩乐周末游",
-      }
-    ],
+    system_strategy: [],
     list_travelnotes:[],
     user:"",//用户名
     list_strategy:[],
@@ -64,7 +46,7 @@ Page({
     console.log(e);
     var index= e.currentTarget.dataset.index;
    wx.navigateTo({
-     url: '../../pages/detail_system/detail_system',
+     url: '../../pages/detail_system/index',
      events:{
 
      },

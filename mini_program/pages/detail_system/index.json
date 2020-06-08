@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "平台攻略详情",
+  "navigationBarBackgroundColor": "#EC606B",
+  "navigationBarTextStyle": "white"
 }
