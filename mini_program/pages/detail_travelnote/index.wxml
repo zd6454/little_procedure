@@ -22,7 +22,7 @@
        <view  class="foot" >
            <!-- 没有点赞过的用户 -->
         <view class="setline" wx:if="{{item.like.length===0}}">
-           <image src="../../img/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <image src="../../images/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
            <text class="mach" >{{item.likeamount}}</text>
         </view>
         <!-- 有点赞的用户  用循环查看like -->
@@ -35,7 +35,7 @@
           </view>
         </view>
           <view class="setline" >
-           <image src="../../img/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <image src="../../images/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
            <text class="mach" >{{item.likeamount}}</text>
           </view>
         </view>
@@ -70,7 +70,7 @@
            <image src="{{item.good}}" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
            <text class="mach">{{item.goodamount}}</text>
           </view> -->
-          <button open-type="share" class="setlinebtn"  style="background-image:url(../../img/share3.png);">
+          <button open-type="share" class="setlinebtn"  style="background-image:url(../../images/share3.png);">
           <!-- <view class="setline1" > -->
            <!-- <image src="../../img/show.png" class="share" bindtap="handleshow" data-id="{{item._id}}"></image> -->
            <!-- <text class="mach1">{{}}</text> -->
@@ -87,7 +87,7 @@
         <view class="annotation" wx:else>什么都没有呢</view>
 
          <block wx:for="{{comment_user_list}}" wx:key="{{index}}" wx:for-item="item1">
-           <view class="pro-box" bindlongpress='longPress'data-index="{{item._id}}">
+           <view class="pro-box" bindlongpress='longPress'data-index="{{item1._id}}">
              <view class="head">
                <image class="img" src="{{item1.user_image}}" mode="aspectFit"></image>
                <view class="box">
@@ -119,7 +119,7 @@
 <form bindsubmit="submitForm" report-submit="true">
   <view class="release">
     <view class="replyinfo2">
-      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="请输入评论" name="comment" value="{{inputValue}}" auto-focus="true"></textarea>
+      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="请输入评论" name="comment" value="{{inputValue}}" auto-focus="true" adjust-position="false"></textarea>
       <button form-type="submit"  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"  class="submit">发送</button>
     </view>
   </view>

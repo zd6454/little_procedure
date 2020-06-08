@@ -18,9 +18,10 @@
 }
 
 .big_image{
-  width:346rpx;
+  width:344rpx;
   height:250rpx;
-   border-radius: 20rpx;
+  border-radius: 20rpx;
+  padding-top: 2rpx;
 }
 
 .array{
@@ -93,8 +94,8 @@ line-height: 45rpx;
 .gethot{
   /* flex:2; */
   /* padding-left: 130rpx; */
-  height: 25rpx;
-  width: 25rpx;
+  height: 30rpx;
+  width: 30rpx;
 
 }
 .good{

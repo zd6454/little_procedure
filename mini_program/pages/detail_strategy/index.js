@@ -91,7 +91,6 @@ Page({
         time: time,
         key:1,
         isTouchMove:false,
-        response: [],
         responseamount:0,
       },
       success: res => {
@@ -163,6 +162,14 @@ Page({
     let self = this
     var time = util.formatTime(new Date());
     const contenxt = e.detail.value;//获取输入的评论信息
+    if(!contenxt){
+      wx.showToast({
+        title: '内容为空',
+        icon:'none'
+      })
+    }else{
+      
+    }
     console.log(contenxt)
     wx.getSetting({
       success(res) {
@@ -245,6 +252,99 @@ Page({
       },
       success(res) {
         console.log(res);
+      }
+    })
+  },
+
+    //长按效果  删除
+    longPress(e){
+      console.log(e);
+      this.del(e);
+    },
+
+  //删除事件
+  del: function (e) {
+    console.log(e);
+    const strategy_id=this.data.strategy_id
+    var list_strategy = this.data.list_strategy
+    var that = this;
+
+    wx.getUserInfo({
+      success: function (res) {
+        console.log(res);
+        that.data.comment_user_list.forEach(v=>{
+          if (res.userInfo.nickName === v.user || res.userInfo.nickName === that.data.list_strategy.userInfo.nickName){//评论的人和题主可以删评论
+            wx.showModal({
+              title: '提示',
+              content: '是否确定删除',
+              success(t) {
+                if (t.confirm) {
+                  console.log('用户点击确定');
+                  //从数据库中删除
+                  db.collection('comment').doc(e.currentTarget.dataset.index).remove({
+                    success: function (ms) {
+                      var commentamount
+                      //从数组中删除
+                      that.data.comment_user_list.splice(e.currentTarget.dataset.index, 1);
+                      that.setData({
+                        comment_user_list: that.data.comment_user_list
+                      })
+                      console.log(that.data.comment_user_list)
+                      list_strategy.forEach(v => {
+                        if (v._id === strategy_id) {
+                          v.commentamount = v.commentamount - 1;
+                          commentamount = v.commentamount;
+                        }
+                      })
+                       that.setData({
+                        list_strategy: list_strategy
+                      })
+                      DB.doc(strategy_id).update({
+                        data: {
+                          commentamount: commentamount 
+                        },
+                        success(res) {
+                          console.log('cnslnculsdncslchw',res);
+                        }
+                      }) 
+                      db.collection('response').where({
+                        comment_id: e.currentTarget.dataset.index
+                      }).get({
+                        success:res=>{
+                          console.log(res)
+                          //将response从数据库中删去
+                          res.data.forEach(v=>{
+                            var id=v._id//获取到需要删除的response的comment_id
+                            db.collection('response').doc(id).remove({
+                              success: function (ms) {
+                                wx.showToast({
+                                  title: '删除成功',
+                                })
+                              }
+                          })
+                      })
+                    }
+                  })
+                },
+                    fail: function (ms) {
+                      wx.showToast({
+                        title: '删除失败',
+                        icon:"none"
+                      })
+                    },
+                  })
+                } else if (t.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }else{
+            wx.showToast({
+              title: '没有删除权限',
+              icon: "none"
+            })
+          }
+        })
       }
     })
   },

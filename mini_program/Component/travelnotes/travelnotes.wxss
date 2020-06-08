@@ -118,19 +118,19 @@ opacity:1;
   height:30rpx; 
 }
 .foot .Ilike{
-  height: 38.4rpx;
-  width: 38.4rpx;
+  height: 40rpx;
+  width: 40rpx;
   margin-left: 20rpx;
   padding-bottom: 50rpx;
 }
 .foot .comment{
-  height: 38.4rpx;
-  width: 38.4rpx;
+  height: 40rpx;
+  width: 40rpx;
   margin-left: 130rpx;
 }
 .foot .good{
-  height: 38.4rpx;
-  width: 38.4rpx;
+  height: 40rpx;
+  width: 40rpx;
   margin-left: 130rpx;
     padding-bottom: 50rpx;
 }

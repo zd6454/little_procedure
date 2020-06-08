@@ -374,11 +374,10 @@ color:#fd9242;
 
 .release .good{
   /* padding-top: 3rpx; */
-  height: 38rpx;
-  width: 38rpx;
+  height: 40rpx;
+  width: 40rpx;
   margin-left: 55rpx;
   padding-top: 10rpx;
-
 }
 
 .release .setlinebtn{
@@ -434,7 +433,9 @@ color:#fd9242;
   align-items: center;
   
 }
-.condent{
-  width: 40rpx;
-  height: 30rpx;
+.condent1{
+  padding-top: 5rpx;
+  padding-right: 7rpx;
+  font-size: 25rpx;
+  color: #9f9f9f;
 }

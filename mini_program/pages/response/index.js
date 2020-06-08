@@ -163,24 +163,31 @@ Page({
     let self = this
     var time = util.formatTime(new Date());
     const contenxt = e.detail.value;//获取输入的评论信息
-    // console.log(contenxt)
-    wx.getSetting({
-      success(res) {
-        console.log(res.authSetting)
-        wx.getUserInfo({
-          success: function (res) {
-            console.log(res.userInfo)
-            self.setData({
-              comment: contenxt,
-              comment_user: res.userInfo,
-              time: time,
-              inputValue: "",
-            })
-            self.onADD(res.userInfo, contenxt);
-          }
-        })
-      }
-    })
+    if(contenxt.comment===""){
+      wx.showToast({
+        title: '内容为空,评论失败',
+        icon:'none'
+      })
+    }else{
+      console.log(contenxt)
+      wx.getSetting({
+        success(res) {
+          console.log(res.authSetting)
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+              self.setData({
+                comment: contenxt,
+                comment_user: res.userInfo,
+                time: time,
+                inputValue: "",
+              })
+              self.onADD(res.userInfo, contenxt);
+            }
+          })
+        }
+      })
+    }
   },
   //长按效果  删除
   longPress(e) {

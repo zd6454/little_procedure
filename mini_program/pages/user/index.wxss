@@ -117,8 +117,9 @@
   padding-top: 10rpx;
   display: flex;
   height: 50rpx;
+  padding-left: 20rpx;
 }
-.image{
+.image5{
     height: 70rpx;
     width: 70rpx;
     border-radius: 35rpx;

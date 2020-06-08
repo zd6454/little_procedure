@@ -66,7 +66,7 @@
                 <view class="goods_info_wrap">
                 <!-- 用户信息 -->
                  <view class="head">
-                   <image class="image" src="{{item.userInfo.avatarUrl}}" ></image>
+                   <image class="image5" src="{{item.userInfo.avatarUrl}}" ></image>
                    <text class="textset">{{item.userInfo.nickName}}</text>
                    <image src="../../images/点赞(2).png" class="llike" mode="scaleToFill"></image>
                    <view class="like">{{item.likeamount}}</view>
@@ -104,7 +104,7 @@
                 <view class="goods_info_wrap">
                 <!-- 用户信息 -->
                  <view class="head">
-                   <image class="image" src="{{item.userInfo.avatarUrl}}" ></image>
+                   <image class="image5" src="{{item.userInfo.avatarUrl}}" ></image>
                    <text class="textset">{{item.userInfo.nickName}}</text>
                    <image src="../../images/点赞(2).png" class="llike" mode="scaleToFill"></image>
                    <view class="like">{{item.likeamount}}</view>

@@ -1,5 +1,5 @@
 {
-  "cloud":true,
+  "cloud": true,
   "pages": [
     "pages/index/index",
     "pages/record/index",
@@ -17,18 +17,17 @@
     "pages/show/show",
     "pages/light/light" ,
     "pages/system_strategy/system_strategy"
-   ],
+ ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
 
-    "navigationBarBackgroundColor":"#ec606b",
+    "navigationBarBackgroundColor": "#ec606b",
     "navigationBarTitleText": "武汉APP",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#999",
-
     "selectedColor": "#ec606b",
     "backgroundColor": "",
     "position": "bottom",
@@ -61,5 +60,4 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   }
-
 }

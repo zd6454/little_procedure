@@ -310,7 +310,7 @@ Page({
                 height: 30,
                 callout: {
                   content: "黄鹤楼",
-                  color: 'grey',
+                  color: 'pink',
                   fontSize: 17,
                   bgcolor: '#dd5145',
                   display: 'ALWAYS'
@@ -516,7 +516,7 @@ Page({
                 height: 30,
                 callout: {
                   content: "黄鹤楼",
-                  color: 'grey',
+                  color: 'pink',
                   fontSize: 17,
                   bgcolor: '#dd5145',
                   display: 'ALWAYS'
@@ -578,7 +578,7 @@ Page({
         that.setData({
           countDownNum: countDownNum,
         })
-      }, 700)
+      }, 1000)
     })
   },
   // 点击地图切换到具体景点
