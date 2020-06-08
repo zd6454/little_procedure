@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "Collect": "../../Component/Collect/Collect"
+  },
   "navigationBarTitleText": "个人中心",
   "backgroundTextStyle": "dark",
   "navigationBarTextStyle": "white"

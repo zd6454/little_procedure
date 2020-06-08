@@ -1,22 +1,9 @@
-<!-- <view class="user_info_wrap">
-    <view wx:if="{{user}}" class="user_img_wrap">
-        <image class="user_bg" src="{{user.avatarUrl}}" />
-        <view class="user_info">
-            <image  class="user_icon" src="{{user.avatarUrl}}"/>
-            <view class="user_name">{{user.nickName}}</view>
-        </view> 
-    </view>
-    <view class="user_btn" wx:else>
-        <navigator url="/pages/login/index">登录</navigator>
-    </view>
-</view> -->
 
-
-<Collect tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" style="width:720">
-  <block wx:if="{{tabs[0].isActive}}">
+<Collect tabs="{{tabs1}}" bindtabsItemChange="handletabs1ItemChange" style="width:720">
+  <block wx:if="{{tabs1[0].isActive}}">
     1
   </block>
-  <block wx:if="{{tabs[1].isActive}}">
+  <block wx:if="{{tabs1[1].isActive}}">
   <view wx:if="{{release_strategy===0}}">
     <image src="../../images/blank.gif"></image>
     <navigator  url="../../pages/public_strategy/public_strategy" class="add">点我发布</navigator>
@@ -53,7 +40,7 @@
         </navigator>
       </view>
   </block>
-  <block wx:if="{{tabs[2].isActive}}">
+  <block wx:if="{{tabs1[2].isActive}}">
    <view wx:if="{{release_travelnotes===0}}">
     <image src="../../images/blank.gif"></image>
      <navigator  url="../../pages/public_travelnotes/public_travelnotes" class="add">点我发布</navigator>
