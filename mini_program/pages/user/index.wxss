@@ -253,6 +253,13 @@ display:block ;
 .po .info .detail{
  display: flex;
  justify-content: space-between;
+ display: -webkit-box;
+overflow: hidden;
+text-overflow: ellipsis;
+word-wrap: break-word;
+white-space: normal !important;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
 }
 
 .addimage{
@@ -286,6 +293,7 @@ display:block ;
  color:rgba(53,53,53,1);
  letter-spacing:1.000000953674316px;
  opacity:1;
+ text-overflow:ellipsis;
 }
 .textset2{
  width:188rpx;

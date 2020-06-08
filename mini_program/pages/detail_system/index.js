@@ -16,15 +16,16 @@ Page({
   },
 
   onLoad: function (options) {
-    // var  strategy_id 
-    // //接收传过来的id
-    // const eventChannel=this.getOpenerEventChannel()
-    // eventChannel.on('system',function(data){
-    //   console.log(data)
-    //   this.setData({
-    //      strategy_id : data._id
-    //   })
-    // })
+    var  strategy_id 
+    //接收传过来的id
+    let self=this;
+    const eventChannel=this.getOpenerEventChannel()
+    eventChannel.on('system',function(data){
+      console.log(data)
+      self.setData({
+         strategy_id : data.data._id
+      })
+    })
     // const strategy_id = options._id;//获取从页面传过来的id
     // this.setData({
     //   strategy_id,

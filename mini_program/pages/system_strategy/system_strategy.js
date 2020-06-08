@@ -14,7 +14,7 @@ Page({
     console.log(e);
     var index= e.currentTarget.dataset.index;
    wx.navigateTo({
-     url: '../../pages/detail_system/detail_system',
+     url: '../../pages/detail_system/index',
      events:{
 
      },
