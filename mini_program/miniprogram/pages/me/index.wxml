@@ -1,0 +1,76 @@
+<view class="user_info_wrap">
+  <view wx:if="{{userinfo.avatarUrl}}" class="user_imag_wrap">
+    <image class="user_bg" src="{{userinfo.avatarUrl}}"></image>
+    <view class="user_info">
+      <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
+      <view class="user_name">{{userinfo.nickName}}</view>
+      <view class="foot_mark">
+      <image class="foot_image" src="https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/pinkfoot.png?sign=ae9f93c0274a45122fce0e36423a0ed8&t=1589941956"></image>
+      <image class="foot_image" src="https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/pinkfoot.png?sign=ae9f93c0274a45122fce0e36423a0ed8&t=1589941956"></image>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <button class='btn1' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleGetUserInfo">
+    <image class='btnImg' src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/weixin.png?sign=4c5f77439b4c5a78de3454628442fc35&t=1591256855'></image>
+    <view>登录</view>
+ </button>
+  </view>
+</view>
+
+<!--可切换菜单栏-->
+    <scroll-view scroll-with-animation="true" class="menu_box" scroll-left="0">
+    <view class="menu_body menu_body_cur{{menuIndex}}" style="width:calc（187.5rpx*{{menuList.length}});">
+    <view class='menu_li' wx:for="{{menuList}}" data-type='{{index}}' bindtap='changeTitle'>{{item}}</view>
+    </view>
+    </scroll-view>
+
+<!--点亮-->
+<view class='brand1' wx:if="{{menuIndex == 0}}">
+点亮页面
+</view>
+
+<!--发布-->
+<view class='brand2' wx:if="{{menuIndex == 1}}">
+发布页面
+</view>
+
+<!--收藏-->
+<view class='brand3' wx:if="{{menuIndex == 2}}">
+收藏页面
+</view>
+
+<!--清单-->
+<view class='brand4' wx:if="{{menuIndex == 3}}">
+  <block wx:for="{{list}}" wx:for-item="item" wx:key="{{item.id}}">
+  <view class="kind-list-item">
+    <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap="kindToggle">
+      <view class="kind-list-text">{{item.name}}</view>
+      <view class="page_add">
+        <image class="add_image" src="https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/add.png?sign=8a499268157751c4f184f5e43ad6b583&t=1590335242"  bindtap="addPre"></image>
+      </view>
+    </view>
+    <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
+      <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
+        <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="page.id">
+          <view class="navigator" bindtap="confirmPrep" data-id="{{item.id}}" data-index='{{page.id}}'>
+            <view class="navigator-text">{{page.name}}</view>
+            <!-- icon -->
+            <view class="navigator-image" wx:if="{{page.confirm == true}}">
+              <image class="confirm_image" src="https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/confirm.png?sign=a04d0349dbb154721e9feaf740ff9521&t=1590329836"></image>
+            </view>
+          </view>
+        </block>
+
+        <!-- 添加输入框 -->
+        <view class="navigator" wx:if="{{ifShowInputbox == false}}">
+          <input class="input" type="text" placeholder="请添加便签..."  bindinput="changeInputVal" placeholder-class="place-input" value="{{inputVal}}"></input>
+          <button size="mini" type="primary" id="{{item.id}}" bindtap="addMsg">添加</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+</view>
+
+

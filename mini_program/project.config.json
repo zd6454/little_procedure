@@ -63,6 +63,19 @@
 					"pathName": "pages/spot_detail_map/index",
 					"query": "spot_id=2738900478225601695",
 					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/me/index",
+					"pathName": "pages/me/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/index",
+					"scene": null
 				}
 			]
 		}

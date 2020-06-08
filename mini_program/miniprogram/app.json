@@ -2,7 +2,8 @@
   "pages": [
     "pages/spot_detail/index",
     "pages/spot_detail_intro/index",
-    "pages/spot_detail_map/index"
+    "pages/spot_detail_map/index",
+    "pages/me/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -12,5 +13,6 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "cloud": true
 }
