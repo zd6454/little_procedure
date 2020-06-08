@@ -14,34 +14,6 @@
 
 <Collect tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" style="width:720">
   <block wx:if="{{tabs[0].isActive}}">
-    <!-- 点亮操作 -->
-<view class="page">
-    <view class="newlight">
-     <view class="center">
-      <button class="setlight" bindtap="addlight"> <image class="code1" src="../../img/addlight.png"></image> <text class="settext">点亮你的足迹</text> </button>
-      </view>
-     </view>
-    <view wx:for="{{arraylight}}" wx:for-index="index" wx:key="index">
-    <view class="po ">
-        <view class="line">
-           <image class="code" src="../../img/lighting.png"></image>
-           <view class="drawline"></view>
-        </view>
-        <view class="info">
-          <view  class="detail">
-            <text class="textset1"> {{item.spot}}</text>
-            <text class="textset2"> {{item.time}}</text>
-           </view>
-           <view wx:if="{{item.lightimage!=''}}">
-           <image  data-index="{{index}}" class="image"  src="{{item.lightimage}}" bindtap="checkimage"></image>
-           </view>
-           <view wx:else>
-            <button data-index="{{index}}" class="addimage" bindtap="chooseImage" open-type="getUserInfo" bindgetuserinfo="ongetUserInfo"> <image class="image1" src="../../img/addimage.png"></image></button>
-           </view>
-        </view>
-    </view>
-    </view>
-</view>
 
   </block>
   <block wx:if="{{tabs[1].isActive}}">
