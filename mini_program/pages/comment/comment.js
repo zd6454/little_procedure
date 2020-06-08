@@ -20,7 +20,7 @@ Page({
 //添加评论进入数据库
   onADD:function(e,contenxt){
     var time = util.formatTime(new Date());//获取当前时间
-    db.collection('comment').add({
+    db.collection('hotelscomment').add({
       data:{ 
         city:this.data.reccive_menter.city,//城市
         scenic:this.data.reccive_menter.scenary,//具体景点
@@ -55,7 +55,7 @@ Page({
   //数据库查询
   onQuery:function(){
 
-   db.collection('comment').where({
+   db.collection('hotelscomment').where({
     city:this.data.reccive_menter.city,//城市
     scenic:this.data.reccive_menter.scenary,//具体景点
     type:parseInt(this.data.reccive_menter.catelorgy),

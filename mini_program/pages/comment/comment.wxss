@@ -58,7 +58,7 @@
   height: 64rpx;
   line-height: 64rpx;
   text-align: center;
-  color: #6c0;
+  color: #ec606b;
   margin: 0 3px;
   padding: 0;
 }
@@ -68,7 +68,7 @@
   height: 64rpx;
   line-height: 64rpx;
   text-align: center;
-  color: #6c0;
+  color: #ec606b;
   margin: 0 3px;
   padding: 0;
 }

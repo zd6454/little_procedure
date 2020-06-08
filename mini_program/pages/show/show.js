@@ -20,7 +20,7 @@ Page({
   // },
   onQuery:function(){
     const db=wx.cloud.database()
-    db.collection('comment').where({
+    db.collection('hotelscomment').where({
      city:'武汉',//城市
      scenic:'黄鹤楼',//具体景点
      type:1,
@@ -42,7 +42,7 @@ Page({
         console.error('数据库查询失败',err)
       }
     })
-    db.collection('comment').where({
+    db.collection('hotelscomment').where({
       city:'武汉',//城市
       scenic:'黄鹤楼',//具体景点
       type:1,

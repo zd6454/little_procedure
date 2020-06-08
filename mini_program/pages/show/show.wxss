@@ -63,6 +63,7 @@ height:20rpx;
   word-break:break-all;
  }
  .setcontent{
+   height: 150rpx;
   font-size:22rpx;
   font-family:Source Han Sans CN;
   font-weight:400;
