@@ -15,8 +15,7 @@
  }
 .baseinfo{
   width: 100%;
-  height: 120rpx;
-  display: flex;
+  height: 200rpx;
   overflow: hidden;
 }
 .baseinfo .title{
@@ -34,12 +33,13 @@
    opacity:1;
 }
 .titlename{
-  width:60%;
+  width:100%;
   height:48rpx;
 }
 .baseinfo .cg{
-  margin-top: 60rpx ;
-  width:152rpx;
+  margin-top: 20rpx ;
+  margin-left:40rpx ;
+  width:100%;
   height:20rpx;
   font-size:22rpx;
   font-family:Source Han Sans CN;
@@ -51,7 +51,7 @@
   margin-right: 228rpx;
 }
 .catelogry{
-width:152rpx;
+width:100%;
 height:20rpx;
 }
  .content{
