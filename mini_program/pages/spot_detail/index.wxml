@@ -66,7 +66,13 @@
 
 <!--游览推荐-->
 <view class='brand1' wx:if="{{menuIndex == 0}}">
-1 
+  <view wx:for="{{Spotroute}}" style="padding-left:20rpx;width:97%;">
+    <view style="font-size:35rpx;font-weight:blod;padding-top:15rpx;">{{item.name}}</view>
+    <image src="{{item.image}}" style="width:97%;height:400rpx;"></image>
+    <view style="line-height:40rpx;margin-right:20rpx;">
+      <text style="font-size:30rpx;">{{item.content}}</text>
+    </view>
+  </view>
 </view>
 <!--热门攻略-->
 <view class='brand2' wx:if="{{menuIndex== 1}}">
@@ -98,7 +104,6 @@
 </block>
 </scroll-view>
 </view>
-<view class='end_tip'>点击查看更多</view>
 </view>
 
 <!--可切换菜单栏浮动在顶部-->

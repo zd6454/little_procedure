@@ -22,6 +22,7 @@ Page({
     SpotIntroText:"",
     SpotLat:"30",
     SpotLng:"110",
+    Spotroute:[],
 
     scrollLeft: 0, //tab标题的滚动条位置
     menuList:['游览推荐','热门攻略','酒店民宿'],
@@ -141,6 +142,7 @@ getSpotDetail(spot_id){
       SpotIntroText: res.data.spot_intro_text,
       SpotLat: res.data.spot_latitude,
       SpotLng: res.data.spot_longitude,
+      Spotroute:res.data.route,
     });
     console.log(this.data.SpotLat);
     console.log(this.data.SpotLng);
