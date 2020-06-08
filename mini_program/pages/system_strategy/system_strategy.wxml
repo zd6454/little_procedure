@@ -1,0 +1,27 @@
+
+  <view class="page">
+   <view wx:for="{{list}}" wx:key="index" wx:index="index" data-index="{{index}}">
+   <view class="head">
+        <view class="imageset">
+           <image class="image" src="{{item.image}}"></image>
+        </view>
+        <view class="onetext" bindtap="godetail" data-index="{{index}}">
+             <view class="spot"><text>{{item.spot}}</text></view>
+             <view class="more"><text>查看详情</text> <image class="code" src="../../img/arrow.png"></image></view>
+        </view>
+        <view class="totallabel">
+            <view wx:for="{{item.label}}" wx:index="index" wx:key="index"  class="label">
+                <text class="setlabel">{{item}} </text>
+            </view>
+        </view>
+        <view class="foot">
+            <view class="best">
+              <text>最佳旅游季节：{{item.besttime}}</text>
+            </view>
+            <view class="fire">
+             <image src="../../img/fire.png" class="fireimage"></image>
+            </view>
+        </view>
+     </view>
+   </view>
+  </view>

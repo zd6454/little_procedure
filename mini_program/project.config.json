@@ -170,6 +170,13 @@
 					"id": -1,
 					"name": "pages/show/show",
 					"pathName": "pages/show/show",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/system_strategy/system_strategy",
+					"pathName": "pages/system_strategy/system_strategy",
 					"scene": null
 				}
 			]
