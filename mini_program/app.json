@@ -15,7 +15,8 @@
     "pages/public_strategy/public_strategy",
     "pages/comment/comment",
     "pages/show/show",
-    "pages/light/light"
+    "pages/light/light",
+    "pages/detail_system/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

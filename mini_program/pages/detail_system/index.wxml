@@ -1,0 +1,73 @@
+<view wx:for="{{system_strategy}}" wx:if="{{item._id===strategy_id}}" style="margin-bottom:80rpx;">
+<!-- <view wx:for="{{system_strategy}}" > -->
+  <image src="{{item.images}}" style="width:100%;height:400rpx;"></image>
+  <view style="padding-left:30rpx;padding-right:30rpx;">
+   <view style="font-size:40rpx;">{{item.spot}}</view>
+   <!-- 标签 -->
+   <view class="taps" style="padding-bottom:0rpx;" >
+      <view class="conduct1" wx:for="{{item.label}}" wx:for-item="item1">{{item1}}</view>
+   </view>
+   <!-- 描述 -->
+   <view wx:for="{{item.description}}" wx:for-item="item1">
+    <view style="font-size:35rpx;font-weight:blod;padding-top:15rpx;">{{item1.name}}</view>
+    <view style="line-height:40rpx;">
+      <text style="font-size:30rpx;">{{item1.content}}</text>
+    </view>
+    <image src="{{item1.image}}" style="width:97%;height:400rpx;"></image>
+   </view>
+  </view>
+
+<form bindsubmit="submitForm" report-submit="true">
+  <view class="release" >
+  <!-- 评论 -->
+   <view class="wrap_comment">
+     <image src="../../images/评论(1).png" class="img" ></image>
+      <textarea placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="说点什么..." name="comment" value="{{inputValue}}" adjust-position="false">     
+     </textarea>
+      <button form-type="submit"  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"  class="submit">发送</button>
+    </view>
+
+    <!-- 点赞 收藏 分享 -->
+        <!-- 没有点赞过的用户 -->
+        <view class="setline" wx:if="{{item.like.length===0}}">
+           <image src="../../images/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+        </view>
+        <!-- 有点赞的用户  用循环查看like -->
+        <view wx:else >
+         <view wx:for="{{item.like}}"  wx:for-item="item1">
+         <!-- 用户点过赞 -->
+          <view class="setline"  wx:if="{{item1===user}}" >
+           <image src="../../images/likes.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+           <text class="mach" >{{item.likeamount}}</text>
+          </view>
+        </view>
+          <view class="setline" >
+           <image src="../../images/like.png" class="Ilike" bindtap="handleIlike" data-id="{{item._id}}" data-likeamount="{{item.likeamount}}"></image>
+         <text class="mach" >{{item.likeamount}}</text>
+          </view>
+      </view>
+
+           <!-- 没有收藏过的 -->
+        <view class="setline" wx:if="{{item.good.length===0}}">
+         <image src="../../images/good(3).png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+        </view>
+        <!-- 有收藏的用户  用循环查看good -->
+        <view wx:else >
+         <view wx:for="{{item.good}}"  wx:for-item="item1">
+         <!-- 用户收藏过 -->
+          <view class="setline"  wx:if="{{item1===user}}">
+             <image src="../../images/goods.png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+          </view>
+        </view>
+          <view class="setline" >
+          <image src="../../images/good(3).png" class="good" bindtap="handlegood" data-id="{{item._id}}" data-goodamount="{{item.goodamount}}"></image>
+           <text class="mach">{{item.goodamount}}</text>
+          </view>
+        </view>
+        <button open-type="share" class="setlinebtn"  style="background-image:url(../../images/share3.png);"></button>
+  </view>
+</form>
+</view>
