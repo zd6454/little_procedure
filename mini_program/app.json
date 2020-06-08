@@ -15,12 +15,19 @@
     "pages/public_strategy/public_strategy",
     "pages/comment/comment",
     "pages/show/show",
+<<<<<<< HEAD
     "pages/light/light",
     "pages/detail_system/index"
   ],
+=======
+    "pages/light/light" ,
+    "pages/system_strategy/system_strategy"
+ ],
+>>>>>>> bdd487bd63c054af4df1883382991d2266399264
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
+
     "navigationBarBackgroundColor": "#ec606b",
     "navigationBarTitleText": "武汉APP",
     "navigationBarTextStyle": "black"

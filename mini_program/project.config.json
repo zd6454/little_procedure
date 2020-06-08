@@ -125,6 +125,22 @@
 					"pathName": "pages/detail_system/index",
 					"query": "",
 					"scene": null
+<<<<<<< HEAD
+=======
+				},
+				{
+					"id": -1,
+					"name": "pages/show/show",
+					"pathName": "pages/show/show",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/system_strategy/system_strategy",
+					"pathName": "pages/system_strategy/system_strategy",
+					"scene": null
+>>>>>>> bdd487bd63c054af4df1883382991d2266399264
 				}
 			]
 		}

@@ -15,7 +15,7 @@
      <block wx:if="{{tabs[0].isActive}}">
      <view class="wrap1">
       <text class="name1" >#平台攻略</text>
-      <navigator class="nav" url="/pages/spot_detail/index">查看全部></navigator>
+      <navigator class="nav" url="/pages/system_strategy/system_strategy">查看全部></navigator>
      </view>
 
      <view class="activity" style="padding-top:20rpx">
