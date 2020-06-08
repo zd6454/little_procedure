@@ -1,0 +1,231 @@
+.taps{
+  display: flex;
+  flex-direction: row;
+  font-size: 25rpx;
+  align-items: center;
+  /* justify-content: center; */
+  /* float: left; */
+  width: 95%;
+  flex-wrap:warp;
+  white-space:pre-wrap;
+  padding-top: 10rpx;
+}
+
+.conduct1{
+  /* flex: 1; */
+  text-align:center;
+  /* border: 1rpx solid rgb(199, 197, 197); */
+  background-color: #def1e9;
+  border-radius: 15rpx;
+  color:#5ac09e;
+  margin-right: 20rpx;
+  padding: 0 15rpx;
+}
+
+
+
+.wrap{
+  width: 90%;
+  margin-left: 30rpx;
+  border-top: 2rpx #e5e5e5 solid;
+  /* height: 200rpx; */
+}
+
+
+ 
+.input_null {
+  color: #c9c9c9;
+}
+ 
+.replyAll {
+  position:absolute;
+}
+ 
+.release {
+  /* align-items: center; */
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* margin: 0rpx 0rpx 0rpx 15rpx; */
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  background-color: white;
+  font-size: 28rpx;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  height: 90rpx;
+  overflow: hidden;
+}
+ 
+.replyinfo1{ 
+  display: flex;
+  justify-content: space-between; /*两端对齐*/
+  font-size: 35rpx;
+}
+.replyinfo2{ 
+  display: flex;
+  justify-content: space-between; /*两端对齐*/
+}
+
+.wrap_comment{
+    width: 270rpx;
+  padding-left: 10rpx;
+   border-width: 5rpx 10rpx; /*使用padding与预期留白不一致，故使用border*/
+  border-style: solid;
+  border-color: #f1f1f1;
+  line-height: 34rpx;
+  font-size: 30rpx;
+  background-color: #f1f1f1;
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.release .wrap_comment .img{
+  height: 30rpx;
+  width: 30rpx;
+  flex: 1;
+}
+ 
+.release .wrap_comment textarea {
+  flex: 8;
+  padding-left: 15rpx;
+  min-height: 34rpx;
+  max-height: 100rpx; /*最多显示三行*/
+}
+ 
+.release .text {
+  font-size: 40rpx;
+  color: #c9c9c9;
+}
+ 
+.cancel {
+  width: 240rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #6c0;
+  margin: 0 3px;
+  padding: 0;
+}
+ 
+.release .submit {
+  width: 70rpx;
+  /* height: 64rpx; */
+  line-height: 45rpx;
+  text-align: center;
+  /* margin: 0 10rpx; */
+  padding: 0;
+  font-size: 25rpx;
+  color: #11ba40;
+  background-color: #f1f1f1;
+}
+ 
+.pro-box .info .text .delete {
+  color: #f68135;
+  border-radius: 50rpx;
+  border: 1px solid #f68135;
+  font-size: 28 rpx;
+  width: 150rpx;
+  height: 48rpx;
+  text-align: center;
+}
+
+.release .setline{
+  display: flex;
+  height: 50rpx;
+  overflow: hidden;
+  text-align:center;
+  margin-bottom: 20rpx;
+  /* margin-top: 20rpx; */
+  /* position: fixed; */
+}
+
+.release .Ilike{
+  height: 40rpx;
+  width: 40rpx;
+  margin-left:40rpx;
+  padding-top: 5rpx;
+}
+
+.release .mach{
+  font-size:30rpx;
+  font-family:Source Han Sans CN;
+  margin-left: 5rpx;
+  line-height: 45rpx;
+  width: 45rpx;
+  padding-top: 5rpx;
+}
+
+.release .good{
+  /* padding-top: 3rpx; */
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 55rpx;
+  padding-top: 10rpx;
+}
+
+.release .setlinebtn{
+ line-height: 20rpx;
+  background-color: white;
+  padding-left: 10rpx;
+  padding-right: 27rpx;
+  width: 11rpx;
+  text-align: center;
+  margin-bottom: 17rpx;
+  margin-top: 10rpx;
+}
+
+.spot_warap{
+  padding-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
+
+.spot_img{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.spot{
+  padding-left: 20rpx;
+  font-size: 35rpx;
+  color: #60c2a1;
+
+}
+
+.cont{
+  margin-left: 15rpx;
+  border-left: 5rpx solid #d0d0d0;
+  font-size: 30rpx;
+  padding-left: 15rpx;
+  color: #333333;
+     /* display: -webkit-box;
+ overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; */
+  overflow-wrap: break-word;
+}
+
+.nav{
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  align-items: center;
+  
+}
+.condent1{
+  padding-top: 5rpx;
+  padding-right: 7rpx;
+  font-size: 25rpx;
+  color: #9f9f9f;
+}

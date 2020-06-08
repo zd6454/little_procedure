@@ -99,13 +99,6 @@
 					"scene": null
 				},
 				{
-					"id": 8,
-					"name": "收藏",
-					"pathName": "pages/user/index",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": -1,
 					"name": "发布",
 					"pathName": "pages/record/index",
@@ -121,27 +114,6 @@
 				},
 				{
 					"id": -1,
-					"name": "攻略详情",
-					"pathName": "pages/detail_strategy/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "攻略详情",
-					"pathName": "pages/detail_strategy/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "攻略详情",
-					"pathName": "pages/detail_strategy/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "评论",
 					"pathName": "pages/comment/comment",
 					"query": "",
@@ -149,24 +121,12 @@
 				},
 				{
 					"id": -1,
-					"name": "回复",
-					"pathName": "pages/response/index",
+					"name": "系统攻略详情",
+					"pathName": "pages/detail_system/index",
 					"query": "",
 					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/show/index",
-					"pathName": "pages/show/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/show/show",
-					"pathName": "pages/show/show",
-					"query": "",
-					"scene": null
+<<<<<<< HEAD
+=======
 				},
 				{
 					"id": -1,
@@ -180,6 +140,7 @@
 					"name": "pages/system_strategy/system_strategy",
 					"pathName": "pages/system_strategy/system_strategy",
 					"scene": null
+>>>>>>> bdd487bd63c054af4df1883382991d2266399264
 				}
 			]
 		}
