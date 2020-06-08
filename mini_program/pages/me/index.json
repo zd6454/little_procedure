@@ -1,5 +1,6 @@
 {
   "usingComponents": {},
   "navigationBarTitleText": "个人中心",
-  "backgroundTextStyle": "light"
+  "backgroundTextStyle": "dark",
+  "navigationBarTextStyle": "white"
 }
