@@ -1,15 +1,16 @@
 // pages/user/index.js
 const DB = wx.cloud.database().collection("travelnotes");
 const DB1 = wx.cloud.database().collection("stategies");
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     // userInfo: [],
-    tabs: [
+    tabs1: [
       {
-        id: 0,
+        id: 0, 
         value: "景点",
         isActive: true
       },
@@ -32,21 +33,21 @@ Page({
   },
 
   // 标题点击事件  从子组件传递过来  标签
-  handleTabsItemChange(e) {
+  handletabs1ItemChange(e) {
     // console.log(e);
     // 1.获取被点击的标题
     const { index } = e.detail;
     // 2.修改原数组
-    let { tabs } = this.data;
-    tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);
+    let { tabs1 } = this.data;
+    tabs1.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false);
     // 3.赋值到data中
     this.setData({
-      tabs
+      tabs1
     })
   },
 
   //初始化
-  init() {
+  init1() {
     var release_travelnotes = 0;
     var release_strategy = 0;
 
@@ -75,7 +76,7 @@ Page({
         this.setData({
           list_travelnotes: res.data,
           release_travelnotes: release_travelnotes,
-          tabs: [
+          tabs1: [
             {
               id: 0,
               value: "景点",
@@ -115,7 +116,7 @@ Page({
         this.setData({
           list_strategy: res.data,
           release_strategy: release_strategy,
-          tabs: [
+          tabs1: [
             {
               id: 0,
               value: "景点",
@@ -146,11 +147,11 @@ Page({
 
   //返回到页面时刷新
   onShow: function () {
-    this.init();
+    this.init1();
   },
   //下拉刷新
   onPullDownRefresh() {
-    this.init();
+    this.init1();
   },
 
   //长按删除
@@ -182,7 +183,7 @@ Page({
                       that.setData({
                         release_travelnotes: release_travelnotes,
                         list_travelnotes: list_travelnotes,
-                        tabs: [
+                        tabs1: [
                           {
                             id: 0,
                             value: "景点",
@@ -250,7 +251,7 @@ Page({
                       that.setData({
                         release_strategy: release_strategy,
                         list_strategy: list_strategy,
-                        tabs: [
+                        tabs1: [
                           {
                             id: 0,
                             value: "景点",
@@ -289,73 +290,8 @@ Page({
       }
     })
   },
-  longPress_record_str(e) {
-    console.log(e);
-    const strategy_id = e.currentTarget.dataset.index
-    var list_strategy = this.data.list_strategy
-    var release_strategy = this.data.release_strategy
-    var that = this;
-
-    wx.getUserInfo({
-      success: function (res) {
-        console.log(res);
-        list_strategy.forEach(v => {
-          if (res.userInfo.nickName === v.userInfo.nickName) {//发布的人可删除
-            wx.showModal({
-              title: '提示',
-              content: '是否确定删除',
-              success(t) {
-                if (t.confirm) {
-                  console.log('用户点击确定');
-                  //从数据库中删除
-                  DB1.doc(strategy_id).remove({
-                    success: function (ms) {
-                      release_strategy = release_strategy-1
-                      // var commentamount
-                      //从数组中删除
-                      list_strategy.splice(strategy_id, 1);
-                      that.setData({
-                        release_strategy: release_strategy,
-                        list_strategy: list_strategy,
-                        tabs: [
-                          {
-                            id: 0,
-                            value: "景点",
-                            isActive: true
-                          },
-                          {
-                            id: 1,
-                            value: "攻略*" + release_strategy,
-                            isActive: false
-                          },
-                          {
-                            id: 2,
-                            value: "游记*" + that.data.release_travelnotes,
-                            isActive: false
-                          }
-                        ],
-                      })
-                      wx.showToast({
-                        title: '删除成功',
-                      })
-                    },
-                    fail: function (ms) {
-                      wx.showToast({
-                        title: '删除失败',
-                        icon: "none"
-                      })
-                    },
-                  })
-                } else if (t.cancel) {
-                  console.log('用户点击取消')
-                }
-              }
-            })
-          }
-        })
-      }
-    })
-  }
+ 
+ 
 
 
 })
