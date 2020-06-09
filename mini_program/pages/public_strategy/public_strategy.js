@@ -239,7 +239,7 @@ getlocation:function(){
         title:"处理中",
       });
       this.intoone();
-      if(!Array.isArray(self.data.playimages)){
+      if(self.data.playimages[0]==""){
         this.comfirm();
         return ;
       }else{
