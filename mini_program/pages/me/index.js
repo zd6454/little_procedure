@@ -171,7 +171,7 @@ Page({
     // this.getuseropenid();
     setTimeout(function(){
       self.getlights();
-    },1000)
+    },2000)
     this.init();
     this.init1();
   },
