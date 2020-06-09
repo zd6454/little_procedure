@@ -10,11 +10,11 @@
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
 		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
-		"nodeModules": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -23,7 +23,8 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
@@ -124,6 +125,12 @@
 					"name": "系统攻略详情",
 					"pathName": "pages/detail_system/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人",
+					"pathName": "pages/me/index",
 					"scene": null
 				}
 			]
