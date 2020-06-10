@@ -237,15 +237,16 @@ Page({
   },
 
   onHide(){
+    console.log("调用onhide()函数");
     const db = wx.cloud.database()
     db.collection('users').where({
       _openid: this.data.userinfo.openid
     }).updata({
-      data:{
-        list:db.command.set(this.data.list)
+      data: {
+        list: this.data.list
       },
-      success(res){
-        console.log(res.data);
+      success(res) {
+        console.log("更新数据库成功");
       }
     })
   },
@@ -283,7 +284,7 @@ getopenId(){
     const { userInfo } = e.detail;
     lang: "zh_CN",
     wx.setStorageSync("userinfo", userInfo);
-    wx.navigateTo({
+    wx.switchTab({
       url: '../me/index'
     })
   },
