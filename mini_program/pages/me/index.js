@@ -570,7 +570,8 @@ addlight:function(){
          console.log('获取的id：',res.result.openid)
          var openid=res.result.openid;
          self.setData({
-           openid:openid
+           openid:openid,
+           'userinfo.openid':openid,
          })
        }
      })

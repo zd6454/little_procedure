@@ -206,7 +206,7 @@
 
 /* 点亮 */
 .page{
-  margin: 62rpx 0 0 42rpx;
+  margin: 62rpx 0 0 0rpx;
 }
 .newlight{
  height: 100%;
@@ -249,6 +249,7 @@ display:block ;
   /* margin-top: 2rpx; */
   display: flex;
   height: 100%;
+  margin-left: 32rpx;
 }
 .po .line{
   flex-direction: column;
