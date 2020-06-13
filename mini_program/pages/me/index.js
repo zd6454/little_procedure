@@ -554,7 +554,7 @@ addlight:function(){
  setTimeout(function(){
     self.lighting();
 
- },1000)
+ },2000)
 },
   //获取用户信息
   ongetUserInfo: function (e) {
