@@ -5,8 +5,7 @@
       <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
       <view class="user_name">{{userinfo.nickName}}</view>
       <view class="foot_mark">
-      <image class="foot_image" src="https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/pinkfoot.png?sign=ae9f93c0274a45122fce0e36423a0ed8&t=1589941956"></image>
-      <image class="foot_image" src="https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/pinkfoot.png?sign=ae9f93c0274a45122fce0e36423a0ed8&t=1589941956"></image>
+       <image class="foot_image" wx:for="{{foots}}" src="{{item}}"></image>
       </view>
     </view>
   </view>
@@ -268,7 +267,7 @@
 
         <!-- 添加输入框 -->
         <view class="navigator" wx:if="{{ifShowInputbox == false}}">
-          <input class="input" type="text" placeholder="请添加便签..."  bindinput="changeInputVal" placeholder-class="place-input" value="{{inputVal}}"></input>
+          <input class="input" type="text" placeholder="请添加便签..."  bindinput="changeInputVal" id="{{item.id}}" placeholder-class="place-input" value="{{items.inputVal}}"></input>
           <button size="mini" type="primary" id="{{item.id}}" bindtap="addMsg">添加</button>
         </view>
       </view>

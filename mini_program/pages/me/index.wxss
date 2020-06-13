@@ -38,12 +38,13 @@
 .foot_mark{
   width:184rpx;
   height:28rpx;
-}
+  }
 
 .foot_image{
   width:28rpx;
   height:28rpx;
   padding:0 4rpx;
+
 }
 
 .login_button{
