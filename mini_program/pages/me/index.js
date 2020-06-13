@@ -264,17 +264,27 @@ Page({
     )
   },
 
-  onHide(){
-    console.log("调用onHide()函数");
-    const db = wx.cloud.database()
-    db.collection('users').doc('this.data.userid').updata({
+  savelist:function(){
+  console.log("调用onHide()函数");
+  let self=this;
+  const _=db.command;
+    // const db = wx.cloud.database()
+    db.collection("users").where({
+      _openid:self.data.openid,
+    }).update({
       data: {
-        list: this.data.list
+        list:self.data.list
       },
       success(res) {
-        console.log("更新users表list数据成功",res.data);
+        console.log("更新users表list数据成功",res);
+      },
+      fail:err=>{
+        console.log(err,"user_err")
       }
     })
+  },
+  onHide(){
+    this.savelist();
   },
 
 // 定义调用云函数获取openid
