@@ -13,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userid:"",
     openid:"",
     light:"",
     arraylight:"",
@@ -20,11 +21,11 @@ Page({
     lightimage:"",
     cratedAt:"",
     userinfo:{},
+    foots:[],
     menuList: ['点亮', '发布', '收藏','清单'],
     menuIndex: 0,//当前选择菜单key(对应menuList[key]菜单内容)
     ifShowTopMenu: false,
     ifShowInputbox: false,
-    inputVal:"",
     list:[],
     userInfo: [],
     tabs: [
@@ -56,6 +57,7 @@ Page({
       id: 'money',
       name: '证件&银行卡&现金',
       open: true,
+      inputVal: "",
       pages: [{
         id: 0,
         name: '身份证',
@@ -85,6 +87,7 @@ Page({
       id: 'electronic',
       name: '电子产品',
       open: true,
+      inputVal: "",
       pages: [{
         id: 0,
         name: '手机、耳机（耳机包）',
@@ -98,6 +101,7 @@ Page({
       id: 'bag',
       name: '行李箱&包',
       open: true,
+      inputVal: "",
       pages: [{
         id: 0,
         name: '行李箱',
@@ -115,6 +119,7 @@ Page({
       id: 'washing',
       name: '洗漱用品',
       open: true,
+      inputVal: "",
       pages: [{
         id: 0,
         name: '牙刷、牙膏、毛巾、洗发水、护发素、沐浴露',
@@ -132,6 +137,7 @@ Page({
       id: 'cloth',
       name: '衣物&杂物',
       open: true,
+      inputVal: "",
       pages: [{
         id: 0,
         name: '睡衣、内衣、内裤',
@@ -149,6 +155,7 @@ Page({
       id: 'medicine',
       name: '药品',
       open: true,
+      inputVal: "",
       pages: [{
         id: 0,
         name: '创可贴、晕车药、个人常备药',
@@ -166,44 +173,56 @@ Page({
   },
 
   onLoad(){
-    this.getopenId()
+    this.getopenId();
     let self=this;
     // this.getuseropenid();
     setTimeout(function(){
       self.getlights();
     },2000)
-    this.init();
-    this.init1();
+    setTimeout(function () {
+      self.setfoots()
+    }, 3000)
+    //this.init();
+    //this.init1();
   },
 
   onShow(){
+    this.init();
+    this.init1();
+
     const userinfo=wx.getStorageSync("userinfo");
     this.setData({userinfo});
 
     const db = wx.cloud.database()
     // 根据openid查询用户
-    db.collection('users').where({
-      _openid: this.data.userinfo.openid
-    }).get({
-      success: res => {
-        console.log(res.data);    
-        console.log('[数据库] [查询记录] 成功: ', res)
-        if(res.data.length==0){
+    var that=this;
+    //setTimeout(function(){
+    //  console.log('根据openid查询用户',that.data.openid)}
+    //  ,2000);
+    setTimeout(function(){
+
+      db.collection('users').where({
+        _openid: that.data.openid
+      }).get({
+        success: res => {
+          console.log(res.data);
+          console.log('[users表] [根据openid查询] 成功: ', res)
+          if (res.data.length == 0) {
             db.collection('users').add({
               data: {
-                nickname: this.data.userinfo.nickName,
-                gender: this.data.userinfo.gender,
-                language: this.data.userinfo.language,
-                city: this.data.userinfo.city,
-                province: this.data.userinfo.province,
-                country: this.data.userinfo.country,
-                avatarUrl: this.data.userinfo.avatarUrl,
-                list:this.data.dataList,
+                nickname: that.data.userinfo.nickName,
+                gender: that.data.userinfo.gender,
+                language: that.data.userinfo.language,
+                city: that.data.userinfo.city,
+                province: that.data.userinfo.province,
+                country: that.data.userinfo.country,
+                avatarUrl: that.data.userinfo.avatarUrl,
+                list: that.data.dataList,
               },
               success: res => {
-                console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
-                this.setData({
-                  'userinfo.userId': res._id,
+                console.log('[users表] [新增记录] 成功，记录 _id: ', res._id)
+                that.setData({
+                  userid: res._id,
                 })
               },
               fail: err => {
@@ -211,60 +230,78 @@ Page({
               }
             })
           }
+          that.setData({
+            userid: res.data._id,
+          })
         },
         fail: err => {
-        console.error('[数据库] [查询记录] 失败：', err)
+          console.error('[users表] [根据openid查询] 失败：', err)
         },
-        })
+      })
+
+    },2000
+    )
+    
+    setTimeout(function () {
+      db.collection('users').where({
+        _openid: that.data.openid
+      }).get({
+        success: res => {
+          console.log(res.data[0].list);
+          console.log('[users表] [第二次查询记录] 成功: ', res)
+          that.setData({
+            list: res.data[0].list,
+            userid: res.data[0]._id
+          })
+          //console.log(res.data[0]._id);
+          //console.log(that.data.userid);
+        },
+        fail: err => {
+          console.error('[users表] [查询记录] 失败：', err)
+        },
+      })
+    }, 3000
+    )
   },
 
-  onReady(){
-    const db = wx.cloud.database()
-    db.collection('users').where({
-      _openid: this.data.userinfo.openid
-    }).get({
-      success: res => {
-        console.log(res.data[0].list);
-        console.log('[数据库2] [查询记录] 成功: ', res)
-        this.setData({
-          list: res.data[0].list
-        })
-      },
-      fail: err => {
-        console.error('[数据库] [查询记录] 失败：', err)
-      },
-    })
-  },
-
-  onHide(){
-    console.log("调用onhide()函数");
-    const db = wx.cloud.database()
-    db.collection('users').where({
-      _openid: this.data.userinfo.openid
-    }).updata({
+  savelist:function(){
+  console.log("调用onHide()函数");
+  let self=this;
+  const _=db.command;
+    // const db = wx.cloud.database()
+    db.collection("users").where({
+      _openid:self.data.openid,
+    }).update({
       data: {
-        list: this.data.list
+        list:self.data.list
       },
       success(res) {
-        console.log("更新数据库成功");
+        console.log("更新users表list数据成功",res);
+      },
+      fail:err=>{
+        console.log(err,"user_err")
       }
     })
+  },
+  onHide(){
+    this.savelist();
   },
 
 // 定义调用云函数获取openid
 getopenId(){
-  let page = this;
+  let self = this;
   wx.cloud.callFunction({
-    name:'getopenId',
+    name:'getuseropenid',
     complete:res=>{
-      console.log('openid--',res.result.openid)
+      console.log('获取的openid----',res.result.openid)
       var openid = res.result.openid
-      page.setData({
+      self.setData({
         'userinfo.openid':openid,
          openid:openid
       })
     }
   })
+  console.log('getopenId函数:',this.data.openid);
 },
 
   //选择 切换菜单
@@ -328,9 +365,16 @@ getopenId(){
   },
 
   changeInputVal(e) {
-    this.setData({
-      inputVal: e.detail.value
-    });
+    const id = e.currentTarget.id
+    const list = this.data.list
+    for (let i = 0, len = list.length; i < len; ++i) {
+      if (list[i].id === id) {
+        var temp = "list[" + i + "].inputVal";
+        this.setData({
+          [temp]: e.detail.value
+        });
+      }
+    }
   },
 
   //添加便签
@@ -340,38 +384,32 @@ getopenId(){
     for (let i = 0, len = list.length; i < len; ++i) {
       if (list[i].id === id) {
         let j = list[i].pages.length;
+        let k = list[i].inputVal;
         list[i].pages.push({
           id:j,
-          name: this.data.inputVal,
+          name: k,
           confirm:false
+        })
+        var temp = "list[" + i + "].inputVal";
+        this.setData({
+          list,
+          [temp]: "",
         })
       } 
     }
-  this.setData({
-    list,
-    inputVal:"",
-  })
 },
 
-  addser: function (e) {
-    const db = wx.cloud.database()
-    db.collection('users').add({
-      data: {
-        nickname: e.nickName,
-        gender:e.gender,
-        language:e.language,
-        city:e.city,
-        country:e.country,
-        avatarUrl:e.avatarUrl,
-      },
-      success: res => {
-        console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
-      },
-      fail: err => {
-        console.error('[数据库] [新增记录] 失败：', err)
-      }
+  //脚印功能
+  setfoots(){
+    let number=this.data.arraylight.length;
+    for(var i=0;i<number;i++){
+      var temp="foots["+i+"]";
+      this.setData({
+      [temp]:"https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/pinkfoot.png?sign=ae9f93c0274a45122fce0e36423a0ed8&t=1589941956"
     })
+    }
   },
+
   //点亮功能
    //选择图片
    chooseImage(e) {
@@ -748,10 +786,10 @@ addlight:function(){
 
 
   //返回到页面时刷新
-  onShow: function () {
-    this.init();
-    this.init1();
-  },
+  //onShow: function () {
+  //  this.init();
+  //  this.init1();
+  //},
   //下拉刷新
   onPullDownRefresh() {
     this.init();
