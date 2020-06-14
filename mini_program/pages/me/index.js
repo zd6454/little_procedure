@@ -396,6 +396,9 @@ getopenId(){
     },
 //获取所有点亮数据
 getlights:function(){
+  wx.showLoading({
+    title: '加载中',
+  })
   let self=this;
   let info='';
   wx.getSetting({
@@ -422,6 +425,9 @@ getlights:function(){
    success:res=>{
    self.setData({
      arraylight:res.data,
+   })
+   wx.hideLoading({
+     complete: (res) => {},
    })
    },
    fail:err=>{
@@ -478,6 +484,9 @@ lighting:function(){
       //刷新当前页面的数据
       getCurrentPages()[getCurrentPages().length - 1].onLoad()
     } 
+    wx.hideLoading({
+      complete: (res) => {},
+    })
    }
  })
 },
@@ -549,6 +558,9 @@ upload:function(){
 },
 //添加新的点亮
 addlight:function(){
+  wx.showLoading({
+    title: '加载中',
+  })
   let self=this;
  self.getlocation();
  setTimeout(function(){
