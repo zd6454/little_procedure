@@ -263,18 +263,13 @@ Page({
     }, 3000
     )
   },
-
-  savelist:function(){
-  console.log("调用onHide()函数");
+savelist:function(){
   let self=this;
-  const _=db.command;
-    // const db = wx.cloud.database()
-    db.collection("users").where({
-      _openid:self.data.openid,
-    }).update({
+  db.collection("users").where({
+  _openid:self.data.openid
+  }).update({
       data: {
-        list:self.data.list
-      },
+        list: this.data.list      },
       success(res) {
         console.log("更新users表list数据成功",res);
       },

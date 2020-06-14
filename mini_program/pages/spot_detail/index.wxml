@@ -74,10 +74,42 @@
     </view>
   </view>
 </view>
+
 <!--热门攻略-->
 <view class='brand2' wx:if="{{menuIndex== 1}}">
-2 
+  <view  wx:if="{{collect_strategy}}">
+    <navigator
+        wx:for="{{list_strategy}}"
+        wx:key="{{item._id}}" 
+        url="../../pages/detail_strategy/index?_id={{item._id}}">
+        <view wx:for="{{item.spots}}" wx:for-item="item1" class="second_tab">
+                <!-- 左侧 图片容器 -->
+                <view class="goods_img_wrap" wx:if="{{item.playimagescloud.length===0}}">
+                    <image mode="scaleToFill" class="img" src="../../images/wan.jpg" />
+                </view>
+                 <view class="goods_img_wrap" wx:else >
+                    <image mode="scaleToFill" class="img" src="{{item.playimagescloud[0]}}" />
+                </view>
+                <!-- 右侧 商品容器 -->
+                <view class="goods_info_wrap">
+                <!-- 用户信息 -->
+                 <view class="head">
+                   <image class="image5" src="{{item.userInfo.avatarUrl}}" ></image>
+                   <text class="textset">{{item.userInfo.nickName}}</text>
+                   <image src="../../images/点赞(2).png" class="llike" mode="scaleToFill"></image>
+                   <view class="like">{{item.likeamount}}</view>
+                 </view>
+                    <view class="taps">
+                      <view class="array" wx:for="{{item.travel_type}}" wx:for-item="item1">
+                        <view class="conduct">{{item1.name}}</view>
+                      </view>
+                     </view>
+                </view>
+            </view>
+        </navigator>
+        </view>
 </view>
+
 <!--酒店民宿-->
 <view class='brand2' wx:if="{{menuIndex== 2}}">
 <scroll-view scroll-y="true" style="height: 1000rpx;">
@@ -86,9 +118,9 @@
   data-index="{{index}}"
   bindtap="todetail"
   hover-class="hover-class" id="{{item.id}}"
-  style='display:flex; height:120px;border-bottom: 1px solid #DBDBDB'>
-        <view style='width:128rpx; height:128rpx; margin:20rpx;'>
-          <image class='index-logo' src='https://6c69-littleprocedure-1301767640.tcb.qcloud.la/icon/address.png?sign=83a92022c6d645c4494c121211bf14da&t=1587631362' style='width:128rpx; height:128rpx' src=""></image>
+  style='display:flex; height:240rpx;border-bottom: 1px solid #DBDBDB'>
+        <view class="goods_img_wrap" >
+          <image mode="scaleToFill" class="img" src="https://6c69-littleprocedure-1301767640.tcb.qcloud.la/huanghelou_image/59951169ca166.jpg?sign=94d6f76fc9a46c3d08b576872a461152&t=1592062472" />
         </view>
         <view style='display:flex; flex-direction:column; margin:20rpx;'>
           <label class='item_title'>{{item.title}}</label>
