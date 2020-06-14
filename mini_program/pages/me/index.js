@@ -263,7 +263,11 @@ Page({
     }, 3000
     )
   },
-
+savelist:function(){
+  let self=this;
+  db.collection("users").where({
+  _openid:self.data.openid
+  }).update({
       data: {
         list: this.data.list      },
       success(res) {
