@@ -264,18 +264,18 @@ Page({
     )
   },
 
-  onHide(){
-    
-    console.log("调用onHide()函数");
-    const db = wx.cloud.database();
-    db.collection('users').doc(this.data.userid).update({
       data: {
-        list: this.data.list,
-      },
+        list: this.data.list      },
       success(res) {
-        console.log("更新users表list数据成功",res.data);
+        console.log("更新users表list数据成功",res);
+      },
+      fail:err=>{
+        console.log(err,"user_err")
       }
     })
+  },
+  onHide(){
+    this.savelist();
   },
 
 // 定义调用云函数获取openid
