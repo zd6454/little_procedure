@@ -2,6 +2,9 @@
 const db=wx.cloud.database();
 const _=db.command;
 
+const DB1 = wx.cloud.database().collection("stategies");
+const DB2 = wx.cloud.database().collection("system_strategy");
+
 var QQMapWX = require('../../lib/qqmap-wx-jssdk.js')//腾讯地图 api下载
 var qqmapsdk;
 
@@ -32,6 +35,15 @@ Page({
     hotels:[],
 
     isFold:true,
+
+    //攻略
+    collect_strategy: 0,
+    list_strategy: [],
+    collect_strategy_sys:0,
+    system_strategy:[],
+    hot_strategy:0,
+    list_hot_strategy:[],
+
   },
 
   todetail:function(e){
@@ -55,6 +67,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     const spot_id=options.id;
     console.log(spot_id);
     this.getSpotDetail(spot_id);
@@ -67,7 +80,6 @@ Page({
     qqmapsdk = new QQMapWX({
       key: 'SCKBZ-7LM33-MZT3A-3RB7V-CJRU7-6FF44'
     });
-
   },
 
   /**
@@ -91,7 +103,13 @@ Page({
       })
     }, 1500);
 
+    this.init();
+
     var _this = this;
+    setTimeout(function(){
+      _this.arrysort();
+    },2000)
+
     // 调用接口
     qqmapsdk.search({
       keyword: '酒店',  //搜索关键词
@@ -127,8 +145,6 @@ Page({
       }
     });
   },
-
-  
 
 //获取景点详情数据
 getSpotDetail(spot_id){
@@ -205,5 +221,86 @@ getSpotDetail(spot_id){
     wx.navigateTo({
       url: '../spot_detail_map/index?spot_id=' + spot_id,
     })
+  },
+
+
+  //初始化
+  init() {
+    var collect_strategy = 0;
+    var collect_strategy_sys = 0;
+    //游客攻略
+    DB1.get({
+      success: res => {
+        console.log('res:',res)
+        res.data.forEach(v => {
+          console.log(v.spots.length);
+          if (v.spots.length != 0) {
+            var name = '武汉' + this.data.SpotName
+            console.log(name);
+            v.spots.forEach(u => {
+              if(u===name){
+                collect_strategy = collect_strategy + 1;
+                }
+            })
+          }
+        })
+        console.log("查询成功", collect_strategy);
+
+        this.setData({
+          list_strategy: res.data,
+          collect_strategy: collect_strategy,
+        })
+        console.log(this.data.collect_strategy);
+      },
+      file(res) {
+        console.log("查询失败", res);
+      }
+    })
+
+    //平台攻略
+    DB2.get({
+      success: res => {
+        res.data.forEach(v => {
+          if (v.spots.length != 0) {
+            var name = '武汉' + this.data.SpotName
+            v.spots.forEach(u => {
+              if(u===name){
+                collect_strategy_sys = collect_strategy_sys + 1;
+              }
+            })
+          }
+        })
+        // console.log("查询成功", res.data);
+        this.setData({
+          system_strategy: res.data,
+          collect_strategy_sys: collect_strategy_sys,
+        })
+        console.log(this.data.collect_strategy);
+      },
+      file(res) {
+        console.log("查询失败", res);
+      }
+    })
+  },
+
+  //热门攻略
+  arrysort(){
+    var that=this;
+    let list = that.data.list_strategy;
+    console.log('list:', list);
+    var prop=list.goodamount;
+
+    that.setData({
+      list_strategy:list.sort(that.compare(prop))
+    })
+    console.log(list);
+  },
+
+  compare:function(prop){
+    return function(a,b){
+      var value1=a[prop];
+      var value2=b[prop];
+      return value2-value1;
+    }
   },
 })

@@ -265,11 +265,12 @@ Page({
   },
 
   onHide(){
+    
     console.log("调用onHide()函数");
-    const db = wx.cloud.database()
-    db.collection('users').doc('this.data.userid').updata({
+    const db = wx.cloud.database();
+    db.collection('users').doc(this.data.userid).update({
       data: {
-        list: this.data.list
+        list: this.data.list,
       },
       success(res) {
         console.log("更新users表list数据成功",res.data);
