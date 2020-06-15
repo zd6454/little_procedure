@@ -15,8 +15,8 @@
        </view>
 
        <view class="arrayimage" >
-          <view wx:for="{{item.travelnote.images}}" wx:key="index2" class="setimage">
-           <image src="{{item}}" class="image2"> </image>
+          <view wx:for="{{item.travelnote.images}}" wx:key="index2" class="setimage"  wx:index="index">
+           <image src="{{item}}" class="image2" data-index="{{index}}"  bindtap="preimage"> </image>
           </view>
 
    
