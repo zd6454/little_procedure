@@ -186,20 +186,20 @@ Page({
     //this.init1();
   },
 
-  onShow(){
+  onShow() {
     this.init();
     this.init1();
 
-    const userinfo=wx.getStorageSync("userinfo");
-    this.setData({userinfo});
+    const userinfo = wx.getStorageSync("userinfo");
+    this.setData({ userinfo });
 
     const db = wx.cloud.database()
     // 根据openid查询用户
-    var that=this;
+    var that = this;
     //setTimeout(function(){
     //  console.log('根据openid查询用户',that.data.openid)}
     //  ,2000);
-    setTimeout(function(){
+    setTimeout(function () {
 
       db.collection('users').where({
         _openid: that.data.openid
@@ -239,9 +239,9 @@ Page({
         },
       })
 
-    },2000
+    }, 2000
     )
-    
+
     setTimeout(function () {
       db.collection('users').where({
         _openid: that.data.openid
@@ -263,25 +263,20 @@ Page({
     }, 3000
     )
   },
-savelist:function(){
-  let self=this;
-  db.collection("users").where({
-  _openid:self.data.openid
-  }).update({
+
+  onHide() {
+    console.log("调用onHide()函数");
+    const db = wx.cloud.database();
+    db.collection('users').doc(this.data.userid).update({
       data: {
-        list: this.data.list      },
-      success(res) {
-        console.log("更新users表list数据成功",res);
+        list: this.data.list,
       },
+      success(res) {console.log("更新users表list数据成功", res.data);},
       fail:err=>{
-        console.log(err,"user_err")
+        
       }
     })
   },
-  onHide(){
-    this.savelist();
-  },
-
 // 定义调用云函数获取openid
 getopenId(){
   let self = this;
