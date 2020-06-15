@@ -44,11 +44,8 @@ handlegood(e){
 //   this.triggerEvent("handleshow", e);
 // }
 preimage:function(e){
-  console.log(e);
   const idx = e.target.dataset.index
-  console.log(this.properties.list[0])
   const {images} = this.properties.list[0].travelnote
-  console.log(images)
   wx.previewImage({
     current: images[idx],  //当前预览的图片
     urls: images,  //所有要预览的图片
