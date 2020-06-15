@@ -570,16 +570,17 @@ changetoloa:function(e){
   },
  //确认发布
  comfirm:function(){
-  if(typeof spots == "undefined" || spots.length == 0 ||spot == []||
-  typeof vehicles == "undefined" || vehicle.length == 0 ||vehicles == []||
-  typeof playcontents == "undefined" ||playcontents.length == 0 ||playcontent ==[]
+  let self =this;
+  if(typeof self.data.spots == "undefined" || self.data.spots.length == 0 ||
+  typeof self.data.vehicles == "undefined" || self.data.vehicles.length == 0 ||
+  typeof self.data.playcontents == "undefined" ||self.data.playcontents.length == 0 
   ){
     wx.showToast({
       title: '你还没有写哦',
     })
     return;
   }
-  let self =this;
+  
   const db=wx.cloud.database();
   var time = util.formatTime(new Date());
   wx.getSetting({
@@ -645,9 +646,9 @@ changetoloa:function(e){
   })
  },
   toother:function(){
-  wx.redirectTo({
-    url: '../Introduction/index',
-  })
+ wx.switchTab({
+   url: '../Introduction/index',
+ })
   },
   /**
    * 生命周期函数--监听页面加载
