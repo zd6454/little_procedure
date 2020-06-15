@@ -478,7 +478,6 @@ getlocation(){
           longitude:res.longitude
         },
         success:function(e){
-          console.log(e,2);
           self.setData({
             light:e.result.formatted_addresses.recommend,
             time:time,
