@@ -263,22 +263,17 @@ Page({
     }, 3000
     )
   },
-savelist:function(){
-  let self=this;
-  db.collection("users").where({
-  _openid:self.data.openid
-  }).update({
-  onHide() {
 
+  onHide() {
     console.log("调用onHide()函数");
     const db = wx.cloud.database();
     db.collection('users').doc(this.data.userid).update({
       data: {
         list: this.data.list,
       },
-      success(res) {
+      success(res) {console.log("更新users表list数据成功", res.data);},
       fail:err=>{
-        console.log("更新users表list数据成功", res.data);
+        
       }
     })
   },
