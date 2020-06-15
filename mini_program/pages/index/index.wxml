@@ -45,7 +45,7 @@
        <navigator class="second_tab" 
             wx:for="{{secenList}}"
             wx:key="id"
-            url="/pages/spot_detail/index?id={{item.id}}">
+            url="/pages/spot_detail/index?id={{item.id}}&Lat={{item.location.lat}}&Lng={{item.location.lng}}">
                 <!-- 左侧 图片容器 -->
                 <view class="goods_img_wrap">
                     <image mode="widthFix" src="http://image4.suning.cn/uimg/b2c/newcatentries/0070175200-000000000763892692_2_400x400.jpg" />

@@ -583,25 +583,24 @@ Page({
   },
   // 点击地图切换到具体景点
   markertap: function (e) {
-    console.log(e);
     if (e.markerId === 2738900478225601500){
       wx.navigateTo({
-        url: '/pages/spot_detail/index?id=2738900478225601695',
+        url: '/pages/spot_detail/index?id=2738900478225601695&Lat=30.550317&Lng=114.309043',
       })
     }
     else if (e.markerId === 14728278092434237000) {
       wx.navigateTo({
-        url: '/pages/spot_detail/index?id=14728278092434237534',
+        url: '/pages/spot_detail/index?id=14728278092434237534&Lat=30.534872&Lng=114.365818'
       })
     }
     else if (e.markerId === 1762485786450392300) {
       wx.navigateTo({
-        url: '/pages/spot_detail/index?id=1762485786450392429',
+        url: '/pages/spot_detail/index?id=1762485786450392429&Lat=30.557869&Lng=114.420005',
       })
     }
     else if (e.markerId === 12248476031736664000) {
       wx.navigateTo({
-        url: '/pages/spot_detail/index?id=12248476031736664809',
+        url: '/pages/spot_detail/index?id=12248476031736664809&Lat=30.617735&Lng=114.263081',
       })
     }
     
