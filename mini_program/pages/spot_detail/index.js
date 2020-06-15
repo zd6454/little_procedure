@@ -68,11 +68,15 @@ Page({
    */
   onLoad: function (options) {
 
+    console.log('options',options);
     const spot_id=options.id;
-    console.log(spot_id);
+    const spot_lat=options.Lat;
+    const spot_lng = options.Lng;
     this.getSpotDetail(spot_id);
     this.setData({
       SpotId: spot_id,
+      SpotLat: spot_lat,
+      SpotLng: spot_lng,
     })
 
     var that = this;
