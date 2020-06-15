@@ -570,6 +570,15 @@ changetoloa:function(e){
   },
  //确认发布
  comfirm:function(){
+  if(typeof spots == "undefined" || spots.length == 0 ||spot == []||
+  typeof vehicles == "undefined" || vehicle.length == 0 ||vehicles == []||
+  typeof playcontents == "undefined" ||playcontents.length == 0 ||playcontent ==[]
+  ){
+    wx.showToast({
+      title: '你还没有写哦',
+    })
+    return;
+  }
   let self =this;
   const db=wx.cloud.database();
   var time = util.formatTime(new Date());
@@ -609,6 +618,7 @@ changetoloa:function(e){
           wx.showToast({
             title: '发布游记成功',
           });
+          self.toother();
         },
         fail:function(e){
         console.log(e);
@@ -634,6 +644,11 @@ changetoloa:function(e){
     }
   })
  },
+  toother:function(){
+  wx.redirectTo({
+    url: '../Introduction/index',
+  })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
