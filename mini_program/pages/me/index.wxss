@@ -48,7 +48,7 @@
 }
 
 .login_button{
-  positon:absolute;
+  position:absolute;
   left: 50%;
   transform:translate(-50%);
   top:40%;

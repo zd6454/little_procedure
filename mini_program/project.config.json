@@ -1,139 +1,141 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
-	"appid": "wx4509639588154cbc",
-	"projectname": "mini_program",
-	"cloudfunctionRoot": "cloud/",
-	"cloudfunctionTemplateRoot": "",
-	"watchOptions": {
-		"ignore": []
-	},
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"scripts": {},
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "攻略",
-					"pathName": "pages/Introduction/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "发布游记",
-					"pathName": "pages/public_travelnotes/public_travelnotes",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "景点详情",
-					"pathName": "pages/spot_detail/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "游记详情",
-					"pathName": "pages/detail_travelnote/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "发布攻略",
-					"pathName": "pages/public_strategy/public_strategy",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "发布",
-					"pathName": "pages/record/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 8,
-					"name": "攻略详情",
-					"pathName": "pages/detail_strategy/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "评论",
-					"pathName": "pages/comment/comment",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "系统攻略详情",
-					"pathName": "pages/detail_system/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "个人",
-					"pathName": "pages/me/index",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.10.4",
+  "appid": "wx4509639588154cbc",
+  "projectname": "mini_program",
+  "cloudfunctionRoot": "cloud/",
+  "cloudfunctionTemplateRoot": "",
+  "watchOptions": {
+    "ignore": []
+  },
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "攻略",
+          "pathName": "pages/Introduction/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布游记",
+          "pathName": "pages/public_travelnotes/public_travelnotes",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "景点详情",
+          "pathName": "pages/spot_detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "游记详情",
+          "pathName": "pages/detail_travelnote/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布攻略",
+          "pathName": "pages/public_strategy/public_strategy",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布",
+          "pathName": "pages/record/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "攻略详情",
+          "pathName": "pages/detail_strategy/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "评论",
+          "pathName": "pages/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "系统攻略详情",
+          "pathName": "pages/detail_system/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人",
+          "pathName": "pages/me/index",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

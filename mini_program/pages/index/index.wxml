@@ -36,7 +36,7 @@
   <Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" >
      <block wx:if="{{tabs[0].isActive}}">
        <map
-        style="width:100%;height:700rpx" subkey="SB4BZ-NURKK-NFMJ6-A63LK-MXYIE-SEFZI" markers="{{markers}}" bindmarkertap="markertap"   
+        style="width:100%;height:100vh" subkey="SB4BZ-NURKK-NFMJ6-A63LK-MXYIE-SEFZI" markers="{{markers}}" bindmarkertap="markertap"   
         include-points="{{includepoints}}" 
         latitude="{{markers.latitude}}" longitude="{{markers.longitude}}"
        ></map>
